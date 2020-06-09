@@ -1,0 +1,24 @@
+{
+  "name": "tailwindcss-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tailwind": "tailwindcss build tailwind.css -o tailwind.output.css",
+    "build": "postcss tailwind.css -o tailwind.output.css"
+  },
+  "keywords": [
+    "tailwind",
+    "dashboard",
+    "template"
+  ],
+  "author": "Estevan Maito <ejmaito@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "9.8.0",
+    "cssnano": "4.1.10",
+    "postcss-cli": "7.1.1",
+    "tailwindcss": "1.4.6",
+    "tailwindcss-multi-theme": "1.0.0"
+  }
+}

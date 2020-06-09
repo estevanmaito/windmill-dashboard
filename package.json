@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tailwind": "tailwindcss build tailwind.css -o tailwind.output.css",
-    "build": "postcss tailwind.css -o tailwind.output.css"
+    "tailwind": "tailwindcss build public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css",
+    "build": "postcss public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css"
   },
   "keywords": [
     "tailwind",

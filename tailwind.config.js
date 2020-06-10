@@ -13,8 +13,8 @@ module.exports = {
     },
   },
   variants: {
-    backgroundColor: ['dark'],
-    textColor: ['dark'],
+    backgroundColor: ['focus', 'dark', 'dark:focus'],
+    textColor: ['focus-within', 'hover', 'dark', 'dark:focus-within', 'dark:hover'],
   },
   plugins: [
     require('tailwindcss-multi-theme'),

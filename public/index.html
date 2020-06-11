@@ -17,6 +17,11 @@
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
   </head>
   <body>
     <div class="flex h-screen bg-gray-100">
@@ -248,7 +253,7 @@
         </header>
         <main class="h-full overflow-y-auto">
           <div class="container px-6 mx-auto">
-            <h1 class="my-6 text-2xl font-semibold text-gray-800">Dashboard</h1>
+            <h2 class="my-6 text-2xl font-semibold text-gray-800">Dashboard</h2>
             <!-- CTA -->
             <a
               class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
@@ -329,7 +334,7 @@
             </div>
 
             <!-- Table -->
-            <div class="mb-16 overflow-hidden bg-white divide-y rounded-lg shadow-xs">
+            <div class="mb-8 overflow-hidden bg-white divide-y rounded-lg shadow-xs">
               <!-- Header -->
               <div
                 class="grid grid-cols-9 px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100"
@@ -715,9 +720,121 @@
                 </span>
               </div>
             </div>
+
+            <!-- Charts -->
+            <h2 class="my-6 text-2xl font-semibold text-gray-800">Charts</h2>
+            <div class="grid grid-cols-2 gap-6 mb-8">
+              <div>
+                <h4 class="mb-4 font-semibold text-gray-700">Revenue</h4>
+                <div class="p-4 bg-white rounded-lg shadow-xs">
+                  <canvas id="pie"></canvas>
+                </div>
+              </div>
+              <div>
+                <h4 class="mb-4 font-semibold text-gray-700">Traffic</h4>
+                <div class="p-4 bg-white rounded-lg shadow-xs">
+                  <canvas id="line"></canvas>
+                </div>
+              </div>
+            </div>
           </div>
         </main>
       </div>
     </div>
+    <script>
+      const randomScalingFactor = function () {
+        return Math.round(Math.random() * 100)
+      }
+
+      const pieConfig = {
+        type: 'doughnut',
+        data: {
+          datasets: [
+            {
+              data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor()],
+              backgroundColor: ['#38B2AC', '#4299E1', '#805AD5'],
+              label: 'Dataset 1',
+            },
+          ],
+          labels: ['Shoes', 'Shirts', 'Bags'],
+        },
+        options: {
+          responsive: true,
+          cutoutPercentage: 80,
+        },
+      }
+
+      const MONTHS = [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ]
+      const lineConfig = {
+        type: 'line',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          datasets: [
+            {
+              label: 'Organic',
+              backgroundColor: '#319795',
+              borderColor: '#319795',
+              data: [43, 48, 40, 54, 67, 73, 70],
+              fill: false,
+            },
+            {
+              label: 'Paid',
+              fill: false,
+              backgroundColor: '#805AD5',
+              borderColor: '#805AD5',
+              data: [24, 50, 64, 74, 52, 51, 65],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          tooltips: {
+            mode: 'index',
+            intersect: false,
+          },
+          hover: {
+            mode: 'nearest',
+            intersect: true,
+          },
+          scales: {
+            x: {
+              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Month',
+              },
+            },
+            y: {
+              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Value',
+              },
+            },
+          },
+        },
+      }
+
+      window.onload = function () {
+        const lineCtx = document.getElementById('line').getContext('2d')
+        window.myLine = new Chart(lineCtx, lineConfig)
+
+        const pieCtx = document.getElementById('pie').getContext('2d')
+        window.myPie = new Chart(pieCtx, pieConfig)
+      }
+    </script>
   </body>
 </html>

@@ -963,15 +963,55 @@
             <h2 class="my-6 text-2xl font-semibold text-gray-800">Charts</h2>
             <div class="grid grid-cols-2 gap-6 mb-8">
               <div>
-                <h4 class="mb-4 font-semibold text-gray-700">Revenue</h4>
                 <div class="p-4 bg-white rounded-lg shadow-xs">
+                  <h4 class="mb-4 font-semibold text-gray-800">Revenue</h4>
                   <canvas id="pie"></canvas>
+                  <div
+                    class="flex justify-center mt-4 space-x-3 text-sm text-gray-600"
+                  >
+                    <!-- Chart legend -->
+                    <div class="flex items-center">
+                      <span
+                        class="inline-block w-3 h-3 mr-1 bg-blue-500 rounded-full"
+                      ></span>
+                      <span>Shirts</span>
+                    </div>
+                    <div class="flex items-center">
+                      <span
+                        class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"
+                      ></span>
+                      <span>Shoes</span>
+                    </div>
+                    <div class="flex items-center">
+                      <span
+                        class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"
+                      ></span>
+                      <span>Bags</span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div>
-                <h4 class="mb-4 font-semibold text-gray-700">Traffic</h4>
                 <div class="p-4 bg-white rounded-lg shadow-xs">
+                  <h4 class="mb-4 font-semibold text-gray-800">Traffic</h4>
                   <canvas id="line"></canvas>
+                  <div
+                    class="flex justify-center mt-4 space-x-3 text-sm text-gray-600"
+                  >
+                    <!-- Chart legend -->
+                    <div class="flex items-center">
+                      <span
+                        class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"
+                      ></span>
+                      <span>Organic</span>
+                    </div>
+                    <div class="flex items-center">
+                      <span
+                        class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"
+                      ></span>
+                      <span>Paid</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1012,11 +1052,7 @@
         data: {
           datasets: [
             {
-              data: [
-                randomScalingFactor(),
-                randomScalingFactor(),
-                randomScalingFactor(),
-              ],
+              data: [33, 33, 33],
               backgroundColor: ["#38B2AC", "#4299E1", "#805AD5"],
               label: "Dataset 1",
             },
@@ -1026,6 +1062,9 @@
         options: {
           responsive: true,
           cutoutPercentage: 80,
+          legend: {
+            display: false,
+          },
         },
       };
 
@@ -1074,6 +1113,9 @@
         },
         options: {
           responsive: true,
+          legend: {
+            display: false,
+          },
           tooltips: {
             mode: "index",
             intersect: false,

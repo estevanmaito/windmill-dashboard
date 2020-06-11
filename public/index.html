@@ -246,7 +246,7 @@
             </ul>
           </div>
         </header>
-        <main class="h-full">
+        <main class="h-full overflow-y-auto">
           <div class="container px-6 mx-auto">
             <h1 class="my-6 text-2xl font-semibold text-gray-800">Dashboard</h1>
             <!-- CTA -->
@@ -265,9 +265,9 @@
               <span>View more &RightArrow;</span>
             </a>
             <!-- Cards -->
-            <div class="grid grid-cols-4 gap-6">
+            <div class="grid grid-cols-4 gap-6 mb-6">
               <!-- Card -->
-              <div class="flex items-center p-4 bg-white rounded-lg shadow-md">
+              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
                 <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full">
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -281,7 +281,7 @@
                 </div>
               </div>
               <!-- Card -->
-              <div class="flex items-center p-4 bg-white rounded-lg shadow-md">
+              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
                 <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full">
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -297,7 +297,7 @@
                 </div>
               </div>
               <!-- Card -->
-              <div class="flex items-center p-4 bg-white rounded-lg shadow-md">
+              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
                 <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full">
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -311,7 +311,7 @@
                 </div>
               </div>
               <!-- Card -->
-              <div class="flex items-center p-4 bg-white rounded-lg shadow-md">
+              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
                 <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full">
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -329,6 +329,378 @@
             </div>
 
             <!-- Table -->
+            <div class="mb-16 overflow-hidden bg-white divide-y rounded-lg shadow-xs">
+              <!-- Header -->
+              <div
+                class="grid grid-cols-9 px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100"
+              >
+                <span class="col-span-3">Client</span>
+                <span class="col-span-2">Amount</span>
+                <span class="col-span-2">Status</span>
+                <span class="col-span-2">Date</span>
+              </div>
+
+              <!-- Cell -->
+              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+                <!-- Client -->
+                <div class="flex items-center col-span-3 text-sm">
+                  <!-- Avatar with inset shadow -->
+                  <div class="relative w-8 h-8 mr-3 rounded-full">
+                    <img
+                      class="object-cover w-full h-full rounded-full"
+                      src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                      alt=""
+                    />
+                    <div
+                      class="absolute inset-0 rounded-full shadow-inner"
+                      aria-hidden="true"
+                    ></div>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Hans Burger</p>
+                    <p class="text-xs text-gray-600">10x Developer</p>
+                  </div>
+                </div>
+                <!-- Amount -->
+                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <!-- Status -->
+                <span class="flex items-center col-span-2 text-xs">
+                  <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
+                    >Approved</span
+                  >
+                </span>
+                <!-- Date -->
+                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+              </div>
+
+              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+                <!-- Client -->
+                <div class="flex items-center col-span-3 text-sm">
+                  <!-- Avatar with inset shadow -->
+                  <div class="relative w-8 h-8 mr-3 rounded-full">
+                    <img
+                      class="object-cover w-full h-full rounded-full"
+                      src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                      alt=""
+                    />
+                    <div
+                      class="absolute inset-0 rounded-full shadow-inner"
+                      aria-hidden="true"
+                    ></div>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Hans Burger</p>
+                    <p class="text-xs text-gray-600">10x Developer</p>
+                  </div>
+                </div>
+                <!-- Amount -->
+                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <!-- Status -->
+                <span class="flex items-center col-span-2 text-xs">
+                  <span class="px-2 py-1 font-semibold text-orange-700 bg-orange-100 rounded-full"
+                    >Pending</span
+                  >
+                </span>
+                <!-- Date -->
+                <span class="flex items-center col-span-2 text-sm">6/12/2020</span>
+              </div>
+
+              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+                <!-- Client -->
+                <div class="flex items-center col-span-3 text-sm">
+                  <!-- Avatar with inset shadow -->
+                  <div class="relative w-8 h-8 mr-3 rounded-full">
+                    <img
+                      class="object-cover w-full h-full rounded-full"
+                      src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                      alt=""
+                    />
+                    <div
+                      class="absolute inset-0 rounded-full shadow-inner"
+                      aria-hidden="true"
+                    ></div>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Hans Burger</p>
+                    <p class="text-xs text-gray-600">10x Developer</p>
+                  </div>
+                </div>
+                <!-- Amount -->
+                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <!-- Status -->
+                <span class="flex items-center col-span-2 text-xs">
+                  <span class="px-2 py-1 font-semibold text-red-700 bg-red-100 rounded-full"
+                    >Denied</span
+                  >
+                </span>
+                <!-- Date -->
+                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+              </div>
+
+              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+                <!-- Client -->
+                <div class="flex items-center col-span-3 text-sm">
+                  <!-- Avatar with inset shadow -->
+                  <div class="relative w-8 h-8 mr-3 rounded-full">
+                    <img
+                      class="object-cover w-full h-full rounded-full"
+                      src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                      alt=""
+                    />
+                    <div
+                      class="absolute inset-0 rounded-full shadow-inner"
+                      aria-hidden="true"
+                    ></div>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Hans Burger</p>
+                    <p class="text-xs text-gray-600">10x Developer</p>
+                  </div>
+                </div>
+                <!-- Amount -->
+                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <!-- Status -->
+                <span class="flex items-center col-span-2 text-xs">
+                  <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
+                    >Approved</span
+                  >
+                </span>
+                <!-- Date -->
+                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+              </div>
+
+              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+                <!-- Client -->
+                <div class="flex items-center col-span-3 text-sm">
+                  <!-- Avatar with inset shadow -->
+                  <div class="relative w-8 h-8 mr-3 rounded-full">
+                    <img
+                      class="object-cover w-full h-full rounded-full"
+                      src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                      alt=""
+                    />
+                    <div
+                      class="absolute inset-0 rounded-full shadow-inner"
+                      aria-hidden="true"
+                    ></div>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Hans Burger</p>
+                    <p class="text-xs text-gray-600">10x Developer</p>
+                  </div>
+                </div>
+                <!-- Amount -->
+                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <!-- Status -->
+                <span class="flex items-center col-span-2 text-xs">
+                  <span class="px-2 py-1 font-semibold text-gray-700 bg-gray-100 rounded-full"
+                    >Expired</span
+                  >
+                </span>
+                <!-- Date -->
+                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+              </div>
+
+              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+                <!-- Client -->
+                <div class="flex items-center col-span-3 text-sm">
+                  <!-- Avatar with inset shadow -->
+                  <div class="relative w-8 h-8 mr-3 rounded-full">
+                    <img
+                      class="object-cover w-full h-full rounded-full"
+                      src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                      alt=""
+                    />
+                    <div
+                      class="absolute inset-0 rounded-full shadow-inner"
+                      aria-hidden="true"
+                    ></div>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Hans Burger</p>
+                    <p class="text-xs text-gray-600">10x Developer</p>
+                  </div>
+                </div>
+                <!-- Amount -->
+                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <!-- Status -->
+                <span class="flex items-center col-span-2 text-xs">
+                  <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
+                    >Approved</span
+                  >
+                </span>
+                <!-- Date -->
+                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+              </div>
+
+              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+                <!-- Client -->
+                <div class="flex items-center col-span-3 text-sm">
+                  <!-- Avatar with inset shadow -->
+                  <div class="relative w-8 h-8 mr-3 rounded-full">
+                    <img
+                      class="object-cover w-full h-full rounded-full"
+                      src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                      alt=""
+                    />
+                    <div
+                      class="absolute inset-0 rounded-full shadow-inner"
+                      aria-hidden="true"
+                    ></div>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Hans Burger</p>
+                    <p class="text-xs text-gray-600">10x Developer</p>
+                  </div>
+                </div>
+                <!-- Amount -->
+                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <!-- Status -->
+                <span class="flex items-center col-span-2 text-xs">
+                  <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
+                    >Approved</span
+                  >
+                </span>
+                <!-- Date -->
+                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+              </div>
+
+              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+                <!-- Client -->
+                <div class="flex items-center col-span-3 text-sm">
+                  <!-- Avatar with inset shadow -->
+                  <div class="relative w-8 h-8 mr-3 rounded-full">
+                    <img
+                      class="object-cover w-full h-full rounded-full"
+                      src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                      alt=""
+                    />
+                    <div
+                      class="absolute inset-0 rounded-full shadow-inner"
+                      aria-hidden="true"
+                    ></div>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Hans Burger</p>
+                    <p class="text-xs text-gray-600">10x Developer</p>
+                  </div>
+                </div>
+                <!-- Amount -->
+                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <!-- Status -->
+                <span class="flex items-center col-span-2 text-xs">
+                  <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
+                    >Approved</span
+                  >
+                </span>
+                <!-- Date -->
+                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+              </div>
+
+              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+                <!-- Client -->
+                <div class="flex items-center col-span-3 text-sm">
+                  <!-- Avatar with inset shadow -->
+                  <div class="relative w-8 h-8 mr-3 rounded-full">
+                    <img
+                      class="object-cover w-full h-full rounded-full"
+                      src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                      alt=""
+                    />
+                    <div
+                      class="absolute inset-0 rounded-full shadow-inner"
+                      aria-hidden="true"
+                    ></div>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Hans Burger</p>
+                    <p class="text-xs text-gray-600">10x Developer</p>
+                  </div>
+                </div>
+                <!-- Amount -->
+                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <!-- Status -->
+                <span class="flex items-center col-span-2 text-xs">
+                  <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
+                    >Approved</span
+                  >
+                </span>
+                <!-- Date -->
+                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+              </div>
+
+              <!-- Footer -->
+              <div
+                class="grid grid-cols-9 px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100"
+              >
+                <span class="flex items-center col-span-3">Showing 21-30 of 100</span>
+                <span class="col-span-2"></span>
+                <!-- Pagination -->
+                <span class="flex justify-end col-span-4">
+                  <nav aria-label="Table navigation">
+                    <ul class="inline-flex items-center">
+                      <li>
+                        <button
+                          class="px-3 py-1 transition-colors duration-150 rounded-md rounded-l-lg focus:shadow-outline hover:bg-purple-100"
+                        >
+                          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                              clip-rule="evenodd"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 transition-colors duration-150 rounded-md focus:shadow-outline hover:bg-purple-100"
+                        >
+                          1
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 transition-colors duration-150 rounded-md focus:shadow-outline hover:bg-purple-100"
+                        >
+                          2
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:shadow-outline"
+                        >
+                          3
+                        </button>
+                      </li>
+                      <li>
+                        <span class="px-3 py-1">...</span>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 transition-colors duration-150 rounded-md focus:shadow-outline hover:bg-purple-100"
+                        >
+                          9
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 transition-colors duration-150 rounded-md rounded-r-lg focus:shadow-outline hover:bg-purple-100"
+                        >
+                          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                              clip-rule="evenodd"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </span>
+              </div>
+            </div>
           </div>
         </main>
       </div>

@@ -13,7 +13,7 @@ module.exports = {
     },
   },
   variants: {
-    backgroundColor: ['focus', 'dark', 'dark:focus'],
+    backgroundColor: ['focus', 'odd', 'dark', 'dark:focus', 'dark:odd'],
     textColor: ['focus-within', 'hover', 'dark', 'dark:focus-within', 'dark:hover'],
   },
   plugins: [

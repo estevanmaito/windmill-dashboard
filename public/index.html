@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<html
-  :class="{ 'theme-dark': dark }"
-  x-data="{ dark: !!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches}"
-  lang="en"
->
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,7 +17,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+      defer
+    ></script>
   </head>
   <body>
     <div class="flex h-screen bg-gray-100">
@@ -99,8 +98,8 @@
                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                   ></path>
                 </svg>
-                <span class="ml-4">Cards</span></a
-              >
+                <span class="ml-4">Cards</span>
+              </a>
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
@@ -117,11 +116,13 @@
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                  <path
+                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                  ></path>
                   <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                 </svg>
-                <span class="ml-4">Charts</span></a
-              >
+                <span class="ml-4">Charts</span>
+              </a>
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
@@ -142,8 +143,8 @@
                     d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
                   ></path>
                 </svg>
-                <span class="ml-4">Buttons</span></a
-              >
+                <span class="ml-4">Buttons</span>
+              </a>
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
@@ -162,8 +163,8 @@
                 >
                   <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                 </svg>
-                <span class="ml-4">Tables</span></a
-              >
+                <span class="ml-4">Tables</span>
+              </a>
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
@@ -184,8 +185,8 @@
                     d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
                   ></path>
                 </svg>
-                <span class="ml-4">Pages</span></a
-              >
+                <span class="ml-4">Pages</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -197,7 +198,12 @@
           >
             <div class="relative w-full max-w-lg focus-within:text-purple-500">
               <div class="absolute inset-y-0 flex items-center pl-2">
-                <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  class="w-4 h-4"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path
                     fill-rule="evenodd"
                     d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
@@ -219,43 +225,100 @@
                   @click="dark = !dark"
                   aria-label="Toggle color mode"
                 >
-                  <svg
-                    class="w-5 h-5"
-                    x-show="dark"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-                    ></path>
-                  </svg>
-                  <svg
-                    class="w-5 h-5"
-                    x-show="!dark"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
+                  <template x-if="!dark">
+                    <svg
+                      class="w-5 h-5"
+                      aria-hidden="true"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                      ></path>
+                    </svg>
+                  </template>
+                  <template x-if="dark">
+                    <svg
+                      class="w-5 h-5"
+                      aria-hidden="true"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </template>
                 </button>
               </li>
-              <li class="flex">
+              <li class="relative" aria-haspopup="true">
                 <button
-                  class="rounded-md focus:outline-none focus:shadow-outline-purple"
+                  class="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
+                  @click="toggleNotificationsMenu"
                   aria-label="Notifications"
                 >
-                  <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                  <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
                     <path
                       d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
                     ></path>
                   </svg>
+                  <!-- Notification badge -->
+                  <span
+                    class="absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full"
+                  ></span>
                 </button>
+                <template x-if="isNotificationsMenuOpen">
+                  <ul
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    @click.away="closeNotificationsMenu"
+                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-700 bg-white border border-gray-100 rounded-md shadow-md"
+                    aria-label="submenu"
+                  >
+                    <li class="flex">
+                      <a
+                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
+                        href="#"
+                      >
+                        <span>Messages</span>
+                        <span
+                          class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full"
+                        >
+                          13
+                        </span>
+                      </a>
+                    </li>
+                    <li class="flex">
+                      <a
+                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
+                        href="#"
+                      >
+                        <span>Sales</span>
+                        <span
+                          class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full"
+                        >
+                          2
+                        </span>
+                      </a>
+                    </li>
+                    <li class="flex">
+                      <a
+                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
+                        href="#"
+                      >
+                        <span>Alerts</span>
+                      </a>
+                    </li>
+                  </ul>
+                </template>
               </li>
               <li class="flex items-center">
                 <button
@@ -282,7 +345,11 @@
               href="#"
             >
               <div class="flex items-center">
-                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path
                     d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                   ></path>
@@ -295,7 +362,9 @@
             <div class="grid grid-cols-4 gap-6 mb-8">
               <!-- Card -->
               <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
-                <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full">
+                <div
+                  class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full"
+                >
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
@@ -319,7 +388,9 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="mb-2 text-sm font-semibold text-gray-600">Account balance</p>
+                  <p class="mb-2 text-sm font-semibold text-gray-600">
+                    Account balance
+                  </p>
                   <p class="text-lg font-semibold text-gray-700">$ 46,760.89</p>
                 </div>
               </div>
@@ -333,7 +404,9 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="mb-2 text-sm font-semibold text-gray-600">New sales</p>
+                  <p class="mb-2 text-sm font-semibold text-gray-600">
+                    New sales
+                  </p>
                   <p class="text-lg font-semibold text-gray-700">376</p>
                 </div>
               </div>
@@ -349,14 +422,18 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="mb-2 text-sm font-semibold text-gray-600">Pending contacts</p>
+                  <p class="mb-2 text-sm font-semibold text-gray-600">
+                    Pending contacts
+                  </p>
                   <p class="text-lg font-semibold text-gray-700">35</p>
                 </div>
               </div>
             </div>
 
             <!-- Table -->
-            <div class="mb-8 overflow-hidden bg-white divide-y rounded-lg shadow-xs">
+            <div
+              class="mb-8 overflow-hidden bg-white divide-y rounded-lg shadow-xs"
+            >
               <!-- Header -->
               <div
                 class="grid grid-cols-9 px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100"
@@ -389,15 +466,21 @@
                   </div>
                 </div>
                 <!-- Amount -->
-                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  $ 863.45
+                </span>
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
-                  <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
-                    >Approved</span
+                  <span
+                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
                   >
+                    Approved
+                  </span>
                 </span>
                 <!-- Date -->
-                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  6/10/2020
+                </span>
               </div>
 
               <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
@@ -421,15 +504,21 @@
                   </div>
                 </div>
                 <!-- Amount -->
-                <span class="flex items-center col-span-2 text-sm">$ 369.95</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  $ 369.95
+                </span>
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
-                  <span class="px-2 py-1 font-semibold text-orange-700 bg-orange-100 rounded-full"
-                    >Pending</span
+                  <span
+                    class="px-2 py-1 font-semibold text-orange-700 bg-orange-100 rounded-full"
                   >
+                    Pending
+                  </span>
                 </span>
                 <!-- Date -->
-                <span class="flex items-center col-span-2 text-sm">6/12/2020</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  6/12/2020
+                </span>
               </div>
 
               <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
@@ -453,15 +542,21 @@
                   </div>
                 </div>
                 <!-- Amount -->
-                <span class="flex items-center col-span-2 text-sm">$ 86.00</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  $ 86.00
+                </span>
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
-                  <span class="px-2 py-1 font-semibold text-red-700 bg-red-100 rounded-full"
-                    >Denied</span
+                  <span
+                    class="px-2 py-1 font-semibold text-red-700 bg-red-100 rounded-full"
                   >
+                    Denied
+                  </span>
                 </span>
                 <!-- Date -->
-                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  6/10/2020
+                </span>
               </div>
 
               <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
@@ -485,15 +580,21 @@
                   </div>
                 </div>
                 <!-- Amount -->
-                <span class="flex items-center col-span-2 text-sm">$ 1276.45</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  $ 1276.45
+                </span>
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
-                  <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
-                    >Approved</span
+                  <span
+                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
                   >
+                    Approved
+                  </span>
                 </span>
                 <!-- Date -->
-                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  6/10/2020
+                </span>
               </div>
 
               <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
@@ -517,15 +618,21 @@
                   </div>
                 </div>
                 <!-- Amount -->
-                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  $ 863.45
+                </span>
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
-                  <span class="px-2 py-1 font-semibold text-gray-700 bg-gray-100 rounded-full"
-                    >Expired</span
+                  <span
+                    class="px-2 py-1 font-semibold text-gray-700 bg-gray-100 rounded-full"
                   >
+                    Expired
+                  </span>
                 </span>
                 <!-- Date -->
-                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  6/10/2020
+                </span>
               </div>
 
               <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
@@ -549,15 +656,21 @@
                   </div>
                 </div>
                 <!-- Amount -->
-                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  $ 863.45
+                </span>
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
-                  <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
-                    >Approved</span
+                  <span
+                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
                   >
+                    Approved
+                  </span>
                 </span>
                 <!-- Date -->
-                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  6/10/2020
+                </span>
               </div>
 
               <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
@@ -581,15 +694,21 @@
                   </div>
                 </div>
                 <!-- Amount -->
-                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  $ 863.45
+                </span>
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
-                  <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
-                    >Approved</span
+                  <span
+                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
                   >
+                    Approved
+                  </span>
                 </span>
                 <!-- Date -->
-                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  6/10/2020
+                </span>
               </div>
 
               <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
@@ -613,15 +732,21 @@
                   </div>
                 </div>
                 <!-- Amount -->
-                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  $ 863.45
+                </span>
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
-                  <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
-                    >Approved</span
+                  <span
+                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
                   >
+                    Approved
+                  </span>
                 </span>
                 <!-- Date -->
-                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  6/10/2020
+                </span>
               </div>
 
               <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
@@ -645,22 +770,30 @@
                   </div>
                 </div>
                 <!-- Amount -->
-                <span class="flex items-center col-span-2 text-sm">$ 863.45</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  $ 863.45
+                </span>
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
-                  <span class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
-                    >Approved</span
+                  <span
+                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
                   >
+                    Approved
+                  </span>
                 </span>
                 <!-- Date -->
-                <span class="flex items-center col-span-2 text-sm">6/10/2020</span>
+                <span class="flex items-center col-span-2 text-sm">
+                  6/10/2020
+                </span>
               </div>
 
               <!-- Footer -->
               <div
                 class="grid grid-cols-9 px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100"
               >
-                <span class="flex items-center col-span-3">Showing 21-30 of 100</span>
+                <span class="flex items-center col-span-3">
+                  Showing 21-30 of 100
+                </span>
                 <span class="col-span-2"></span>
                 <!-- Pagination -->
                 <span class="flex justify-end col-span-4">
@@ -764,59 +897,88 @@
       </div>
     </div>
     <script>
-      const randomScalingFactor = function () {
-        return Math.round(Math.random() * 100)
+      function data() {
+        return {
+          dark:
+            !!window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches,
+          isNotificationsMenuOpen: false,
+          toggleNotificationsMenu() {
+            console.log(this.isNotificationsMenuOpen);
+            this.isNotificationsMenuOpen = !this.isNotificationsMenuOpen;
+          },
+          closeNotificationsMenu() {
+            this.isNotificationsMenuOpen = false;
+          },
+        };
       }
+    </script>
+    <script>
+      const randomScalingFactor = function () {
+        return Math.round(Math.random() * 100);
+      };
 
       const pieConfig = {
-        type: 'doughnut',
+        type: "doughnut",
         data: {
           datasets: [
             {
-              data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor()],
-              backgroundColor: ['#38B2AC', '#4299E1', '#805AD5'],
-              label: 'Dataset 1',
+              data: [
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+              ],
+              backgroundColor: ["#38B2AC", "#4299E1", "#805AD5"],
+              label: "Dataset 1",
             },
           ],
-          labels: ['Shoes', 'Shirts', 'Bags'],
+          labels: ["Shoes", "Shirts", "Bags"],
         },
         options: {
           responsive: true,
           cutoutPercentage: 80,
         },
-      }
+      };
 
       const MONTHS = [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec',
-      ]
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
       const lineConfig = {
-        type: 'line',
+        type: "line",
         data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          labels: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+          ],
           datasets: [
             {
-              label: 'Organic',
-              backgroundColor: '#319795',
-              borderColor: '#319795',
+              label: "Organic",
+              backgroundColor: "#319795",
+              borderColor: "#319795",
               data: [43, 48, 40, 54, 67, 73, 70],
               fill: false,
             },
             {
-              label: 'Paid',
+              label: "Paid",
               fill: false,
-              backgroundColor: '#805AD5',
-              borderColor: '#805AD5',
+              backgroundColor: "#805AD5",
+              borderColor: "#805AD5",
               data: [24, 50, 64, 74, 52, 51, 65],
             },
           ],
@@ -824,11 +986,11 @@
         options: {
           responsive: true,
           tooltips: {
-            mode: 'index',
+            mode: "index",
             intersect: false,
           },
           hover: {
-            mode: 'nearest',
+            mode: "nearest",
             intersect: true,
           },
           scales: {
@@ -836,27 +998,27 @@
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: 'Month',
+                labelString: "Month",
               },
             },
             y: {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: 'Value',
+                labelString: "Value",
               },
             },
           },
         },
-      }
+      };
 
       window.onload = function () {
-        const lineCtx = document.getElementById('line').getContext('2d')
-        window.myLine = new Chart(lineCtx, lineConfig)
+        const lineCtx = document.getElementById("line").getContext("2d");
+        window.myLine = new Chart(lineCtx, lineConfig);
 
-        const pieCtx = document.getElementById('pie').getContext('2d')
-        window.myPie = new Chart(pieCtx, pieConfig)
-      }
+        const pieCtx = document.getElementById("pie").getContext("2d");
+        window.myPie = new Chart(pieCtx, pieConfig);
+      };
     </script>
   </body>
 </html>

@@ -1203,7 +1203,7 @@
             <!-- Charts -->
             <h2 class="my-6 text-2xl font-semibold text-gray-800">Charts</h2>
             <div class="grid gap-6 mb-8 md:grid-cols-2">
-              <div class="p-4 bg-white rounded-lg shadow-xs">
+              <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs">
                 <h4 class="mb-4 font-semibold text-gray-800">Revenue</h4>
                 <canvas id="pie"></canvas>
                 <div
@@ -1230,7 +1230,7 @@
                   </div>
                 </div>
               </div>
-              <div class="p-4 bg-white rounded-lg shadow-xs">
+              <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs">
                 <h4 class="mb-4 font-semibold text-gray-800">Traffic</h4>
                 <canvas id="line"></canvas>
                 <div
@@ -1298,6 +1298,7 @@
           labels: ["Shoes", "Shirts", "Bags"],
         },
         options: {
+          responsive: true,
           cutoutPercentage: 80,
           legend: {
             display: false,
@@ -1349,6 +1350,7 @@
           ],
         },
         options: {
+          responsive: true,
           legend: {
             display: false,
           },

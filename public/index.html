@@ -24,31 +24,38 @@
   </head>
   <body>
     <div
-      class="flex h-screen bg-gray-100"
+      class="flex h-screen bg-gray-100 dark:bg-gray-900"
       :class="{ 'overflow-hidden': sideMenu }"
     >
       <!-- Desktop sidebar -->
-      <aside class="z-20 hidden w-64 overflow-y-auto bg-white md:block">
-        <div class="py-4 text-gray-500">
-          <a class="ml-6 text-lg font-bold text-gray-800" href="#">
+      <aside
+        class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block"
+      >
+        <div class="py-4 text-gray-500 dark:text-gray-400">
+          <a
+            class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+            href="#"
+          >
             Company
           </a>
           <div class="px-6 mt-6">
             <button
-              class="flex items-center justify-between w-full px-6 py-3 text-sm font-semibold text-purple-800 bg-purple-100 rounded-lg focus:outline-none focus:shadow-outline-purple"
+              class="flex items-center justify-between w-full px-6 py-3 text-sm font-semibold text-purple-800 bg-purple-100 rounded-lg dark:bg-purple-600 dark:text-purple-100 focus:outline-none focus:shadow-outline-purple"
             >
               Create account
               <span class="ml-2">+</span>
             </button>
           </div>
           <ul class="mt-6">
-            <li class="relative flex items-center px-6 py-3 text-gray-800">
+            <li
+              class="relative flex items-center px-6 py-3 text-gray-800 dark:text-gray-100"
+            >
               <span
                 class="absolute left-0 w-1 h-full bg-purple-600 rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -72,7 +79,7 @@
           <ul>
             <li class="relative flex items-center px-6 py-3">
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -94,7 +101,7 @@
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -116,7 +123,7 @@
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -139,7 +146,7 @@
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -161,7 +168,7 @@
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -181,7 +188,7 @@
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -392,9 +399,9 @@
         </div>
       </aside>
       <div class="flex flex-col flex-1">
-        <header class="z-10 py-4 bg-white shadow-md">
+        <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
           <div
-            class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600"
+            class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
           >
             <button
               class="p-1 mr-6 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
@@ -433,7 +440,7 @@
               </div>
               <input
                 aria-label="Search for projects"
-                class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 transition-colors duration-150 bg-gray-100 border-0 rounded-md focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
+                class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 transition-colors duration-150 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                 type="text"
                 placeholder="Search for projects"
               />
@@ -505,7 +512,7 @@
                     x-transition:leave-end="opacity-0"
                     @click.away="closeNotificationsMenu"
                     @keydown.escape="closeNotificationsMenu"
-                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-700 bg-white border border-gray-100 rounded-md shadow-md"
+                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-700 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700"
                     aria-label="submenu"
                   >
                     <li class="flex">
@@ -566,7 +573,7 @@
                     x-transition:leave-end="opacity-0"
                     @click.away="closeProfileMenu"
                     @keydown.escape="closeProfileMenu"
-                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-700 bg-white border border-gray-100 rounded-md shadow-md"
+                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-700 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
                     aria-label="submenu"
                   >
                     <li class="flex">
@@ -644,7 +651,11 @@
         </header>
         <main class="h-full overflow-y-auto">
           <div class="container px-6 mx-auto">
-            <h2 class="my-6 text-2xl font-semibold text-gray-800">Dashboard</h2>
+            <h2
+              class="my-6 text-2xl font-semibold text-gray-800 dark:text-gray-200"
+            >
+              Dashboard
+            </h2>
             <!-- CTA -->
             <a
               class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
@@ -667,9 +678,11 @@
             <!-- Cards -->
             <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
               <!-- Card -->
-              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
+              <div
+                class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              >
                 <div
-                  class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full"
+                  class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500"
                 >
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -677,14 +690,22 @@
                     ></path>
                   </svg>
                 </div>
-                <div class="text-gray-600">
+                <div class="text-gray-600 dark:text-gray-400">
                   <p class="mb-2 text-sm font-medium">Total clients</p>
-                  <p class="text-xl font-semibold text-gray-700">6389</p>
+                  <p
+                    class="text-xl font-semibold text-gray-700 dark:text-gray-200"
+                  >
+                    6389
+                  </p>
                 </div>
               </div>
               <!-- Card -->
-              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
-                <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full">
+              <div
+                class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              >
+                <div
+                  class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500"
+                >
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fill-rule="evenodd"
@@ -694,15 +715,25 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="mb-2 text-sm font-medium text-gray-600">
+                  <p
+                    class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+                  >
                     Account balance
                   </p>
-                  <p class="text-lg font-semibold text-gray-700">$ 46,760.89</p>
+                  <p
+                    class="text-lg font-semibold text-gray-700 dark:text-gray-200"
+                  >
+                    $ 46,760.89
+                  </p>
                 </div>
               </div>
               <!-- Card -->
-              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
-                <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full">
+              <div
+                class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              >
+                <div
+                  class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500"
+                >
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
@@ -710,15 +741,25 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="mb-2 text-sm font-medium text-gray-600">
+                  <p
+                    class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+                  >
                     New sales
                   </p>
-                  <p class="text-lg font-semibold text-gray-700">376</p>
+                  <p
+                    class="text-lg font-semibold text-gray-700 dark:text-gray-200"
+                  >
+                    376
+                  </p>
                 </div>
               </div>
               <!-- Card -->
-              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
-                <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full">
+              <div
+                class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              >
+                <div
+                  class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500"
+                >
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fill-rule="evenodd"
@@ -728,21 +769,27 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="mb-2 text-sm font-medium text-gray-600">
+                  <p
+                    class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+                  >
                     Pending contacts
                   </p>
-                  <p class="text-lg font-semibold text-gray-700">35</p>
+                  <p
+                    class="text-lg font-semibold text-gray-700 dark:text-gray-200"
+                  >
+                    35
+                  </p>
                 </div>
               </div>
             </div>
 
             <!-- Table -->
             <div
-              class="mb-8 overflow-hidden bg-white divide-y rounded-lg shadow-xs"
+              class="mb-8 overflow-hidden bg-white divide-y rounded-lg shadow-xs dark:bg-gray-800"
             >
               <!-- Header -->
               <div
-                class="grid grid-cols-9 px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100"
+                class="grid grid-cols-9 px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100 dark:text-gray-400 dark:bg-gray-800"
               >
                 <span class="col-span-3">Client</span>
                 <span class="col-span-2">Amount</span>
@@ -751,7 +798,9 @@
               </div>
 
               <!-- Cell -->
-              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+              <div
+                class="grid grid-cols-9 px-4 py-3 text-gray-700 dark:text-gray-400"
+              >
                 <!-- Client -->
                 <div class="flex items-center col-span-3 text-sm">
                   <!-- Avatar with inset shadow -->
@@ -780,7 +829,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
+                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                   >
                     Approved
                   </span>
@@ -791,7 +840,9 @@
                 </span>
               </div>
 
-              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+              <div
+                class="grid grid-cols-9 px-4 py-3 text-gray-700 dark:text-gray-400"
+              >
                 <!-- Client -->
                 <div class="flex items-center col-span-3 text-sm">
                   <!-- Avatar with inset shadow -->
@@ -820,7 +871,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-orange-700 bg-orange-100 rounded-full"
+                    class="px-2 py-1 font-semibold text-orange-700 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-600"
                   >
                     Pending
                   </span>
@@ -831,7 +882,9 @@
                 </span>
               </div>
 
-              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+              <div
+                class="grid grid-cols-9 px-4 py-3 text-gray-700 dark:text-gray-400"
+              >
                 <!-- Client -->
                 <div class="flex items-center col-span-3 text-sm">
                   <!-- Avatar with inset shadow -->
@@ -860,7 +913,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-red-700 bg-red-100 rounded-full"
+                    class="px-2 py-1 font-semibold text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
                   >
                     Denied
                   </span>
@@ -871,7 +924,9 @@
                 </span>
               </div>
 
-              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+              <div
+                class="grid grid-cols-9 px-4 py-3 text-gray-700 dark:text-gray-400"
+              >
                 <!-- Client -->
                 <div class="flex items-center col-span-3 text-sm">
                   <!-- Avatar with inset shadow -->
@@ -900,7 +955,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
+                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                   >
                     Approved
                   </span>
@@ -911,7 +966,9 @@
                 </span>
               </div>
 
-              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+              <div
+                class="grid grid-cols-9 px-4 py-3 text-gray-700 dark:text-gray-400"
+              >
                 <!-- Client -->
                 <div class="flex items-center col-span-3 text-sm">
                   <!-- Avatar with inset shadow -->
@@ -940,7 +997,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-gray-700 bg-gray-100 rounded-full"
+                    class="px-2 py-1 font-semibold text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700"
                   >
                     Expired
                   </span>
@@ -951,7 +1008,9 @@
                 </span>
               </div>
 
-              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+              <div
+                class="grid grid-cols-9 px-4 py-3 text-gray-700 dark:text-gray-400"
+              >
                 <!-- Client -->
                 <div class="flex items-center col-span-3 text-sm">
                   <!-- Avatar with inset shadow -->
@@ -980,7 +1039,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
+                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                   >
                     Approved
                   </span>
@@ -991,7 +1050,9 @@
                 </span>
               </div>
 
-              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+              <div
+                class="grid grid-cols-9 px-4 py-3 text-gray-700 dark:text-gray-400"
+              >
                 <!-- Client -->
                 <div class="flex items-center col-span-3 text-sm">
                   <!-- Avatar with inset shadow -->
@@ -1020,7 +1081,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
+                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                   >
                     Approved
                   </span>
@@ -1031,7 +1092,9 @@
                 </span>
               </div>
 
-              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+              <div
+                class="grid grid-cols-9 px-4 py-3 text-gray-700 dark:text-gray-400"
+              >
                 <!-- Client -->
                 <div class="flex items-center col-span-3 text-sm">
                   <!-- Avatar with inset shadow -->
@@ -1060,7 +1123,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
+                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                   >
                     Approved
                   </span>
@@ -1071,7 +1134,9 @@
                 </span>
               </div>
 
-              <div class="grid grid-cols-9 px-4 py-3 text-gray-700">
+              <div
+                class="grid grid-cols-9 px-4 py-3 text-gray-700 dark:text-gray-400"
+              >
                 <!-- Client -->
                 <div class="flex items-center col-span-3 text-sm">
                   <!-- Avatar with inset shadow -->
@@ -1100,7 +1165,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full"
+                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                   >
                     Approved
                   </span>
@@ -1113,7 +1178,7 @@
 
               <!-- Footer -->
               <div
-                class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100 sm:grid-cols-9"
+                class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
               >
                 <span class="flex items-center col-span-3">
                   Showing 21-30 of 100
@@ -1201,13 +1266,21 @@
             </div>
 
             <!-- Charts -->
-            <h2 class="my-6 text-2xl font-semibold text-gray-800">Charts</h2>
+            <h2
+              class="my-6 text-2xl font-semibold text-gray-800 dark:text-gray-200"
+            >
+              Charts
+            </h2>
             <div class="grid gap-6 mb-8 md:grid-cols-2">
-              <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs">
-                <h4 class="mb-4 font-semibold text-gray-800">Revenue</h4>
+              <div
+                class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              >
+                <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
+                  Revenue
+                </h4>
                 <canvas id="pie"></canvas>
                 <div
-                  class="flex justify-center mt-4 space-x-3 text-sm text-gray-600"
+                  class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400"
                 >
                   <!-- Chart legend -->
                   <div class="flex items-center">
@@ -1230,11 +1303,15 @@
                   </div>
                 </div>
               </div>
-              <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs">
-                <h4 class="mb-4 font-semibold text-gray-800">Traffic</h4>
+              <div
+                class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              >
+                <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
+                  Traffic
+                </h4>
                 <canvas id="line"></canvas>
                 <div
-                  class="flex justify-center mt-4 space-x-3 text-sm text-gray-600"
+                  class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400"
                 >
                   <!-- Chart legend -->
                   <div class="flex items-center">

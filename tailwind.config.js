@@ -14,7 +14,15 @@ module.exports = {
   },
   variants: {
     backgroundColor: ['focus', 'odd', 'dark', 'dark:focus', 'dark:odd'],
-    textColor: ['focus-within', 'hover', 'dark', 'dark:focus-within', 'dark:hover'],
+    textColor: [
+      'focus-within',
+      'hover',
+      'dark',
+      'dark:focus-within',
+      'dark:hover',
+    ],
+    placeholderColor: ['focus', 'dark', 'dark:focus'],
+    borderColor: ['dark'],
   },
   plugins: [
     require('tailwindcss-multi-theme'),

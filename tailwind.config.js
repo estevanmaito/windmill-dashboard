@@ -23,6 +23,8 @@ module.exports = {
     ],
     placeholderColor: ['focus', 'dark', 'dark:focus'],
     borderColor: ['dark'],
+    divideColor: ['dark'],
+    boxShadow: ['focus', 'dark:focus'],
   },
   plugins: [
     require('tailwindcss-multi-theme'),

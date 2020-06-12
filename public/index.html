@@ -213,7 +213,7 @@
       </aside>
       <!-- Mobile sidebar -->
       <aside
-        class="fixed inset-y-0 z-20 flex-shrink-0 w-64 w-full mt-16 overflow-y-auto bg-white md:hidden"
+        class="fixed inset-y-0 z-20 flex-shrink-0 w-64 w-full mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden"
         x-transition:enter="transition ease-out duration-150"
         x-transition:enter-start="opacity-0 transform -translate-y-6"
         x-transition:enter-end="opacity-100"
@@ -223,26 +223,31 @@
         x-show="sideMenu"
         @click.away="sideMenu = false"
       >
-        <div class="py-4 text-gray-500">
-          <a class="ml-6 text-lg font-bold text-gray-800" href="#">
+        <div class="py-4 text-gray-500 dark:text-gray-400">
+          <a
+            class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+            href="#"
+          >
             Company
           </a>
           <div class="px-6 mt-6">
             <button
-              class="flex items-center justify-between w-full px-6 py-3 text-sm font-semibold text-purple-800 bg-purple-100 rounded-lg focus:outline-none focus:shadow-outline-purple"
+              class="flex items-center justify-between px-6 py-3 text-sm font-semibold text-purple-800 bg-purple-100 rounded-lg focus:outline-none focus:shadow-outline-purple dark:bg-purple-600 dark:text-purple-100"
             >
               Create account
               <span class="ml-2">+</span>
             </button>
           </div>
           <ul class="mt-6">
-            <li class="relative flex items-center px-6 py-3 text-gray-800">
+            <li
+              class="relative flex items-center px-6 py-3 text-gray-800 dark:text-gray-100"
+            >
               <span
                 class="absolute left-0 w-1 h-full bg-purple-600 rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -266,7 +271,7 @@
           <ul>
             <li class="relative flex items-center px-6 py-3">
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -288,7 +293,7 @@
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -310,7 +315,7 @@
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -333,7 +338,7 @@
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -355,7 +360,7 @@
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -375,7 +380,7 @@
             </li>
             <li class="relative flex items-center px-6 py-3">
               <a
-                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="#"
               >
                 <svg
@@ -440,7 +445,7 @@
               </div>
               <input
                 aria-label="Search for projects"
-                class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 transition-colors duration-150 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
+                class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 transition-colors duration-150 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                 type="text"
                 placeholder="Search for projects"
               />
@@ -785,11 +790,11 @@
 
             <!-- Table -->
             <div
-              class="mb-8 overflow-hidden bg-white divide-y rounded-lg shadow-xs dark:bg-gray-800"
+              class="mb-8 overflow-hidden bg-white divide-y rounded-lg shadow-xs dark:divide-gray-700 dark:bg-gray-800"
             >
               <!-- Header -->
               <div
-                class="grid grid-cols-9 px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100 dark:text-gray-400 dark:bg-gray-800"
+                class="grid grid-cols-9 px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100 dark:text-gray-500 dark:bg-gray-800"
               >
                 <span class="col-span-3">Client</span>
                 <span class="col-span-2">Amount</span>
@@ -829,7 +834,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                    class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                   >
                     Approved
                   </span>
@@ -871,7 +876,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-orange-700 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-600"
+                    class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-600"
                   >
                     Pending
                   </span>
@@ -913,7 +918,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
+                    class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
                   >
                     Denied
                   </span>
@@ -955,7 +960,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                    class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                   >
                     Approved
                   </span>
@@ -997,7 +1002,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700"
+                    class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700"
                   >
                     Expired
                   </span>
@@ -1039,7 +1044,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                    class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                   >
                     Approved
                   </span>
@@ -1081,7 +1086,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                    class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                   >
                     Approved
                   </span>
@@ -1123,7 +1128,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                    class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                   >
                     Approved
                   </span>
@@ -1165,7 +1170,7 @@
                 <!-- Status -->
                 <span class="flex items-center col-span-2 text-xs">
                   <span
-                    class="px-2 py-1 font-semibold text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                    class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
                   >
                     Approved
                   </span>
@@ -1338,41 +1343,41 @@
         return {
           dark:
             !!window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches,
+            window.matchMedia('(prefers-color-scheme: dark)').matches,
           isNotificationsMenuOpen: false,
           isProfileMenuOpen: false,
           sideMenu: false,
           toggleNotificationsMenu() {
-            this.isNotificationsMenuOpen = !this.isNotificationsMenuOpen;
+            this.isNotificationsMenuOpen = !this.isNotificationsMenuOpen
           },
           closeNotificationsMenu() {
-            this.isNotificationsMenuOpen = false;
+            this.isNotificationsMenuOpen = false
           },
           toggleProfileMenu() {
-            this.isProfileMenuOpen = !this.isProfileMenuOpen;
+            this.isProfileMenuOpen = !this.isProfileMenuOpen
           },
           closeProfileMenu() {
-            this.isProfileMenuOpen = false;
+            this.isProfileMenuOpen = false
           },
-        };
+        }
       }
     </script>
     <script>
       const randomScalingFactor = function () {
-        return Math.round(Math.random() * 100);
-      };
+        return Math.round(Math.random() * 100)
+      }
 
       const pieConfig = {
-        type: "doughnut",
+        type: 'doughnut',
         data: {
           datasets: [
             {
               data: [33, 33, 33],
-              backgroundColor: ["#38B2AC", "#4299E1", "#805AD5"],
-              label: "Dataset 1",
+              backgroundColor: ['#38B2AC', '#4299E1', '#805AD5'],
+              label: 'Dataset 1',
             },
           ],
-          labels: ["Shoes", "Shirts", "Bags"],
+          labels: ['Shoes', 'Shirts', 'Bags'],
         },
         options: {
           responsive: true,
@@ -1381,47 +1386,47 @@
             display: false,
           },
         },
-      };
+      }
 
       const MONTHS = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ]
       const lineConfig = {
-        type: "line",
+        type: 'line',
         data: {
           labels: [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
           ],
           datasets: [
             {
-              label: "Organic",
-              backgroundColor: "#319795",
-              borderColor: "#319795",
+              label: 'Organic',
+              backgroundColor: '#319795',
+              borderColor: '#319795',
               data: [43, 48, 40, 54, 67, 73, 70],
               fill: false,
             },
             {
-              label: "Paid",
+              label: 'Paid',
               fill: false,
-              backgroundColor: "#805AD5",
-              borderColor: "#805AD5",
+              backgroundColor: '#805AD5',
+              borderColor: '#805AD5',
               data: [24, 50, 64, 74, 52, 51, 65],
             },
           ],
@@ -1432,11 +1437,11 @@
             display: false,
           },
           tooltips: {
-            mode: "index",
+            mode: 'index',
             intersect: false,
           },
           hover: {
-            mode: "nearest",
+            mode: 'nearest',
             intersect: true,
           },
           scales: {
@@ -1444,27 +1449,27 @@
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: "Month",
+                labelString: 'Month',
               },
             },
             y: {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: "Value",
+                labelString: 'Value',
               },
             },
           },
         },
-      };
+      }
 
       window.onload = function () {
-        const lineCtx = document.getElementById("line").getContext("2d");
-        window.myLine = new Chart(lineCtx, lineConfig);
+        const lineCtx = document.getElementById('line').getContext('2d')
+        window.myLine = new Chart(lineCtx, lineConfig)
 
-        const pieCtx = document.getElementById("pie").getContext("2d");
-        window.myPie = new Chart(pieCtx, pieConfig);
-      };
+        const pieCtx = document.getElementById('pie').getContext('2d')
+        window.myPie = new Chart(pieCtx, pieConfig)
+      }
     </script>
   </body>
 </html>

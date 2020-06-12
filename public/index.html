@@ -29,7 +29,7 @@
     >
       <!-- Desktop sidebar -->
       <aside
-        class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block"
+        class="z-20 hidden w-64 overflow-y-auto transition-colors duration-150 bg-white dark:bg-gray-800 md:block"
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
@@ -213,7 +213,7 @@
       </aside>
       <!-- Mobile sidebar -->
       <aside
-        class="fixed inset-y-0 z-20 flex-shrink-0 w-64 w-full mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden"
+        class="fixed inset-y-0 z-20 flex-shrink-0 w-64 w-full mt-16 overflow-y-auto transition-colors duration-150 bg-white dark:bg-gray-800 md:hidden"
         x-transition:enter="transition ease-out duration-150"
         x-transition:enter-start="opacity-0 transform -translate-y-6"
         x-transition:enter-end="opacity-100"
@@ -404,7 +404,9 @@
         </div>
       </aside>
       <div class="flex flex-col flex-1">
-        <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+        <header
+          class="z-10 py-4 transition-colors duration-150 bg-white shadow-md dark:bg-gray-800"
+        >
           <div
             class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
           >
@@ -522,12 +524,12 @@
                   >
                     <li class="flex">
                       <a
-                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
+                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                         href="#"
                       >
                         <span>Messages</span>
                         <span
-                          class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full"
+                          class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600"
                         >
                           13
                         </span>
@@ -535,12 +537,12 @@
                     </li>
                     <li class="flex">
                       <a
-                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
+                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                         href="#"
                       >
                         <span>Sales</span>
                         <span
-                          class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full"
+                          class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600"
                         >
                           2
                         </span>
@@ -548,7 +550,7 @@
                     </li>
                     <li class="flex">
                       <a
-                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
+                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                         href="#"
                       >
                         <span>Alerts</span>
@@ -583,7 +585,7 @@
                   >
                     <li class="flex">
                       <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
+                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                         href="#"
                       >
                         <svg
@@ -605,7 +607,7 @@
                     </li>
                     <li class="flex">
                       <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
+                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                         href="#"
                       >
                         <svg
@@ -628,7 +630,7 @@
                     </li>
                     <li class="flex">
                       <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800"
+                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                         href="#"
                       >
                         <svg

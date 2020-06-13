@@ -214,12 +214,6 @@
       <!-- Mobile sidebar -->
       <aside
         class="fixed inset-y-0 z-20 flex-shrink-0 w-64 w-full mt-16 overflow-y-auto transition-colors duration-150 bg-white dark:bg-gray-800 md:hidden"
-        x-transition:enter="transition ease-out duration-150"
-        x-transition:enter-start="opacity-0 transform -translate-y-6"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-150"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0 transform -translate-y-6"
         x-show="sideMenu"
         @click.away="sideMenu = false"
       >

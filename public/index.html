@@ -24,7 +24,7 @@
   </head>
   <body>
     <div
-      class="flex h-screen bg-gray-100 dark:bg-gray-900"
+      class="flex h-screen bg-gray-50 dark:bg-gray-900"
       :class="{ 'overflow-hidden': sideMenu }"
     >
       <!-- Desktop sidebar -->
@@ -525,7 +525,7 @@
                     x-transition:leave-end="opacity-0"
                     @click.away="closeNotificationsMenu"
                     @keydown.escape="closeNotificationsMenu"
-                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-700 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700"
+                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700"
                     aria-label="submenu"
                   >
                     <li class="flex">
@@ -587,7 +587,7 @@
                     x-transition:leave-end="opacity-0"
                     @click.away="closeProfileMenu"
                     @keydown.escape="closeProfileMenu"
-                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-700 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
+                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
                     aria-label="submenu"
                   >
                     <li class="flex">
@@ -666,7 +666,7 @@
         <main class="h-full overflow-y-auto">
           <div class="container px-6 mx-auto">
             <h2
-              class="my-6 text-2xl font-semibold text-gray-800 dark:text-gray-200"
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
               Dashboard
             </h2>
@@ -803,7 +803,7 @@
             >
               <!-- Header -->
               <div
-                class="grid grid-cols-9 px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100 dark:text-gray-500 dark:bg-gray-800"
+                class="grid grid-cols-9 px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-50 dark:text-gray-500 dark:bg-gray-800"
               >
                 <span class="col-span-3">Client</span>
                 <span class="col-span-2">Amount</span>
@@ -1192,7 +1192,7 @@
 
               <!-- Footer -->
               <div
-                class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-100 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
+                class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
               >
                 <span class="flex items-center col-span-3">
                   Showing 21-30 of 100
@@ -1281,7 +1281,7 @@
 
             <!-- Charts -->
             <h2
-              class="my-6 text-2xl font-semibold text-gray-800 dark:text-gray-200"
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
               Charts
             </h2>

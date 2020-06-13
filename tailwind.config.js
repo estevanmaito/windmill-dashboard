@@ -145,6 +145,10 @@ module.exports = {
       },
     },
     extend: {
+      maxHeight: {
+        '0': '0',
+        xl: '36rem',
+      },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },

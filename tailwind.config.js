@@ -166,6 +166,7 @@ module.exports = {
       'dark:active',
       'dark:odd',
     ],
+    display: ['responsive', 'dark'],
     textColor: [
       'focus-within',
       'hover',

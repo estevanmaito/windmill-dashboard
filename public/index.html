@@ -22,6 +22,8 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
       defer
     ></script>
+    <script src="./assets/js/charts-lines.js" defer></script>
+    <script src="./assets/js/charts-pie.js" defer></script>
   </head>
   <body>
     <div
@@ -1510,114 +1512,5 @@
         </main>
       </div>
     </div>
-    <script>
-      const randomScalingFactor = function () {
-        return Math.round(Math.random() * 100)
-      }
-
-      const pieConfig = {
-        type: 'doughnut',
-        data: {
-          datasets: [
-            {
-              data: [33, 33, 33],
-              backgroundColor: ['#38B2AC', '#4299E1', '#805AD5'],
-              label: 'Dataset 1',
-            },
-          ],
-          labels: ['Shoes', 'Shirts', 'Bags'],
-        },
-        options: {
-          responsive: true,
-          cutoutPercentage: 80,
-          legend: {
-            display: false,
-          },
-        },
-      }
-
-      const MONTHS = [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec',
-      ]
-      const lineConfig = {
-        type: 'line',
-        data: {
-          labels: [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-          ],
-          datasets: [
-            {
-              label: 'Organic',
-              backgroundColor: '#319795',
-              borderColor: '#319795',
-              data: [43, 48, 40, 54, 67, 73, 70],
-              fill: false,
-            },
-            {
-              label: 'Paid',
-              fill: false,
-              backgroundColor: '#805AD5',
-              borderColor: '#805AD5',
-              data: [24, 50, 64, 74, 52, 51, 65],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          legend: {
-            display: false,
-          },
-          tooltips: {
-            mode: 'index',
-            intersect: false,
-          },
-          hover: {
-            mode: 'nearest',
-            intersect: true,
-          },
-          scales: {
-            x: {
-              display: true,
-              scaleLabel: {
-                display: true,
-                labelString: 'Month',
-              },
-            },
-            y: {
-              display: true,
-              scaleLabel: {
-                display: true,
-                labelString: 'Value',
-              },
-            },
-          },
-        },
-      }
-
-      window.onload = function () {
-        const lineCtx = document.getElementById('line').getContext('2d')
-        window.myLine = new Chart(lineCtx, lineConfig)
-
-        const pieCtx = document.getElementById('pie').getContext('2d')
-        window.myPie = new Chart(pieCtx, pieConfig)
-      }
-    </script>
   </body>
 </html>

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tailwind": "tailwindcss build public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css",
-    "build": "postcss public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css"
+    "build": "env NODE_ENV=production postcss public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css"
   },
   "keywords": [
     "tailwind",

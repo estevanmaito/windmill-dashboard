@@ -11,7 +11,7 @@ const pieConfig = {
          * These colors come from Tailwind CSS palette
          * https://tailwindcss.com/docs/customizing-colors/#default-color-palette
          */
-        backgroundColor: ['#38B2AC', '#4299E1', '#805AD5'],
+        backgroundColor: ['#0694a2', '#1c64f2', '#7e3af2'],
         label: 'Dataset 1',
       },
     ],

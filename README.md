@@ -6,3 +6,4 @@ TODO
 
 - [x] Screen center the navbar search (actually it is `justify-between`)
 - [ ] Refactor and split `shadow-outline-<color>` plugin
+- [ ] Paginate tables with Alpine

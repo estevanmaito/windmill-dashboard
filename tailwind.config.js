@@ -174,7 +174,7 @@ module.exports = {
       'dark:hover',
     ],
     placeholderColor: ['focus', 'dark', 'dark:focus'],
-    borderColor: ['dark'],
+    borderColor: ['focus', 'dark', 'dark:focus'],
     divideColor: ['dark'],
     boxShadow: ['focus', 'dark:focus'],
   },

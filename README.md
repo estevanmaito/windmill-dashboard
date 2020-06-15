@@ -41,6 +41,7 @@ TODO
 - [ ] Make charts accessible through hidden data
 - [ ] Refactor and split `shadow-outline-<color>` plugin
 - [ ] Paginate tables with Alpine
+- [ ] Focus first element when dropdowns are opened
 - [x] Add roles to the table
 
 ## OSS used

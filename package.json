@@ -1,7 +1,7 @@
 {
-  "name": "tailwindcss-dashboard",
+  "name": "windmill-dashboard",
   "version": "1.0.0",
-  "description": "",
+  "description": "A multi theme, completely accessible, with components and pages examples, ready for production dashboard.",
   "main": "index.js",
   "scripts": {
     "tailwind": "tailwindcss build public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css",
@@ -9,8 +9,10 @@
   },
   "keywords": [
     "tailwind",
+    "windmill",
     "dashboard",
-    "template"
+    "template",
+    "admin"
   ],
   "author": "Estevan Maito <ejmaito@gmail.com>",
   "license": "MIT",

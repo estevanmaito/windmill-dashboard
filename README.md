@@ -2,7 +2,7 @@
 
 A multi theme, completely accessible, with components and pages examples, ready for production dashboard.
 
-🧪 [See it live](https://tailwind-dashboard.vercel.app/)
+🧪 [See it live](https://windmill-dashboard.vercel.app/)
 
 - 🦮 Thoroughly accessible
 - 🌗 Light and dark themes
@@ -22,7 +22,7 @@ This dashboard was developed with a11y in mind since the begining.
 2. It is completely keyboard navigable
 3. I actually used [NVDA](https://www.nvaccess.org/) to read my screen during development
 
-Everybody can benefit with good accessibility practices, like the modal, for example ([test it live](https://tailwind-dashboard.vercel.app/modals.html)). It uses focus trap techniques to not loose focus when navigating via keyboard and thinking of mobile users with large screen devices, it is placed in the bottom of the screen.
+Everybody can benefit with good accessibility practices, like the modal, for example ([test it live](https://windmill-dashboard.vercel.app/modals.html)). It uses focus trap techniques to not loose focus when navigating via keyboard and thinking of mobile users with large screen devices, it is placed in the bottom of the screen.
 
 ## 🌗 Multi theme
 

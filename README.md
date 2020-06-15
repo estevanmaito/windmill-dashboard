@@ -16,7 +16,7 @@ Clone or download this repo and everything you need is inside the `public` folde
 
 ## 🦮 Accessibility
 
-This dashboard was developed with a11y in mind since the begining.
+This dashboard was developed with a11y in mind since the beginning.
 
 1. Every text passes the WCAG Level AA (at least)
 2. It is completely keyboard navigable

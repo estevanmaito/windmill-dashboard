@@ -6,6 +6,15 @@ module.exports = {
   purge: ['public/**/*.html'],
   theme: {
     themeVariants: ['dark'],
+    customForms: (theme) => ({
+      default: {
+        'input, textarea': {
+          '&::placeholder': {
+            color: theme('colors.gray.400'),
+          },
+        },
+      },
+    }),
     colors: {
       transparent: 'transparent',
       white: '#ffffff',
@@ -14,14 +23,21 @@ module.exports = {
         '50': '#f9fafb',
         '100': '#f4f5f7',
         '200': '#e5e7eb',
-        // '200': '#ebecf0',
-        '300': '#d2d6dc',
-        '400': '#9fa6b2',
-        '500': '#6b7280',
-        '600': '#4b5563',
-        '700': '#374151',
-        '800': '#252f3f',
-        '900': '#161e2e',
+        '300': '#d5d6d7',
+        '400': '#9e9e9e',
+        '500': '#707275',
+        '600': '#4c4f52',
+        '700': '#24262d',
+        '800': '#1a1c23',
+        '900': '#121317',
+        // default values from Tailwind UI palette
+        // '300': '#d2d6dc',
+        // '400': '#9fa6b2',
+        // '500': '#6b7280',
+        // '600': '#4b5563',
+        // '700': '#374151',
+        // '800': '#252f3f',
+        // '900': '#161e2e',
       },
       'cool-gray': {
         '50': '#fbfdfe',

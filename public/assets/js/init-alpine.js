@@ -22,7 +22,13 @@ function data() {
       this.dark = !this.dark
       setThemeToLocalStorage(this.dark)
     },
-    sideMenu: false,
+    isSideMenuOpen: false,
+    toggleSideMenu() {
+      this.isSideMenuOpen = !this.isSideMenuOpen
+    },
+    closeSideMenu() {
+      this.isSideMenuOpen = false
+    },
     isNotificationsMenuOpen: false,
     toggleNotificationsMenu() {
       this.isNotificationsMenuOpen = !this.isNotificationsMenuOpen

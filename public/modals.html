@@ -24,7 +24,7 @@
     >
       <!-- Desktop sidebar -->
       <aside
-        class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block"
+        class="z-20 flex-shrink-0 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block"
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
@@ -571,7 +571,7 @@
           >
             <!-- Mobile hamburger -->
             <button
-              class="p-1 -ml-1 mr-5 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
+              class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
               @click="toggleSideMenu"
               aria-label="Menu"
             >
@@ -823,7 +823,7 @@
           </div>
         </header>
         <main class="h-full pb-16 overflow-y-auto">
-          <div class="container px-6 mx-auto">
+          <div class="container grid px-6 mx-auto">
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
@@ -871,12 +871,14 @@
               </p>
             </div>
 
-            <button
-              @click="openModal"
-              class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-            >
-              Open Modal
-            </button>
+            <div>
+              <button
+                @click="openModal"
+                class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+              >
+                Open Modal
+              </button>
+            </div>
           </div>
         </main>
       </div>

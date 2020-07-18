@@ -1,6 +1,6 @@
 {
   "name": "windmill-dashboard",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A multi theme, completely accessible, with components and pages examples, ready for production dashboard.",
   "scripts": {
     "tailwind": "tailwindcss build public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css",

@@ -2,13 +2,13 @@
 
 A multi theme, completely accessible, with components and pages examples, ready for production dashboard.
 
-🧪 [See it live](https://windmill-dashboard.vercel.app/)
+🧪 [See it live](https://windmillui.com/dashboard-html)
 
 - 🦮 Thoroughly accessible
 - 🌗 Light and dark themes
 - 💅 Styled with Tailwind CSS
 - 🧩 Various components
-- (soon React and Vue versions)
+- ❄ [React version](https://windmillui.com/dashboard-react)
 
 ## 🚀 Usage
 

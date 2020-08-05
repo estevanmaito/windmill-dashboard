@@ -43,13 +43,11 @@ TODO
 
 ## OSS used
 
-(TODO: add links)
-
-- Tailwind CSS
-- Tailwind Multi Theme
-- Tailwind Custom Forms
-- PostCSS
-- Alpine.js
-- Chart.js (charts)
-- UI Faces (avatars)
-- Heroicons (icons)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Tailwind Multi Theme](https://github.com/estevanmaito/tailwindcss-multi-theme)
+- [Tailwind Custom Forms](https://github.com/tailwindlabs/tailwindcss-custom-forms)
+- [PostCSS](https://postcss.org/)
+- [Alpine.js](https://github.com/alpinejs/alpine)
+- [Chart.js (charts)](https://www.chartjs.org/)
+- [UI Faces (avatars)](https://uifaces.co/)
+- [Heroicons (icons)](https://heroicons.dev/)

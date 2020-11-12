@@ -22,40 +22,32 @@ function data() {
       this.dark = !this.dark
       setThemeToLocalStorage(this.dark)
     },
-    isSideMenuOpen: false,
-    toggleSideMenu() {
-      this.isSideMenuOpen = !this.isSideMenuOpen
+
+    // Menus
+    menus: {
+      sideMenu: false,
+      notificationsMenu: false,
+      profileMenu: false,
+      pagesMenu: false
     },
-    closeSideMenu() {
-      this.isSideMenuOpen = false
+    toggleMenu(menuName){
+      this.menus[menuName] = !this.menus[menuName]
     },
-    isNotificationsMenuOpen: false,
-    toggleNotificationsMenu() {
-      this.isNotificationsMenuOpen = !this.isNotificationsMenuOpen
+    closeMenu(menuName){
+      this.menus[menuName] = false
     },
-    closeNotificationsMenu() {
-      this.isNotificationsMenuOpen = false
+
+    // Modals
+    modals: {
+      modal: false
     },
-    isProfileMenuOpen: false,
-    toggleProfileMenu() {
-      this.isProfileMenuOpen = !this.isProfileMenuOpen
-    },
-    closeProfileMenu() {
-      this.isProfileMenuOpen = false
-    },
-    isPagesMenuOpen: false,
-    togglePagesMenu() {
-      this.isPagesMenuOpen = !this.isPagesMenuOpen
-    },
-    // Modal
-    isModalOpen: false,
     trapCleanup: null,
-    openModal() {
-      this.isModalOpen = true
-      this.trapCleanup = focusTrap(document.querySelector('#modal'))
+    openModal(modalName) {
+      this.modals[modalName] = true
+      this.trapCleanup = focusTrap(document.querySelector('#' + modalName))
     },
-    closeModal() {
-      this.isModalOpen = false
+    closeModal(modalName) {
+      this.modals[modalName] = false
       this.trapCleanup()
     },
   }

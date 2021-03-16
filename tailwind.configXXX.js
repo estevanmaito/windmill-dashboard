@@ -1,11 +1,8 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-	purge: [
-		'./public/**/*.html',
-		'./public/**/*.{js,jsx}'
-	],
-	darkMode: 'class', // or 'media' or 'class'
+	darkMode: 'class',
+	purge: [ 'public/**/*.html' ],
 	theme: {
 		customForms: (theme) => ({
 			default: {
@@ -18,6 +15,7 @@ module.exports = {
 		}),
 		extend: {
 			maxHeight: {
+				'0': '0',
 				xl: '36rem',
 			},
 			fontFamily: {
@@ -25,9 +23,7 @@ module.exports = {
 			},
 		},
 	},
-	variants: {
-		extend: {},
-	},
+	variants: {},
 	plugins: [
 		require('@tailwindcss/forms'),
 	],

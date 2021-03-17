@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
 	purge: [
@@ -17,6 +18,11 @@ module.exports = {
 			},
 		}),
 		extend: {
+			colors: {
+				teal: colors.teal,
+				orange: colors.orange,
+				coolGray: colors.coolGray
+			},
 			maxHeight: {
 				xl: '36rem',
 			},

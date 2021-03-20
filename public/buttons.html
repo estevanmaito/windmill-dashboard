@@ -10,6 +10,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="./assets/css/tailwind.output.css" />
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 	<script src="./assets/js/init-alpine.js"></script>
 </head>
@@ -121,7 +123,7 @@
 					</li>
 				</ul>
 				<div class="px-6 my-6">
-					<button class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:shadow-outline-purple">
+					<button class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring">
 						Create account
 						<span class="ml-2" aria-hidden="true">+</span>
 					</button>
@@ -235,7 +237,7 @@
 					</li>
 				</ul>
 				<div class="px-6 my-6">
-					<button class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:shadow-outline-purple">
+					<button class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring">
 						Create account
 						<span class="ml-2" aria-hidden="true">+</span>
 					</button>
@@ -246,7 +248,7 @@
 			<header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
 				<div class="container flex items-center justify-between h-full px-6 mx-auto text-primary-600 dark:text-primary-300">
 					<!-- Mobile hamburger -->
-					<button class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple" @click="toggleSideMenu" aria-label="Menu">
+					<button class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:ring" @click="toggleSideMenu" aria-label="Menu">
 						<svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
 							<path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
 						</svg>
@@ -259,13 +261,13 @@
 									<path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
 								</svg>
 							</div>
-							<input class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-400 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-300 focus:bg-white focus:border-primary-300 focus:outline-none focus:shadow-outline-purple form-input" type="text" placeholder="Search for projects" aria-label="Search" />
+							<input class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-400 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:ring-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-300 focus:bg-white focus:border-primary-300 focus:outline-none focus:ring form-input" type="text" placeholder="Search for projects" aria-label="Search" />
 						</div>
 					</div>
 					<ul class="flex items-center flex-shrink-0 space-x-6">
 						<!-- Theme toggler -->
 						<li class="flex">
-							<button class="rounded-md focus:outline-none focus:shadow-outline-purple" @click="toggleTheme" aria-label="Toggle color mode">
+							<button class="rounded-md focus:outline-none focus:ring" @click="toggleTheme" aria-label="Toggle color mode">
 								<template x-if="!dark">
 									<svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
 										<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -280,7 +282,7 @@
 						</li>
 						<!-- Notifications menu -->
 						<li class="relative">
-							<button class="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple" @click="toggleNotificationsMenu" @keydown.escape="closeNotificationsMenu" aria-label="Notifications" aria-haspopup="true">
+							<button class="relative align-middle rounded-md focus:outline-none focus:ring" @click="toggleNotificationsMenu" @keydown.escape="closeNotificationsMenu" aria-label="Notifications" aria-haspopup="true">
 								<svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
 									<path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path>
 								</svg>
@@ -315,7 +317,7 @@
 						</li>
 						<!-- Profile menu -->
 						<li class="relative">
-							<button class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none" @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account" aria-haspopup="true">
+							<button class="align-middle rounded-full focus:ring focus:outline-none" @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account" aria-haspopup="true">
 								<img class="object-cover w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82" alt="" aria-hidden="true" />
 							</button>
 							<template x-if="isProfileMenuOpen">
@@ -357,7 +359,7 @@
 						Buttons
 					</h2>
 					<!-- CTA -->
-					<a class="flex items-center justify-between p-4 mb-8 text-sm font-semibold rounded-lg shadow-md text-primary-100 bg-primary-600 focus:outline-none focus:shadow-outline-purple" href="https://github.com/estevanmaito/windmill-dashboard">
+					<a class="flex items-center justify-between p-4 mb-8 text-sm font-semibold rounded-lg shadow-md text-primary-100 bg-primary-600 focus:outline-none focus:ring" href="https://github.com/estevanmaito/windmill-dashboard">
 						<div class="flex items-center">
 							<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
 								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
@@ -374,21 +376,21 @@
 					<div class="flex flex-col flex-wrap mb-4 space-y-4 md:flex-row md:items-end md:space-x-4">
 						<!-- Divs are used just to display the examples. Use only the button. -->
 						<div>
-							<button class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:shadow-outline-purple">
+							<button class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring">
 								Larger button
 							</button>
 						</div>
 
 						<!-- Divs are used just to display the examples. Use only the button. -->
 						<div>
-							<button class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:shadow-outline-purple">
+							<button class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring">
 								Large button
 							</button>
 						</div>
 
 						<!-- Divs are used just to display the examples. Use only the button. -->
 						<div>
-							<button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:shadow-outline-purple">
+							<button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring">
 								Regular
 							</button>
 						</div>
@@ -399,7 +401,7 @@
                   opacity-50 cursor-not-allowed
 
                   And REMOVE these classes:
-                  active:bg-primary-600 hover:bg-primary-700 focus:shadow-outline-purple
+                  active:bg-primary-600 hover:bg-primary-700 focus:ring
                 -->
 							<button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg opacity-50 cursor-not-allowed bg-primary-600 focus:outline-none">
 								Disabled
@@ -408,7 +410,7 @@
 
 						<!-- Divs are used just to display the examples. Use only the button. -->
 						<div>
-							<button class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-md bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:shadow-outline-purple">
+							<button class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-md bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring">
 								Small
 							</button>
 						</div>
@@ -426,7 +428,7 @@
 					<div class="flex flex-col flex-wrap mb-8 space-y-4 md:flex-row md:items-end md:space-x-4">
 						<!-- Divs are used just to display the examples. Use only the button. -->
 						<div>
-							<button class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:shadow-outline-purple">
+							<button class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring">
 								<span>Icon right</span>
 								<svg class="w-4 h-4 ml-2 -mr-1" fill="currentColor" aria-hidden="true" viewBox="0 0 20 20">
 									<path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" fill-rule="evenodd"></path>
@@ -436,7 +438,7 @@
 
 						<!-- Divs are used just to display the examples. Use only the button. -->
 						<div>
-							<button class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:shadow-outline-purple">
+							<button class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring">
 								<svg class="w-4 h-4 mr-2 -ml-1" fill="currentColor" aria-hidden="true" viewBox="0 0 20 20">
 									<path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" fill-rule="evenodd"></path>
 								</svg>
@@ -446,7 +448,7 @@
 
 						<!-- Divs are used just to display the examples. Use only the button. -->
 						<div>
-							<button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:shadow-outline-purple" aria-label="Like">
+							<button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring" aria-label="Like">
 								<svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
 									<path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" fill-rule="evenodd"></path>
 								</svg>
@@ -455,10 +457,45 @@
 
 						<!-- Divs are used just to display the examples. Use only the button. -->
 						<div>
-							<button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-full bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:shadow-outline-purple" aria-label="Edit">
+							<button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-full bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring" aria-label="Edit">
 								<svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
 									<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
 								</svg>
+							</button>
+						</div>
+					</div>
+
+					<!-- Buttons with icons -->
+					<h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+						FontAwesome Icons
+					</h4>
+					<div class="flex flex-col flex-wrap mb-8 space-y-4 md:flex-row md:items-end md:space-x-4">
+						<!-- Divs are used just to display the examples. Use only the button. -->
+						<div>
+							<button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring">
+								Icon right <i class="inset-y-0 ml-2 text-sm pointer-events-none fas fa-heart"></i>
+							</button>
+						</div>
+
+						<!-- Divs are used just to display the examples. Use only the button. -->
+						<div>
+							<button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring">
+								<i class="inset-y-0 mr-2 text-sm pointer-events-none fas fa-heart"></i>
+								<span>Icon left</span>
+							</button>
+						</div>
+
+						<!-- Divs are used just to display the examples. Use only the button. -->
+						<div>
+							<button class="px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring" aria-label="Like">
+								<i class="inset-y-0 text-lg pointer-events-none fas fa-heart"></i>
+							</button>
+						</div>
+
+						<!-- Divs are used just to display the examples. Use only the button. -->
+						<div>
+							<button class="px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-full bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring" aria-label="Edit">
+								<i class="inset-y-0 text-lg pointer-events-none fas fa-pen"></i>
 							</button>
 						</div>
 					</div>

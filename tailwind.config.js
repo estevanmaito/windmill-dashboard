@@ -19,6 +19,7 @@ module.exports = {
 		}),
 		extend: {
 			colors: {
+				primary: colors.purple,
 				teal: colors.teal,
 				orange: colors.orange,
 				coolGray: colors.coolGray
@@ -27,7 +28,7 @@ module.exports = {
 				xl: '36rem',
 			},
 			fontFamily: {
-				sans: [ 'Inter', ...defaultTheme.fontFamily.sans ],
+				sans: ['Inter', ...defaultTheme.fontFamily.sans],
 			},
 		},
 	},
@@ -40,20 +41,21 @@ module.exports = {
 				'odd',
 				'dark',
 			],
-			display: [ 'responsive', 'dark' ],
+			display: ['responsive', 'dark'],
 			textColor: [
 				'focus-within',
 				'hover',
 				'active',
 				'dark',
 			],
-			placeholderColor: [ 'focus', 'dark' ],
-			borderColor: [ 'focus', 'hover', 'dark' ],
-			divideColor: [ 'dark' ],
-			boxShadow: [ 'focus' ],
+			placeholderColor: ['focus', 'dark'],
+			borderColor: ['focus', 'hover', 'dark'],
+			divideColor: ['dark'],
+			boxShadow: ['focus'],
 		},
 	},
 	plugins: [
+		require('@tailwindcss/jit'),
 		require('@tailwindcss/forms'),
 	],
 }

@@ -20,9 +20,10 @@
     "postcss": "^8.2.9",
     "postcss-cli": "^8.3.1",
     "release-it": "13.6.4",
-    "@tailwindcss/custom-forms": "0.2.1",
+    "tailwindcss": "^2.0.4",
+    "@tailwindcss/jit": "^0.1.18",
     "tailwindcss-multi-theme": "^1.0.4",
-    "tailwindcss": "^2.0.4"
+    "@tailwindcss/custom-forms": "0.2.1"
   },
   "keywords": [
     "tailwind",

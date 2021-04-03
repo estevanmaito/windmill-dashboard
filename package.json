@@ -12,6 +12,8 @@
   "license": "MIT",
   "devDependencies": {
     "@release-it/conventional-changelog": "1.1.4",
+    "@tailwindcss/forms": "^0.3.2",
+    "@tailwindcss/jit": "^0.1.18",
     "autoprefixer": "^10.2.5",
     "color": "3.1.2",
     "commitizen": "4.1.2",
@@ -21,9 +23,7 @@
     "postcss-cli": "^8.3.1",
     "release-it": "13.6.4",
     "tailwindcss": "^2.0.4",
-    "@tailwindcss/jit": "^0.1.18",
-    "tailwindcss-multi-theme": "^1.0.4",
-    "@tailwindcss/custom-forms": "0.2.1"
+    "tailwindcss-multi-theme": "^1.0.4"
   },
   "keywords": [
     "tailwind",

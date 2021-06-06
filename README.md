@@ -9,6 +9,7 @@ A multi theme, completely accessible, with components and pages examples, ready 
 - 💅 Styled with Tailwind CSS
 - 🧩 Various components
 - ❄ [React version](https://windmillui.com/dashboard-react)
+- ![image](https://user-images.githubusercontent.com/4581415/120915724-ff64da80-c6d7-11eb-996b-a9b37aade040.png)[SvelteKit version](https://github.com/daison12006013/sveltekit-windmill-admin)
 
 ## 🚀 Usage
 

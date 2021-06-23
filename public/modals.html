@@ -305,7 +305,7 @@
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0 transform -translate-x-20"
         @click.away="closeSideMenu"
-        @keydown.escape="closeSideMenu"
+        @keydown.escape.window="closeSideMenu"
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
@@ -904,7 +904,7 @@
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0  transform translate-y-1/2"
         @click.away="closeModal"
-        @keydown.escape="closeModal"
+        @keydown.escape.window="closeModal"
         class="w-full px-6 py-4 overflow-hidden bg-white rounded-t-lg dark:bg-gray-800 sm:rounded-lg sm:m-4 sm:max-w-xl"
         role="dialog"
         id="modal"

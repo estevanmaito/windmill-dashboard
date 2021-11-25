@@ -199,7 +199,7 @@ module.exports = {
   },
   plugins: [
     require('tailwindcss-multi-theme'),
-    require('@tailwindcss/custom-forms'),
+    require('@tailwindcss/forms'),
     plugin(({ addUtilities, e, theme, variants }) => {
       const newUtilities = {}
       Object.entries(theme('colors')).map(([name, value]) => {

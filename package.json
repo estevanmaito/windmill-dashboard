@@ -3,8 +3,8 @@
   "version": "1.0.2",
   "description": "A multi theme, completely accessible, with components and pages examples, ready for production dashboard.",
   "scripts": {
-    "tailwind": "tailwindcss build public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css",
-    "build": "env NODE_ENV=production postcss public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css",
+    "prod": "tailwindcss -i public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css --minify",
+    "dev": "tailwindcss -i public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css --watch",
     "cz": "git-cz",
     "release": "release-it"
   },
@@ -12,16 +12,18 @@
   "license": "MIT",
   "devDependencies": {
     "@release-it/conventional-changelog": "1.1.4",
-    "@tailwindcss/custom-forms": "0.2.1",
-    "autoprefixer": "9.8.0",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/line-clamp": "^0.3.0",
+    "@tailwindcss/typography": "^0.5.0",
+    "autoprefixer": "^10.4.0",
     "color": "3.1.2",
-    "commitizen": "4.1.2",
-    "cssnano": "4.1.10",
-    "cz-conventional-changelog": "3.2.0",
-    "postcss-cli": "7.1.1",
-    "release-it": "13.6.4",
-    "tailwindcss": "1.4.6",
-    "tailwindcss-multi-theme": "1.0.3"
+    "commitizen": "^3.0.0",
+    "cssnano": "^5.0.12",
+    "cz-conventional-changelog": "^3.0.1",
+    "postcss": "^8.4.4",
+    "release-it": "^13.7.2",
+    "tailwindcss": "^3.0.1"
   },
   "keywords": [
     "tailwind",

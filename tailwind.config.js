@@ -3,9 +3,9 @@ const plugin = require('tailwindcss/plugin')
 const Color = require('color')
 
 module.exports = {
-  purge: ['public/**/*.html'],
+  content: ['public/**/*.html'],
+  darkMode: 'class',
   theme: {
-    themeVariants: ['dark'],
     customForms: (theme) => ({
       default: {
         'input, textarea': {
@@ -168,38 +168,19 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
+      boxShadow: {
+        xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
+        outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
+      }
     },
   },
-  variants: {
-    backgroundColor: [
-      'hover',
-      'focus',
-      'active',
-      'odd',
-      'dark',
-      'dark:hover',
-      'dark:focus',
-      'dark:active',
-      'dark:odd',
-    ],
-    display: ['responsive', 'dark'],
-    textColor: [
-      'focus-within',
-      'hover',
-      'active',
-      'dark',
-      'dark:focus-within',
-      'dark:hover',
-      'dark:active',
-    ],
-    placeholderColor: ['focus', 'dark', 'dark:focus'],
-    borderColor: ['focus', 'hover', 'dark', 'dark:focus', 'dark:hover'],
-    divideColor: ['dark'],
-    boxShadow: ['focus', 'dark:focus'],
-  },
   plugins: [
-    require('tailwindcss-multi-theme'),
-    require('@tailwindcss/custom-forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms')({
+      strategy: 'class',
+    }),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/aspect-ratio'),
     plugin(({ addUtilities, e, theme, variants }) => {
       const newUtilities = {}
       Object.entries(theme('colors')).map(([name, value]) => {

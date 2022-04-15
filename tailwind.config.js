@@ -3,7 +3,7 @@ const plugin = require('tailwindcss/plugin')
 const Color = require('color')
 
 module.exports = {
-  purge: ['public/**/*.html'],
+  content: ['public/**/*.html'],
   theme: {
     themeVariants: ['dark'],
     customForms: (theme) => ({

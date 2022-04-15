@@ -3,7 +3,7 @@ const plugin = require('tailwindcss/plugin')
 const Color = require('color')
 
 module.exports = {
-  purge: ['public/**/*.html'],
+  content: ['public/**/*.html'],
   theme: {
     themeVariants: ['dark'],
     customForms: (theme) => ({
@@ -199,7 +199,7 @@ module.exports = {
   },
   plugins: [
     require('tailwindcss-multi-theme'),
-    require('@tailwindcss/custom-forms'),
+    require('@tailwindcss/forms'),
     plugin(({ addUtilities, e, theme, variants }) => {
       const newUtilities = {}
       Object.entries(theme('colors')).map(([name, value]) => {

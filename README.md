@@ -22,7 +22,7 @@ This dashboard was developed with a11y in mind since the beginning.
 2. It is completely keyboard navigable
 3. I actually used [NVDA](https://www.nvaccess.org/) to read my screen during development
 
-Everybody can benefit with good accessibility practices, like the modal, for example ([test it live](https://windmill-dashboard.vercel.app/modals.html)). It uses focus trap techniques to not loose focus when navigating via keyboard and thinking of mobile users with large screen devices, it is placed in the bottom of the screen.
+Everybody can benefit with good accessibility practices, like the modal, for example ([test it live](https://windmill-dashboard.vercel.app/modals.html)). It uses focus trap techniques to not lose focus when navigating via keyboard and thinking of mobile users with large screen devices, it is placed in the bottom of the screen.
 
 ## 🌗 Multi theme
 

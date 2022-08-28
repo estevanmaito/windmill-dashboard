@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Windmill Dashboard</title>
+    <title>Rtl Windmill Dashboard</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -25,7 +25,7 @@
     <script src="./assets/js/charts-lines.js" defer></script>
     <script src="./assets/js/charts-pie.js" defer></script>
   </head>
-  <body>
+  <body dir="rtl">
     <div
       class="flex h-screen bg-gray-50 dark:bg-gray-900"
       :class="{ 'overflow-hidden': isSideMenuOpen }"
@@ -36,7 +36,7 @@
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
-            class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+            class="mr-6 text-lg font-bold text-gray-800 dark:text-gray-200"
             href="#"
           >
             Windmill
@@ -44,7 +44,7 @@
           <ul class="mt-6">
             <li class="relative px-6 py-3">
               <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                class="absolute inset-y-0 right-0 w-1 bg-purple-600 rounded-tl-lg rounded-bl-lg"
                 aria-hidden="true"
               ></span>
               <a
@@ -65,7 +65,7 @@
                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                   ></path>
                 </svg>
-                <span class="ml-4">Dashboard</span>
+                <span class="mr-4">پیشخوان</span>
               </a>
             </li>
           </ul>
@@ -89,7 +89,7 @@
                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
                   ></path>
                 </svg>
-                <span class="ml-4">Forms</span>
+                <span class="mr-4">فرم‌ها</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -111,7 +111,7 @@
                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                   ></path>
                 </svg>
-                <span class="ml-4">Cards</span>
+                <span class="mr-4">جعبه‌ها</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -134,7 +134,7 @@
                   ></path>
                   <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                 </svg>
-                <span class="ml-4">Charts</span>
+                <span class="mr-4">نمودار‌ها</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -156,7 +156,7 @@
                     d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
                   ></path>
                 </svg>
-                <span class="ml-4">Buttons</span>
+                <span class="mr-4">Buttons</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -178,7 +178,7 @@
                     d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
                   ></path>
                 </svg>
-                <span class="ml-4">Modals</span>
+                <span class="mr-4">Modals</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -198,7 +198,7 @@
                 >
                   <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                 </svg>
-                <span class="ml-4">Tables</span>
+                <span class="mr-4">Tables</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -222,7 +222,7 @@
                       d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
                     ></path>
                   </svg>
-                  <span class="ml-4">Pages</span>
+                  <span class="mr-4">Pages</span>
                 </span>
                 <svg
                   class="w-4 h-4"
@@ -251,20 +251,20 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full" href="pages/login.html">Login</a>
+                    <a class="w-full" href="pages/login.html">ورود</a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
                     <a class="w-full" href="pages/create-account.html">
-                      Create account
+                      اکانت جدید
                     </a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
                     <a class="w-full" href="pages/forgot-password.html">
-                      Forgot password
+                      فراموشی رمز
                     </a>
                   </li>
                   <li
@@ -275,7 +275,7 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full" href="pages/blank.html">Blank</a>
+                    <a class="w-full" href="pages/blank.html">فاصله</a>
                   </li>
                 </ul>
               </template>
@@ -285,8 +285,8 @@
             <button
               class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
-              Create account
-              <span class="ml-2" aria-hidden="true">+</span>
+              اکانت جدید
+              <span class="mr-2" aria-hidden="true">+</span>
             </button>
           </div>
         </div>
@@ -307,17 +307,17 @@
         class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden"
         x-show="isSideMenuOpen"
         x-transition:enter="transition ease-in-out duration-150"
-        x-transition:enter-start="opacity-0 transform -translate-x-20"
+        x-transition:enter-start="opacity-0 transform translate-x-20"
         x-transition:enter-end="opacity-100"
         x-transition:leave="transition ease-in-out duration-150"
         x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0 transform -translate-x-20"
+        x-transition:leave-end="opacity-0 transform translate-x-20"
         @click.away="closeSideMenu"
         @keydown.escape="closeSideMenu"
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
-            class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+            class="mr-6 text-lg font-bold text-gray-800 dark:text-gray-200"
             href="#"
           >
             Windmill
@@ -325,7 +325,7 @@
           <ul class="mt-6">
             <li class="relative px-6 py-3">
               <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                class="absolute inset-y-0 right-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>
               <a
@@ -346,7 +346,7 @@
                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                   ></path>
                 </svg>
-                <span class="ml-4">Dashboard</span>
+                <span class="mr-4">پیشخوان</span>
               </a>
             </li>
           </ul>
@@ -370,7 +370,7 @@
                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
                   ></path>
                 </svg>
-                <span class="ml-4">Forms</span>
+                <span class="mr-4">فرم‌ها</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -392,7 +392,7 @@
                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                   ></path>
                 </svg>
-                <span class="ml-4">Cards</span>
+                <span class="mr-4">جعبه‌ها</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -415,7 +415,7 @@
                   ></path>
                   <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                 </svg>
-                <span class="ml-4">Charts</span>
+                <span class="mr-4">نمودار‌ها</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -437,7 +437,7 @@
                     d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
                   ></path>
                 </svg>
-                <span class="ml-4">Buttons</span>
+                <span class="mr-4">Buttons</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -459,7 +459,7 @@
                     d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
                   ></path>
                 </svg>
-                <span class="ml-4">Modals</span>
+                <span class="mr-4">Modals</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -479,7 +479,7 @@
                 >
                   <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                 </svg>
-                <span class="ml-4">Tables</span>
+                <span class="mr-4">Tables</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -503,7 +503,7 @@
                       d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
                     ></path>
                   </svg>
-                  <span class="ml-4">Pages</span>
+                  <span class="mr-4">Pages</span>
                 </span>
                 <svg
                   class="w-4 h-4"
@@ -532,20 +532,20 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full" href="pages/login.html">Login</a>
+                    <a class="w-full" href="pages/login.html">ورود</a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
                     <a class="w-full" href="pages/create-account.html">
-                      Create account
+                      اکانت جدید
                     </a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
                     <a class="w-full" href="pages/forgot-password.html">
-                      Forgot password
+                      فراموشی رمز
                     </a>
                   </li>
                   <li
@@ -556,7 +556,7 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full" href="pages/blank.html">Blank</a>
+                    <a class="w-full" href="pages/blank.html">فاصله</a>
                   </li>
                 </ul>
               </template>
@@ -566,8 +566,8 @@
             <button
               class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
-              Create account
-              <span class="ml-2" aria-hidden="true">+</span>
+              اکانت جدید
+              <span class="mr-2" aria-hidden="true">+</span>
             </button>
           </div>
         </div>
@@ -579,7 +579,7 @@
           >
             <!-- Mobile hamburger -->
             <button
-              class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
+              class="p-1 ml-5 -mr-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
               @click="toggleSideMenu"
               aria-label="Menu"
             >
@@ -597,11 +597,11 @@
               </svg>
             </button>
             <!-- Search input -->
-            <div class="flex justify-center flex-1 lg:mr-32">
+            <div class="flex justify-center flex-1">
               <div
-                class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
+                class="relative w-full max-w-xl ml-6 focus-within:text-purple-500"
               >
-                <div class="absolute inset-y-0 flex items-center pl-2">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-2">
                   <svg
                     class="w-4 h-4"
                     aria-hidden="true"
@@ -623,7 +623,7 @@
                 />
               </div>
             </div>
-            <ul class="flex items-center flex-shrink-0 space-x-6">
+            <ul class="flex items-center flex-shrink-0 col-gap-6">
               <!-- Theme toggler -->
               <li class="flex">
                 <button
@@ -691,7 +691,7 @@
                     x-transition:leave-end="opacity-0"
                     @click.away="closeNotificationsMenu"
                     @keydown.escape="closeNotificationsMenu"
-                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700"
+                    class="absolute left-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700"
                   >
                     <li class="flex">
                       <a
@@ -741,8 +741,8 @@
                 >
                   <img
                     class="object-cover w-8 h-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
-                    alt=""
+                    src="https://api.lorem.space/image/face?w=150&h=150"
+                    alt="profile"
                     aria-hidden="true"
                   />
                 </button>
@@ -753,7 +753,7 @@
                     x-transition:leave-end="opacity-0"
                     @click.away="closeProfileMenu"
                     @keydown.escape="closeProfileMenu"
-                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
+                    class="absolute left-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
                     aria-label="submenu"
                   >
                     <li class="flex">
@@ -762,7 +762,7 @@
                         href="#"
                       >
                         <svg
-                          class="w-4 h-4 mr-3"
+                          class="w-4 h-4 ml-3"
                           aria-hidden="true"
                           fill="none"
                           stroke-linecap="round"
@@ -784,7 +784,7 @@
                         href="#"
                       >
                         <svg
-                          class="w-4 h-4 mr-3"
+                          class="w-4 h-4 ml-3"
                           aria-hidden="true"
                           fill="none"
                           stroke-linecap="round"
@@ -807,7 +807,7 @@
                         href="#"
                       >
                         <svg
-                          class="w-4 h-4 mr-3"
+                          class="w-4 h-4 ml-3"
                           aria-hidden="true"
                           fill="none"
                           stroke-linecap="round"
@@ -834,7 +834,7 @@
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
-              Dashboard
+              پیشخوان
             </h2>
             <!-- CTA -->
             <a
@@ -843,7 +843,7 @@
             >
               <div class="flex items-center">
                 <svg
-                  class="w-5 h-5 mr-2"
+                  class="w-5 h-5 ml-2"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -862,7 +862,7 @@
                 class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
               >
                 <div
-                  class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500"
+                  class="p-3 ml-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500"
                 >
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -888,7 +888,7 @@
                 class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
               >
                 <div
-                  class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500"
+                  class="p-3 ml-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500"
                 >
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -916,7 +916,7 @@
                 class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
               >
                 <div
-                  class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500"
+                  class="p-3 ml-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500"
                 >
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -942,7 +942,7 @@
                 class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
               >
                 <div
-                  class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500"
+                  class="p-3 ml-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500"
                 >
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -989,7 +989,7 @@
                         <div class="flex items-center text-sm">
                           <!-- Avatar with inset shadow -->
                           <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                            class="relative hidden w-8 h-8 ml-3 rounded-full md:block"
                           >
                             <img
                               class="object-cover w-full h-full rounded-full"
@@ -1030,7 +1030,7 @@
                         <div class="flex items-center text-sm">
                           <!-- Avatar with inset shadow -->
                           <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                            class="relative hidden w-8 h-8 ml-3 rounded-full md:block"
                           >
                             <img
                               class="object-cover w-full h-full rounded-full"
@@ -1071,7 +1071,7 @@
                         <div class="flex items-center text-sm">
                           <!-- Avatar with inset shadow -->
                           <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                            class="relative hidden w-8 h-8 ml-3 rounded-full md:block"
                           >
                             <img
                               class="object-cover w-full h-full rounded-full"
@@ -1112,7 +1112,7 @@
                         <div class="flex items-center text-sm">
                           <!-- Avatar with inset shadow -->
                           <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                            class="relative hidden w-8 h-8 ml-3 rounded-full md:block"
                           >
                             <img
                               class="object-cover w-full h-full rounded-full"
@@ -1153,7 +1153,7 @@
                         <div class="flex items-center text-sm">
                           <!-- Avatar with inset shadow -->
                           <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                            class="relative hidden w-8 h-8 ml-3 rounded-full md:block"
                           >
                             <img
                               class="object-cover w-full h-full rounded-full"
@@ -1194,7 +1194,7 @@
                         <div class="flex items-center text-sm">
                           <!-- Avatar with inset shadow -->
                           <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                            class="relative hidden w-8 h-8 ml-3 rounded-full md:block"
                           >
                             <img
                               class="object-cover w-full h-full rounded-full"
@@ -1235,7 +1235,7 @@
                         <div class="flex items-center text-sm">
                           <!-- Avatar with inset shadow -->
                           <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                            class="relative hidden w-8 h-8 ml-3 rounded-full md:block"
                           >
                             <img
                               class="object-cover w-full h-full rounded-full"
@@ -1276,7 +1276,7 @@
                         <div class="flex items-center text-sm">
                           <!-- Avatar with inset shadow -->
                           <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                            class="relative hidden w-8 h-8 ml-3 rounded-full md:block"
                           >
                             <img
                               class="object-cover w-full h-full rounded-full"
@@ -1317,7 +1317,7 @@
                         <div class="flex items-center text-sm">
                           <!-- Avatar with inset shadow -->
                           <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                            class="relative hidden w-8 h-8 ml-3 rounded-full md:block"
                           >
                             <img
                               class="object-cover w-full h-full rounded-full"
@@ -1457,14 +1457,14 @@
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
-              Charts
+              نمودار‌ها
             </h2>
             <div class="grid gap-6 mb-8 md:grid-cols-2">
               <div
                 class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
               >
                 <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                  Revenue
+                  نمودار‌ها
                 </h4>
                 <canvas id="pie"></canvas>
                 <div
@@ -1473,19 +1473,19 @@
                   <!-- Chart legend -->
                   <div class="flex items-center">
                     <span
-                      class="inline-block w-3 h-3 mr-1 bg-blue-500 rounded-full"
+                      class="inline-block w-3 h-3 ml-1 bg-blue-500 rounded-full"
                     ></span>
                     <span>Shirts</span>
                   </div>
                   <div class="flex items-center">
                     <span
-                      class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"
+                      class="inline-block w-3 h-3 ml-1 bg-teal-600 rounded-full"
                     ></span>
                     <span>Shoes</span>
                   </div>
                   <div class="flex items-center">
                     <span
-                      class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"
+                      class="inline-block w-3 h-3 ml-1 bg-purple-600 rounded-full"
                     ></span>
                     <span>Bags</span>
                   </div>
@@ -1504,13 +1504,13 @@
                   <!-- Chart legend -->
                   <div class="flex items-center">
                     <span
-                      class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"
+                      class="inline-block w-3 h-3 ml-1 bg-teal-600 rounded-full"
                     ></span>
                     <span>Organic</span>
                   </div>
                   <div class="flex items-center">
                     <span
-                      class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"
+                      class="inline-block w-3 h-3 ml-1 bg-purple-600 rounded-full"
                     ></span>
                     <span>Paid</span>
                   </div>

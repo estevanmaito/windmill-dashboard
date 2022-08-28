@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "A multi theme, completely accessible, with components and pages examples, ready for production dashboard.",
   "scripts": {
+    "watch": "postcss public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css --watch",
     "tailwind": "tailwindcss build public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css",
     "build": "env NODE_ENV=production postcss public/assets/css/tailwind.css -o public/assets/css/tailwind.output.css",
     "cz": "git-cz",

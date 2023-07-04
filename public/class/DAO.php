@@ -82,6 +82,59 @@
                 return false;
             }
         }
+        public function select($conditions = array(), $orderBy = null, $limit = null) {
+            $query = "SELECT * FROM " . $this->tableName;
+        
+            // Handle conditions
+            if (!empty($conditions)) {
+                $query .= " WHERE ";
+                $params = array();
+                foreach ($conditions as $columnName => $value) {  
+                    $query .= $columnName . " = ? AND ";
+                    $params[] = $value;
+                }
+                $query = rtrim($query, "AND ");
+            }
+        
+            // Handle order by
+            if (!empty($orderBy)) {
+                $query .= " ORDER BY " . $orderBy;
+            }
+        
+            // Handle limit
+            if (!empty($limit)) {
+                $query .= " LIMIT " . $limit;
+            }
+        
+            $stmt = $this->db->prepare($query);
+            if ($stmt === false) {
+                return null;
+            }
+        
+            if (!empty($params)) {
+                $stmt->bind_param(str_repeat("s", count($params)), ...$params);
+            }
+        
+            if ($stmt->execute()) {
+                $result = $stmt->get_result();
+                $objects = array();
+                while ($row = $result->fetch_assoc()) {
+                    $class = get_class($this);
+                    $object = new $class($this->db, $this->tableName, $this->primaryKey);
+                    foreach ($row as $key => $value) {
+                        if (property_exists($object, $key)) {
+                            $object->$key = $value;
+                        }
+                    }
+                    $objects[] = $object;
+                }
+                $stmt->close();
+                return $objects;
+            } else {
+                return null;
+            }
+        }
     }
+        
     
 ?>

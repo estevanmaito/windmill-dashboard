@@ -18,11 +18,11 @@ class Grade {
         $this->description = $description;
     }
 
-    public function getId() {
+    public function getGradeId() {
         return $this->id;
     }
 
-    public function setId($id) {
+    public function setGradeId($id) {
         $this->id = $id;
     }
 
@@ -66,11 +66,11 @@ class Grade {
         $this->grade = $grade;
     }
 
-    public function getDescription() {
+    public function getGradeDescription() {
         return $this->description;
     }
 
-    public function setDescription($description) {
+    public function setGradeDescription($description) {
         $this->description = $description;
     }
 }

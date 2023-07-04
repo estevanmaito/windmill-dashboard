@@ -15,7 +15,7 @@ class grade_category
     }
 
     // Getters
-    public function getId()
+    public function getGradeCategId()
     {
         return $this->id;
     }
@@ -25,7 +25,7 @@ class grade_category
         return $this->category_name;
     }
 
-    public function getItemTypeId()
+    public function getGradeCategItemTypeId()
     {
         return $this->item_type_id;
     }
@@ -36,7 +36,7 @@ class grade_category
     }
 
     // Setters
-    public function setId($id)
+    public function setGradeCategId($id)
     {
         $this->id = $id;
     }
@@ -46,7 +46,7 @@ class grade_category
         $this->category_name = $category_name;
     }
 
-    public function setItemTypeId($item_type_id)
+    public function setGradeCategItemTypeId($item_type_id)
     {
         $this->item_type_id = $item_type_id;
     }

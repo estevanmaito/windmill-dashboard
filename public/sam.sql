@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 04 juil. 2023 à 10:09
+-- Généré le : ven. 07 juil. 2023 à 23:06
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -53,6 +53,13 @@ CREATE TABLE IF NOT EXISTS `country` (
   `name` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `country`
+--
+
+INSERT INTO `country` (`id`, `name`) VALUES
+(1, 'maroc');
 
 -- --------------------------------------------------------
 
@@ -171,6 +178,13 @@ CREATE TABLE IF NOT EXISTS `location` (
   KEY `country_id` (`country_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Déchargement des données de la table `location`
+--
+
+INSERT INTO `location` (`id`, `postal_code`, `name`, `description`, `country_id`) VALUES
+(4, '46546', 'yrec', 'scfehg, qsdfg', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -192,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `unit` (
 
 DROP TABLE IF EXISTS `user_account`;
 CREATE TABLE IF NOT EXISTS `user_account` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(64) NOT NULL,
   `password` varchar(64) NOT NULL,
   `location_id` int NOT NULL,
@@ -201,8 +215,20 @@ CREATE TABLE IF NOT EXISTS `user_account` (
   `mobile` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `registration_time` timestamp NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `location_id` (`location_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `user_account`
+--
+
+INSERT INTO `user_account` (`id`, `username`, `password`, `location_id`, `location_details`, `phone`, `mobile`, `email`, `registration_time`) VALUES
+(1, 'yousra', 'gghhyygg', 4, 'something.................', '0694268432', '0654471147', 'yousra@gmail.com', '2023-07-04 11:56:48'),
+(2, 'tag', 'motdepasse', 4, '<rgb>', '060904474', '05781625', 'slssssss@gmail.com', '2023-07-04 13:16:02'),
+(3, 'may', 'password', 1, 'Some location details', '067829826', 'may@gmail.com', '2023-07-05 14:11:20', '0000-00-00 00:00:00'),
+(5, 'new_user', 'password123', 1, 'New user location details', '06781826', 'newUser@gmail.com', '2023-07-05 21:17:35', '0000-00-00 00:00:00'),
+(6, 'yousrabr', 'dfg', 5, 'new loc details', '0696812339', '0696812339', 'barhmiyousra@gmail.com', '2023-07-06 08:37:43');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

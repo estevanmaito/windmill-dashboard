@@ -2,7 +2,7 @@
 namespace public\ressources\views;
 use public\app\models\User;
 
-$title = "Ajouter utilisateur";
+$title = "modifier utilisateur";
 ob_start();
 ?>
 
@@ -31,7 +31,7 @@ ob_start();
     <label for="registration_time">Registration Time:</label><br>
     <input type="text" name="registration_time" required><br><br>
 
-<button type="submit" style="color: blue; background-color:black;"  class="btn btn-primary my-3"><a href="index1.php?action=list">Ajouter</a></button> 
+<button type="submit" style="color: blue; background-color:black;"  class="btn btn-primary my-3"><a href="index1.php?action=tables">Ajouter</a></button> 
 </form>
 
 

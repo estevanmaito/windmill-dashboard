@@ -1,5 +1,5 @@
 <?php
-namespace public\app\models ;
+namespace public\app\models;
 require 'Model.php' ;
 
 use PDO;

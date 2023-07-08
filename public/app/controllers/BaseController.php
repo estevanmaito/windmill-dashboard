@@ -7,9 +7,9 @@ class BaseController
     protected static $model ;
   
 
-    public static function view($view,$data = null)
+    public static function view($view , $data = NULL)
     {
-        require "../../ressources/views/".$view.".php";
+        require "public/ressources/views/".$view.".php";
     }
 
     public static function redirect($route)

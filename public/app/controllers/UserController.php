@@ -1,6 +1,6 @@
 <?php
 namespace public\app\controllers ;
-require "vendor/autoload.php";
+//require "../../vendor/autoload.php";
 require "BaseController.php";
 use public\app\models\User;
 
@@ -14,9 +14,7 @@ class UserController extends BaseController
         $this->setModel(new User());
     }*/
 
-    /**
-     * @return User
-     */
+   
 
     public static function  getModel()
     {
@@ -62,11 +60,11 @@ class UserController extends BaseController
             }
 
         }
-        
+
     }
 }
 
 
 
- ?>
+?>
  

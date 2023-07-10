@@ -109,7 +109,8 @@ class User extends Model
 
     public function create()
     {
-        $statement = static::database()->prepare( "INSERT INTO user_account VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)" );
+        $statement = static::database()->prepare( " INSERT INTO `user_account` (`id`, `username`, `password`, `location_id`, 
+        `location_details`, `phone`, `mobile`, `email`, `registration_time`)  VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)" );
         return $statement->execute([$this->username, $this->password, $this->location_id, 
         $this->location_details, $this->phone, $this->mobile , $this->email, $this->registration_time] );
     }
@@ -125,9 +126,9 @@ class User extends Model
     public function update($id)
     {
         $statement = static::database()->prepare( "UPDATE user_account SET username = ? , password = ? ,
-        location_id = ? , phone = ? , mobile = ? , email = ? , registration_time = ?
-        WHERE id = ?" );
-        $statement->execute([$this->username,$this->password, $this->location_id, 
+        location_id = ? , location_details = ?, phone = ? , mobile = ? , email = ? , registration_time = ?
+        WHERE id = ".$id );
+        return $statement->execute([$this->username,$this->password, $this->location_id, 
         $this->location_details, $this->phone, $this->mobile , $this->email, $this->registration_time] );
     }
 

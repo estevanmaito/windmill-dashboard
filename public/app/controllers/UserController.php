@@ -49,14 +49,14 @@ class UserController extends BaseController
             $userCreated = static::getModel();
             $userCreated->setUsername( $_POST['username']);
             $userCreated->setPassword($_POST['password']);
-            $userCreated->setUserLocationId($_POST['locationId']);
-            $userCreated->setLocationDetails($_POST['locationdetails']);
+            $userCreated->setUserLocationId($_POST['location_id']);
+            $userCreated->setLocationDetails($_POST['location_details']);
             $userCreated->setPhone($_POST['phone']);   
-            $userCreateduserCreated->setMobile($_POST['mobile']);
+            $userCreated->setMobile($_POST['mobile']);
             $userCreated->setUserEmail($_POST['email']);
-            $userCreated->setRegistrationTime(date('Y-m-d H:i:s'));
+            $userCreated->setRegistrationTime($_POST['registration_time']);
             $userCreated->create();
-            if($userCreated === true){
+            if($userCreated >0){
                 static::redirect('list');
             }
             else{
@@ -88,7 +88,7 @@ class UserController extends BaseController
             $userUpdated->setUserEmail($_POST['email']);
             $userUpdated->setRegistrationTime(date('Y-m-d H:i:s'));
             $userUpdated->update($_POST['id']);
-            if($userUpdated === true){
+            if($userUpdated >0 ){
                 static::redirect('list');
             }
             else{

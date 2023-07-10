@@ -98,6 +98,24 @@ class UserController extends BaseController
         }
 
     }
+
+    public static function destroyAction()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
+            $userdeleted = static::getModel();
+            $userdeleted->destroy($_GET['id']);
+            if($userdeleted >0 ){
+                static::redirect('list');
+            }
+            else{
+                echo "Erreur";
+            }
+
+        }
+
+    }
+
 }
 
 

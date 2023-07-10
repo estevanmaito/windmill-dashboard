@@ -132,6 +132,11 @@ class User extends Model
         $this->location_details, $this->phone, $this->mobile , $this->email, $this->registration_time] );
     }
 
+    public function destroy($id)
+    {
+        $statement = static::database()->prepare("DELETE FROM user_account WHERE id = ?");
+        return $statement->execute([$id] );
+    }
 
 } 
 ?>

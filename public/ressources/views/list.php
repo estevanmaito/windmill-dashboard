@@ -74,7 +74,7 @@ ob_start();
           <td><?= $user->getRegistrationTime() ?></td>
           <td>
           <a href="index1.php?action=edit&id=<?php echo $user->getId()?>" class="btn "> modifier </a>
-          <a href="index1.php?action=destroy&id=<?php echo $user->getId()?>" class="btn "> supprimer </a>
+          <a onclick="return confirm('voulez vous vraiment supprimer ce utilisateur')" href="index1.php?action=destroy&id=<?php echo $user->getId()?>" class="btn "> supprimer </a>
           </td>
 
         </tr>

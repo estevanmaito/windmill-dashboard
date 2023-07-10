@@ -22,6 +22,9 @@
             case 'edit':
                 UserController::editAction();
             break;
+            case 'update':
+                UserController::updateAction();
+            break;
             default :
             echo " page not found 404";
             break;

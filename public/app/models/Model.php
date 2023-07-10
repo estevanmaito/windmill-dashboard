@@ -24,4 +24,6 @@ class Model
         }
         return static::$db;
     }
+
+    
 }

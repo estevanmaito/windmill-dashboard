@@ -2,6 +2,7 @@
 namespace public\app\controllers ;
 //require "../../vendor/autoload.php";
 require "BaseController.php";
+require 'public/app/models/User.php';
 use public\app\models\User;
 
 
@@ -45,18 +46,53 @@ class UserController extends BaseController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $user = static::getModel();
-            $user->setUsername( $_POST['username']);
-            $user->setPassword($_POST['password']);
-            $user->setUserLocationId($_POST['locationId']);
-            $user->setLocationDetails($_POST['locationdetails']);
-            $user->setPhone($_POST['phone']);   
-            $user->setMobile($_POST['mobile']);
-            $user->setUserEmail($_POST['email']);
-            $user->setRegistrationTime(date('Y-m-d H:i:s'));
-            $modelObject->create();
-            if($user === true){
+            $userCreated = static::getModel();
+            $userCreated->setUsername( $_POST['username']);
+            $userCreated->setPassword($_POST['password']);
+            $userCreated->setUserLocationId($_POST['locationId']);
+            $userCreated->setLocationDetails($_POST['locationdetails']);
+            $userCreated->setPhone($_POST['phone']);   
+            $userCreateduserCreated->setMobile($_POST['mobile']);
+            $userCreated->setUserEmail($_POST['email']);
+            $userCreated->setRegistrationTime(date('Y-m-d H:i:s'));
+            $userCreated->create();
+            if($userCreated === true){
                 static::redirect('list');
+            }
+            else{
+                echo "Erreur";
+            }
+
+        }
+
+    }
+    public static function editAction()
+    {
+        $id=$_GET['id'];
+        $user = self::getModel()::view($id);
+        static::view('edit',$user);
+
+    }
+
+    public static function updateAction()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $userUpdated = static::getModel();
+            $userUpdated->setUsername( $_POST['username']);
+            $userUpdated->setPassword($_POST['password']);
+            $userUpdated->setUserLocationId($_POST['locationId']);
+            $userUpdated->setLocationDetails($_POST['locationdetails']);
+            $userUpdated->setPhone($_POST['phone']);   
+            $userUpdated->setMobile($_POST['mobile']);
+            $userUpdated->setUserEmail($_POST['email']);
+            $userUpdated->setRegistrationTime(date('Y-m-d H:i:s'));
+            $userUpdated->update($_POST['id']);
+            if($userUpdated === true){
+                static::redirect('list');
+            }
+            else{
+                echo "Erreur";
             }
 
         }

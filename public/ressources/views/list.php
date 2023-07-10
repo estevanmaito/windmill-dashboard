@@ -1,8 +1,8 @@
 <?php
 namespace public\ressources\views;
 use public\app\models\User;
-require "../../../vendor/autoload.php";
-require "../../app/controllers/UserController.php";
+require "vendor/autoload.php";
+require "public/app/controllers/UserController.php";
 
 
 $title = "Liste des utilisateurs";
@@ -78,11 +78,6 @@ ob_start();
           </td>
 
         </tr>
-    
-    
-
-
-
 <?php endforeach;}
 else {
   echo "No data available";

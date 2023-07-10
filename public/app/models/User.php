@@ -114,5 +114,23 @@ class User extends Model
         $this->location_details, $this->phone, $this->mobile , $this->email, $this->registration_time] );
     }
 
+    public static function view($id)
+    {
+        $sqlstate = static::database()->prepare( "SELECT * FROM  user_account WHERE id = ?" );
+        $sqlstate->execute([$id] );
+        return current($sqlstate->fetchAll( PDO::FETCH_CLASS, __CLASS__));
+    }
+
+    //public static function update($id,$username,$password,$location_id,$location_details,$phone,$mobile,$email)
+    public function update($id)
+    {
+        $statement = static::database()->prepare( "UPDATE user_account SET username = ? , password = ? ,
+        location_id = ? , phone = ? , mobile = ? , email = ? , registration_time = ?
+        WHERE id = ?" );
+        $statement->execute([$this->username,$this->password, $this->location_id, 
+        $this->location_details, $this->phone, $this->mobile , $this->email, $this->registration_time] );
+    }
+
+
 } 
 ?>

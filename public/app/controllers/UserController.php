@@ -29,11 +29,31 @@ class UserController extends BaseController
 
     public static function indexAction()
     {
-       $users = static::getModel()->latest();
+        if($_POST['search'] != NULL && $_SERVER['REQUEST_METHOD'] )
+        {
+            $users = static::getModel()->find($_POST['search']);
+            
+        }
+        else
+        {
+            $users = static::getModel()->latest();   
+        }
+       
       
         static::view("list",$users);
 
     }
+/*
+    public static function searchAction()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['search']) ) {
+
+            $userSearch = static::getModel();
+            $userSearch->find($_POST['search']);
+            static::view("list",$userSearch);
+        }
+
+    }*/
 
     public static function createAction()
     {

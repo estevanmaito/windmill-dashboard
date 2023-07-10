@@ -1,39 +1,4 @@
-<?php
-session_start();
 
-
-$conn = new mysqli('localhost', 'root', '', 'SAM');
-if ($conn->connect_error) {
-    die('Erreur de connexion à la base de données : ' . $conn->connect_error);
-}
-
-
-require_once 'class/DAO.php';
-require_once 'class/user_account.php';
-/*
-$dao = new GenericDAO($conn, 'user_account', 'id');
-
-$objectId = 1; 
-
-//$objectToUpdate = $dao->select(['id' => $objectId]);
-$object = "SELECT * FROM user_account WHERE id = " . $objectId;
-$objectToUpdate = $conn->query($object);
-var_dump($objectToUpdate);
-if ($objectToUpdate !== null) {
-  
-   // $objectToUpdate->setUsername('new name');
-
-    if ($dao->update($objectToUpdate)) {
-        echo "Object updated successfully!";
-    } else {
-        echo "Failed to update object.";
-    }
-} else {
-    echo "Object not found.";
-}
-*/
-$conn->close();
-?>
 
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">

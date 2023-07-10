@@ -101,11 +101,12 @@ class User extends Model
       $this->registration_time = $registration_time;
   }
 
-    public static function latest()
-    {
-        return static::database()->query('SELECT * FROM user_account ORDER BY id DESC')
-        ->fetchAll( PDO::FETCH_CLASS, __CLASS__);
-    }
+  public static function latest( $cond = NULL )
+  {
+      return static::database()->query('SELECT U.username, U.email, I.item_name FROM user_account U INNER JOIN item I ON U.id = I.owner_id')
+          ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+  }
+  
 
     public function create()
     {
@@ -134,9 +135,18 @@ class User extends Model
 
     public function destroy($id)
     {
-        $statement = static::database()->prepare("DELETE FROM user_account WHERE id = ?");
+        $statement = static::database()->prepare("DELETE FROM table_name WHERE id = ?");
         return $statement->execute([$id] );
     }
+
+    public function find($username)
+    {
+        $statement = static::database()->prepare('SELECT U.username, U.email, I.item_name FROM user_account U INNER JOIN item I ON U.id = I.owner_id WHERE username LIKE :username');
+        $statement->bindValue(':username', $username);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+    }
+    
 
 } 
 ?>

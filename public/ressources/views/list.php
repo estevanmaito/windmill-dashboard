@@ -64,14 +64,10 @@ ob_start();
       foreach ($data as $user): ?>
 
         <tr>
-          <td><?= $user->getUsername() ?></td>
-          <td><?= $user->getPassword() ?></td>
-          <td><?= $user->getUserLocationId() ?></td>
-          <td><?= $user->getLocationDetails() ?></td>
-          <td><?= $user->getPhone() ?></td>
-          <td><?= $user->getMobile() ?></td>
+          <td><?= $user->getUsername()?></td>
+          <td><?= $user->item_name ?></td>
+
           <td><?= $user->getUserEmail() ?></td>
-          <td><?= $user->getRegistrationTime() ?></td>
           <td>
           <a href="index1.php?action=edit&id=<?php echo $user->getId()?>" class="btn "> modifier </a>
           <a onclick="return confirm('voulez vous vraiment supprimer ce utilisateur')" href="index1.php?action=destroy&id=<?php echo $user->getId()?>" class="btn "> supprimer </a>

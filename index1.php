@@ -4,13 +4,14 @@
 
    use public\app\controllers\UserController;
     // Création d'un routeur.
-    if (isset($_GET['action'])) {
+    if (isset($_GET['action'])) 
+    {
         $action = $_GET['action'];
         switch ($action) {
             case 'create':
                 UserController::createAction();
             break;
-            case 'list':
+            case 'list' || 'search': 
                 UserController::indexAction();
             break;
             case 'store':
@@ -25,8 +26,10 @@
             case 'update':
                 UserController::updateAction();
             break;
+
             default :
             echo " page not found 404";
             break;
-        }
+            }
     }
+

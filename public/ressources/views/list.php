@@ -2,7 +2,7 @@
 namespace public\ressources\views;
 use public\app\models\User;
 require "vendor/autoload.php";
-require "public/app/controllers/UserController.php";
+//require "public/app/controllers/UserController.php";
 
 
 $title = "Liste des utilisateurs";

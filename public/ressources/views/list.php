@@ -52,6 +52,7 @@ ob_start();
             <th class="px-4 py-3">Mobile</th>
             <th class="px-4 py-3">Email</th>
             <th class="px-4 py-3">Registration Time</th>
+            <th class="px-4 py-3">Action</th>
                       
           </tr>
         </thead>
@@ -63,18 +64,36 @@ ob_start();
     if (is_array($data) || is_object($data)) {
       foreach ($data as $user): ?>
 
-        <tr>
-          <td><?= $user->getUsername()?></td>
-          <td><?= $user->getPassword() ?></td>
-          <td><?= $user->getUserLocationId()?></td>
-          <td><?= $user->getLocationDetails() ?></td>
-          <td><?= $user->getPhone()?></td>
-          <td><?= $user->getMobile() ?></td>
-          <td><?= $user->getUserEmail() ?></td>
-          <td><?= $user->getRegistrationTime() ?></td>
-          <td>
-          <a href="index1.php?action=edit&id=<?php echo $user->getId()?>" class="btn "> modifier </a>
-          <a onclick="return confirm('voulez vous vraiment supprimer ce utilisateur')" href="index1.php?action=destroy&id=<?php echo $user->getId()?>" class="btn "> supprimer </a>
+        <tr class="text-gray-700 dark:text-gray-400">
+          <td class="px-4 py-3 text-sm"><?= $user->getUsername()?></td>
+          <td class="px-4 py-3 text-sm"><?= $user->getPassword() ?></td>
+          <td class="px-4 py-3 text-sm"><?= $user->getUserLocationId()?></td>
+          <td class="px-4 py-3 text-sm"><?= $user->getLocationDetails() ?></td>
+          <td class="px-4 py-3 text-sm"><?= $user->getPhone()?></td>
+          <td class="px-4 py-3 text-sm"><?= $user->getMobile() ?></td>
+          <td class="px-4 py-3 text-sm"><?= $user->getUserEmail() ?></td>
+          <td class="px-4 py-3 text-sm"><?= $user->getRegistrationTime() ?></td>
+          <td class="px-4 py-3 text-sm">
+          <!--<div class="flex">
+            <button aria-label="Edit user" href="index1.php?action=edit&id=<?php echo $user->getId()?>"
+                    class="p-1 focus:outline-none focus:shadow-outline text-teal-500 hover:text-teal-600"
+                    @click="onEdit(user)">
+                <EditIcon/>
+            </button>
+            <button aria-label="Delete user" onclick="return confirm('voulez vous vraiment supprimer ce utilisateur')" href="index1.php?action=destroy&id=<?php echo $user->getId()?>"
+                    class="p-1 focus:outline-none focus:shadow-outline text-red-500 hover:text-red-600"
+                    @click="onDelete(user)">
+                <Trash2Icon/>
+            </button>
+        </div>-->
+        
+          <div> <button class="flex items-center justify-between px-2 py-2 text-sm font -medium leading-5 text-white transition-colors duration-150 bg-purple-6 00 border border-transparent rounded-full active:bg-purple-600 hover:bg -purple-700 focus:outline-none focus: shadow-outline-purple" aria-label= "Edit"> flex
+              <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox= "0 0 20 20">
+                <path d="M13.586 3.586a2 2 0 112.828 2.8281-.793.793-2.828-2.828.79 3-.793ZM11.379 5.793L3 14.172V17h2.82818.38-8.379-2.83-2.828z">
+                </path>
+              </svg>
+            </button>
+          </div>
           </td>
 
         </tr>

@@ -74,18 +74,7 @@ ob_start();
           <td class="px-4 py-3 text-sm"><?= $user->getUserEmail() ?></td>
           <td class="px-4 py-3 text-sm"><?= $user->getRegistrationTime() ?></td>
           <td class="px-4 py-3 text-sm">
-          <!--<div class="flex">
-            <button aria-label="Edit user" href="index1.php?action=edit&id=<?php echo $user->getId()?>"
-                    class="p-1 focus:outline-none focus:shadow-outline text-teal-500 hover:text-teal-600"
-                    @click="onEdit(user)">
-                <EditIcon/>
-            </button>
-            <button aria-label="Delete user" onclick="return confirm('voulez vous vraiment supprimer ce utilisateur')" href="index1.php?action=destroy&id=<?php echo $user->getId()?>"
-                    class="p-1 focus:outline-none focus:shadow-outline text-red-500 hover:text-red-600"
-                    @click="onDelete(user)">
-                <Trash2Icon/>
-            </button>
-        </div>-->
+       
         
           <div> <button class="flex items-center justify-between px-2 py-2 text-sm font -medium leading-5 text-white transition-colors duration-150 bg-purple-6 00 border border-transparent rounded-full active:bg-purple-600 hover:bg -purple-700 focus:outline-none focus: shadow-outline-purple" aria-label= "Edit"> flex
               <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox= "0 0 20 20">

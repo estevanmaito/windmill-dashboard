@@ -32,7 +32,7 @@ ob_start();
     <input type="text" value="<?= $data->getUserEmail()?>" name="email" required><br>
 
     <label for="registration_time">Registration Time:</label><br>
-    <input type="text" value="<?= $data->getRegistrationTime()?>" name="registration_time" required><br><br>
+    <input type="text" value="<?= $data->getRegistrationTime()?>" name="registration_time" ><br><br>
 
 <button type="submit" style="color: blue; background-color:black;"  class="btn btn-primary my-3">Modifier</button> 
 </form>

@@ -11,7 +11,8 @@
             case 'create':
                 UserController::createAction();
             break;
-            case 'list' || 'search': 
+            case 'list':
+                case 'search':  
                 UserController::indexAction();
             break;
             case 'store':

@@ -1,6 +1,5 @@
 <?php
 namespace public\app\controllers ;
-//require "../../vendor/autoload.php";
 require "BaseController.php";
 require 'public/app/models/User.php';
 use public\app\models\User;
@@ -26,23 +25,20 @@ class UserController extends BaseController
         return static::$model ;
     }
 
-
     public static function indexAction()
     {
-        if($_POST['search'] != NULL && $_SERVER['REQUEST_METHOD'] )
-        {
-            $users = static::getModel()->find($_POST['search']);
-            
-        }
-        else
-        {
-            $users = static::getModel()->latest();   
+        $search = isset($_POST['search']) ? $_POST['search'] : null;
+        $requestMethod = $_SERVER['REQUEST_METHOD'];
+    
+        if ($search !== "" && $requestMethod === 'POST') {
+            $users = static::getModel()->find($search);
+        } else {
+            $users = static::getModel()->latest();
         }
        
-      
-        static::view("list",$users);
-
+        static::view("list", $users);
     }
+    
 /*
     public static function searchAction()
     {
@@ -59,8 +55,6 @@ class UserController extends BaseController
     {
         static::view("create");
         echo 'hello';
-
-
     }
     public static function storeAction()
     {
@@ -99,6 +93,7 @@ class UserController extends BaseController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $userUpdated = static::getModel();
+            
             $userUpdated->setUsername( $_POST['username']);
             $userUpdated->setPassword($_POST['password']);
             $userUpdated->setUserLocationId($_POST['locationId']);
@@ -135,6 +130,8 @@ class UserController extends BaseController
         }
 
     }
+
+    
 
 }
 

@@ -29,7 +29,7 @@ ob_start();
     <input type="text" name="email" required><br>
 
     <label for="registration_time">Registration Time:</label><br>
-    <input type="text" name="registration_time" required><br><br>
+    <input type="text" name="registration_time" ><br><br>
 
 <button type="submit" style="color: blue; background-color:black;"  class="btn btn-primary my-3">Ajouter</button> 
 </form>

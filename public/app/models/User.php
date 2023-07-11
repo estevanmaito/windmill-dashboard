@@ -100,21 +100,27 @@ class User extends Model
   {
       $this->registration_time = $registration_time;
   }
-
+/*
   public static function latest( $cond = NULL )
   {
       return static::database()->query('SELECT U.username, U.email, I.item_name FROM user_account U INNER JOIN item I ON U.id = I.owner_id')
           ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
-  }
+  }*/
   
+  public static function latest(  )
+  {
+      return static::database()->query('SELECT * FROM user_account ORDER BY id DESC')
+          ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+  }
 
-    public function create()
-    {
-        $statement = static::database()->prepare( " INSERT INTO `user_account` (`id`, `username`, `password`, `location_id`, 
-        `location_details`, `phone`, `mobile`, `email`, `registration_time`)  VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)" );
-        return $statement->execute([$this->username, $this->password, $this->location_id, 
-        $this->location_details, $this->phone, $this->mobile , $this->email, $this->registration_time] );
-    }
+  public function create()
+  {
+      $statement = static::database()->prepare( " INSERT INTO `user_account` (`id`, `username`, `password`, `location_id`, 
+      `location_details`, `phone`, `mobile`, `email`, `registration_time`)  VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)" );
+      return $statement->execute([$this->username, $this->password, $this->location_id, 
+      $this->location_details, $this->phone, $this->mobile , $this->email, $this->registration_time] );
+  }
+    
 
     public static function view($id)
     {
@@ -126,27 +132,38 @@ class User extends Model
     //public static function update($id,$username,$password,$location_id,$location_details,$phone,$mobile,$email)
     public function update($id)
     {
-        $statement = static::database()->prepare( "UPDATE user_account SET username = ? , password = ? ,
-        location_id = ? , location_details = ?, phone = ? , mobile = ? , email = ? , registration_time = ?
-        WHERE id = ".$id );
-        return $statement->execute([$this->username,$this->password, $this->location_id, 
-        $this->location_details, $this->phone, $this->mobile , $this->email, $this->registration_time] );
+        $statement = static::database()->prepare("UPDATE user_account SET username = ?, password = ?, location_id = ?,
+         location_details = ?, phone = ?, mobile = ?, email = ?, registration_time = ? WHERE id = ".$id);
+        $parameters = [$this->username, $this->password, $this->location_id, $this->location_details,
+         $this->phone, $this->mobile, $this->email, $this->registration_time];
+        return $statement->execute($parameters);
+
     }
 
     public function destroy($id)
     {
-        $statement = static::database()->prepare("DELETE FROM table_name WHERE id = ?");
+        $statement = static::database()->prepare("DELETE FROM user_account WHERE id = ?");
         return $statement->execute([$id] );
     }
 
+
+
+/*
     public function find($username)
     {
         $statement = static::database()->prepare('SELECT U.username, U.email, I.item_name FROM user_account U INNER JOIN item I ON U.id = I.owner_id WHERE username LIKE :username');
         $statement->bindValue(':username', $username);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
-    }
+    }*/
     
+    public function find($username)
+    {
+        $statement = static::database()->prepare('SELECT * FROM  user_account  WHERE username LIKE :username');
+        $statement->bindValue(':username', $username);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+    }
 
 } 
 ?>

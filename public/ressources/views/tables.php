@@ -1,8 +1,8 @@
 <?php
 namespace public\ressources\views;
 use public\app\models\User;
-require "../../../vendor/autoload.php";
-require "../../app/controllers/UserController.php";
+//require "vendor/autoload.php";
+
 
 
 $title = "Liste des utilisateurs";

@@ -22,10 +22,10 @@
 
 <body>
   <?php include 'header.php';
-      include 'include/nav.php';
+      //include 'include/nav.php';
   ?>
 
-    <h2><?= $title; ?></h2>
+    
     <div>
         <?= $content; ?>
     </div>

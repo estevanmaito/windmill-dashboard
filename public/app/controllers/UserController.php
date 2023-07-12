@@ -1,20 +1,12 @@
 <?php
 namespace public\app\controllers ;
-require "BaseController.php";
+ require "BaseController.php";
 require 'public/app/models/User.php';
 use public\app\models\User;
 
 
 class UserController extends BaseController
 {
-    /*
-    on a supprimer cette partie et on la remplacer par getModel
-    public function __construct()
-    {
-        $this->setModel(new User());
-    }*/
-
-   
 
     public static function  getModel()
     {
@@ -31,12 +23,12 @@ class UserController extends BaseController
         $requestMethod = $_SERVER['REQUEST_METHOD'];
     
         if ($search !== "" && $requestMethod === 'POST') {
-            $users = static::getModel()->find($search);
+            $users = static::getModel()->find('user_account',$search);
         } else {
-            $users = static::getModel()->latest();
+            $users = static::getModel()->latest('user_account');
         }
        
-        static::view("list", $users);
+        static::requir("list", $users);
     }
     
 /*
@@ -46,14 +38,14 @@ class UserController extends BaseController
 
             $userSearch = static::getModel();
             $userSearch->find($_POST['search']);
-            static::view("list",$userSearch);
+            static::requir("list",$userSearch);
         }
 
     }*/
 
     public static function createAction()
     {
-        static::view("create");
+        static::requir("create");
         echo 'hello';
     }
     public static function storeAction()
@@ -84,7 +76,7 @@ class UserController extends BaseController
     {
         $id=$_GET['id'];
         $user = self::getModel()::view($id);
-        static::view('edit',$user);
+        static::requir('edit',$user);
 
     }
 
@@ -119,7 +111,7 @@ class UserController extends BaseController
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
             $userdeleted = static::getModel();
-            $userdeleted->destroy($_GET['id']);
+            $userdeleted->destroy('user_account',$_GET['id']);
             if($userdeleted >0 ){
                 static::redirect('list');
             }
@@ -131,7 +123,12 @@ class UserController extends BaseController
 
     }
 
-    
+    public static function lengthAction()
+    {
+        return static::getModel()::length('user_account');
+    }
+
+
 
 }
 

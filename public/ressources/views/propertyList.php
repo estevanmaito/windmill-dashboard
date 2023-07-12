@@ -1,7 +1,7 @@
 <?php
 namespace public\ressources\views;
-use public\app\models\User;
-use public\app\controllers\UserController;
+use public\app\models\Item;
+use public\app\controllers\ItemController;
 
 require "vendor/autoload.php";
 //require "public/app/controllers/UserController.php";
@@ -36,7 +36,7 @@ ob_start();
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
                     <!-- 6389 -->
-                    <?php echo UserController::lengthAction() ;
+                    <?php var_dump(UserController::lengthAction()) ;
                     ?>
                   </p>
                 </div>
@@ -234,40 +234,38 @@ ob_start();
     <table class="w-full whitespace-no-wrap">
         <thead>
           <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800" >
-            <th>Username</th>
-            <th class="px-4 py-3">Password</th>
-            <th class="px-4 py-3">Location ID</th>
-            <th class="px-4 py-3">Location Details</th>
-            <th class="px-4 py-3">Phone</th>
-            <th class="px-4 py-3">Mobile</th>
-            <th class="px-4 py-3">Email</th>
-            <th class="px-4 py-3">Registration Time</th>
-            <th class="px-4 py-3">Action</th>
-                      
+            <th>name</th>
+            <th class="px-4 py-3">type</th>
+            <th class="px-4 py-3">Location </th>
+            <th class="px-4 py-3">item Location </th>
+            <th class="px-4 py-3">description</th>
+            <th class="px-4 py-3">owner</th>
+            <th class="px-4 py-3">price</th>
+            <th class="px-4 py-3">unit </th>                      
           </tr>
         </thead>
         <tbody>
 <?php 
 
-    /** @var \public\app\models\User[] $data */
+    /** @var \public\app\models\Item[] $data */
 
     if (is_array($data) || is_object($data)) {
-      foreach ($data as $user): ?>
+      foreach ($data as $item): ?>
 
         <tr class="text-gray-700 dark:text-gray-400">
-          <td class="px-4 py-3 text-sm"><?= $user->getUsername()?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getPassword() ?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getUserLocationId()?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getLocationDetails() ?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getPhone()?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getMobile() ?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getUserEmail() ?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getRegistrationTime() ?></td>
+          <td class="px-4 py-3 text-sm"><?= $item->getItemName()?></td>
+          <td class="px-4 py-3 text-sm"><?= $item->type_name ?></td>
+          <td class="px-4 py-3 text-sm"><?= $item->name?></td>
+          <td class="px-4 py-3 text-sm"><?= $item->getItemLocation() ?></td>
+          <td class="px-4 py-3 text-sm"><?= $item->getItemDescription()?></td>
+          <td class="px-4 py-3 text-sm"><?= $item->username ?></td>
+          <td class="px-4 py-3 text-sm"><?= $item->getPricePerUnit() ?></td>
+          <td class="px-4 py-3 text-sm"><?= $item->unit_name ?></td>
           <td class="px-4 py-3 text-sm">
             <div class="flex items-center space-x-4 text-sm">
               <a
                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                aria-label="Edit" href="index1.php?action=edit&id=<?php echo $user->getId()?>"
+                aria-label="Edit" href="index1.php?action=edit&id=<?php echo $item->getId()?>"
               >
                 <svg
                   class="w-5 h-5"
@@ -282,7 +280,7 @@ ob_start();
       </a>
               <a
                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                aria-label="Delete" onclick="return confirm('voulez vous vraiment supprimer ce utilisateur')"  href="index1.php?action=destroy&id=<?php echo $user->getId()?>"
+                aria-label="Delete" onclick="return confirm('voulez vous vraiment supprimer ce utilisateur')"  href="index1.php?action=destroy&id=<?php echo $item->getId()?>"
               >
                 <svg
                   class="w-5 h-5"

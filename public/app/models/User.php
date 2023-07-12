@@ -4,6 +4,7 @@ require 'Model.php' ;
 
 use PDO;
 
+
 class User extends Model
 {
     private $username;
@@ -15,6 +16,7 @@ class User extends Model
     private $email;
     private $registration_time;
 
+    
 
   // Getters
    
@@ -107,9 +109,9 @@ class User extends Model
           ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
   }*/
   
-  public static function latest(  )
+  public static function latest( $table  )
   {
-      return static::database()->query('SELECT * FROM user_account ORDER BY id DESC')
+      return static::database()->query('SELECT * FROM '.$table.' ORDER BY id DESC')
           ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
   }
 
@@ -120,8 +122,11 @@ class User extends Model
       return $statement->execute([$this->username, $this->password, $this->location_id, 
       $this->location_details, $this->phone, $this->mobile , $this->email, $this->registration_time] );
   }
-    
-
+/*
+  public static function retrieve($id){
+    return static::view('user_account',$id);
+  }
+    */
     public static function view($id)
     {
         $sqlstate = static::database()->prepare( "SELECT * FROM  user_account WHERE id = ?" );
@@ -130,6 +135,7 @@ class User extends Model
     }
 
     //public static function update($id,$username,$password,$location_id,$location_details,$phone,$mobile,$email)
+    
     public function update($id)
     {
         $statement = static::database()->prepare("UPDATE user_account SET username = ?, password = ?, location_id = ?,
@@ -139,12 +145,12 @@ class User extends Model
         return $statement->execute($parameters);
 
     }
-
+/*
     public function destroy($id)
     {
         $statement = static::database()->prepare("DELETE FROM user_account WHERE id = ?");
         return $statement->execute([$id] );
-    }
+    }*/
 
 
 
@@ -157,13 +163,17 @@ class User extends Model
         return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }*/
     
-    public function find($username)
+    public function find($table,$username)
     {
-        $statement = static::database()->prepare('SELECT * FROM  user_account  WHERE username LIKE :username');
+        $statement = static::database()->prepare('SELECT * FROM  '.$table.'  WHERE username LIKE :username');
         $statement->bindValue(':username', $username);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }
+
+    
+
+
 
 } 
 ?>

@@ -1,6 +1,8 @@
 <?php
    require "vendor/autoload.php";
    require "public/app/controllers/UserController.php";
+   require "public/app/controllers/ItemController.php";
+
 
    use public\app\controllers\UserController;
     // Création d'un routeur.
@@ -11,8 +13,8 @@
             case 'create':
                 UserController::createAction();
             break;
-            case 'list':
-                case 'search':  
+            case 'list' :
+            case 'search': 
                 UserController::indexAction();
             break;
             case 'store':
@@ -26,6 +28,9 @@
             break;
             case 'update':
                 UserController::updateAction();
+            break;
+            case 'propertyList':
+                ItemController::indexActionItem();
             break;
 
             default :

@@ -7,7 +7,7 @@ class BaseController
     protected static $model ;
   
 
-    public static function view($view , $data = NULL)
+    public static function requir($view , $data = NULL)
     {
         require "public/ressources/views/".$view.".php";
     }
@@ -16,6 +16,12 @@ class BaseController
     {
         header("location: index1.php?action=$route");
     }
+
+    public function getArrayLength($array)
+    {
+        return count($array);
+    }
+
 }
 
 ?>

@@ -1,5 +1,6 @@
 <?php
 namespace public\app\models;
+
 use PDO;
 
 class Model
@@ -25,5 +26,27 @@ class Model
         return static::$db;
     }
 
+   /* public static function view($table,$id)
+    {
+        $sqlstate = static::database()->prepare( "SELECT * FROM  ".$table." WHERE id = ?" );
+        $sqlstate->execute([$id] );
+        return current($sqlstate->fetchAll( PDO::FETCH_CLASS, __CLASS__));
+    }*/
+
+    public function destroy($table,$id)
+    {
+        $statement = static::database()->prepare("DELETE FROM ".$table." WHERE id = ?");
+        return $statement->execute([$id] );
+    }
     
+    public static function length($table)
+    {
+        $requete = static::database()->query('SELECT COUNT(*) FROM '.$table);
+        return $requete->fetch()['COUNT(*)'];
+/*
+        $resultat=mysql_fetch_row($result);
+        echo $resultat[0];
+*/
+    }
+
 }

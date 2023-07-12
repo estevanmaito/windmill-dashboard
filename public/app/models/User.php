@@ -173,7 +173,7 @@ class User extends Model
 
     
 
-
-
 } 
+// $user = new User();
+// var_dump($user->latest('user_account'));
 ?>

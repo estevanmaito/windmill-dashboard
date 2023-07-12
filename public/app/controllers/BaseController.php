@@ -17,10 +17,6 @@ class BaseController
         header("location: index1.php?action=$route");
     }
 
-    public function getArrayLength($array)
-    {
-        return count($array);
-    }
 
 }
 

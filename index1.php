@@ -1,10 +1,12 @@
 <?php
-   require "vendor/autoload.php";
-   require "public/app/controllers/UserController.php";
+  // require "vendor/autoload.php";
+require "public/app/controllers/UserController.php";
    require "public/app/controllers/ItemController.php";
 
 
    use public\app\controllers\UserController;
+   use public\app\controllers\ItemController;
+
     // Création d'un routeur.
     if (isset($_GET['action'])) 
     {

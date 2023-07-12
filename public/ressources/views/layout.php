@@ -21,12 +21,13 @@
   </head>
 
 <body>
+  <div class="flex">
   <?php include 'header.php';
       //include 'include/nav.php';
   ?>
 
     
-    <div>
+    
         <?= $content; ?>
     </div>
 </body>

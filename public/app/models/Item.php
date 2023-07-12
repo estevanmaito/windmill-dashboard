@@ -151,11 +151,11 @@ class Item extends Model
     
 
 }
-/*
+
     $item = new Item();
     $item->latestItem();
     
-
+/*
 // Use the setters to set the properties of the item
 $item->setItemName('Example Item');
 $item->setItemTypeId(1);

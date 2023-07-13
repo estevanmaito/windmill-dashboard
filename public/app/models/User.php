@@ -115,6 +115,17 @@ class User extends Model
           ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
   }
 
+  public function getLimitProducts($leftLimit, $rightLimit) 
+  {
+    $result = array();
+    $sql = "SELECT * FROM user_account LIMIT :leftLimit, :rightLimit";
+    $stmt = static::database()->prepare($sql);
+    $stmt->bindValue(":leftLimit", $leftLimit, PDO::PARAM_INT);
+    $stmt->bindValue(":rightLimit", $rightLimit, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+   }
+
   public function create()
   {
       $statement = static::database()->prepare( " INSERT INTO `user_account` (`id`, `username`, `password`, `location_id`, 

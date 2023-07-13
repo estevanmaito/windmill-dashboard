@@ -5,7 +5,7 @@ namespace public\app\controllers;
 class BaseController
 {
     protected static $model ;
-  
+ 
 
     public static function requir($view , $data = NULL)
     {
@@ -17,6 +17,10 @@ class BaseController
         header("location: index1.php?action=$route");
     }
 
+    public function paginator( $TotalPage , $TotalPerPege )
+    {
+        
+    }
 
 }
 

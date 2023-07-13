@@ -20,15 +20,12 @@
     <script src="/SAM/public/assets/js/init-alpine.js"></script>
   </head>
 
-<body>
-  <div class="flex">
-  <?php include 'header.php';
-      //include 'include/nav.php';
-  ?>
-
-    
-    
-        <?= $content; ?>
+  <body>
+    <div class="flex">
+      <?php include 'header.php';
+          //include 'include/nav.php';
+      ?>
+      <?= $content; ?>
     </div>
-</body>
+  </body>
 </html>

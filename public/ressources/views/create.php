@@ -37,7 +37,7 @@ ob_start();
 
 
 <?php
-echo "ok!";
+
 $content = ob_get_clean();
 include_once 'layout.php';
 ?>

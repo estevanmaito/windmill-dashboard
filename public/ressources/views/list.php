@@ -128,18 +128,30 @@ ob_start();
              
  
               
-            
-
-            <!-- With actions -->
-            <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-    Table with actions
-  </h4>
+              <div class="flex flex-col justify-between flex-wrap mb-4 space-y-4 md:flex-row md:items-end md:space-x-4">
+             <!-- With actions -->
+    <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+      Listes des clients
+    </h4>
+    <!-- Buttom ajouter -->
+   <!-- <button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+      Ajouter
+    </button> -->
+    <a href="index1.php?action=create" ><button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+      Ajouter </button>
+</a>
+</div>  
   <div class="w-full overflow-hidden rounded-lg shadow-xs">
   <div
                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
               >
+              <?php
+              $totalItem = UserController::lengthAction();
+                $pages = ceil($totalItem / 2);
+
+                ?>
                 <span class="flex items-center col-span-3">
-                  Showing 21-30 of 100
+                  Showing 21-30 of <?= $totalItem ?>
                 </span>
                 <span class="col-span-2"></span>
                 <!-- Pagination-->
@@ -164,7 +176,19 @@ ob_start();
                           </svg>
                         </button>
                       </li>
-                      <li>
+                      <?php
+                $pages = ceil(UserController::lengthAction() / 2);
+                for($i=1; $i<=$pages-1; $i++) {
+          ?>
+         <li>
+                        <a
+                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple" href="?action=list&page=<?= $i ?>"
+                        >
+                          <?=  $i  ?>
+                </a>
+                      </li>
+        <?php } ?>
+                    <!--   <li>
                         <button
                           class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
                         >
@@ -208,7 +232,7 @@ ob_start();
                         >
                           9
                         </button>
-                      </li>
+                      </li>-->
                       <li>
                         <button
                           class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
@@ -229,7 +253,8 @@ ob_start();
                       </li>
                     </ul>
                   </nav>
-                </span>
+                </span> 
+                
               </div>
   <div class="w-full overflow-x-auto">
     <table class="w-full whitespace-no-wrap">
@@ -320,7 +345,11 @@ else {
     </div>
  
 
+ 
+
+
 <?php
 $content = ob_get_clean();
 include_once 'layout.php';
 ?>
+

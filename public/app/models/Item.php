@@ -144,16 +144,14 @@ class Item extends Model
         $statement = static::database()->prepare("UPDATE item SET item_name = ?, item_type_id = ?, location_id = ?,
          item_location = ?, description = ?, owner_id = ?, price_per_unit = ?, unit_id = ?, avaible= ? WHERE id = ".$id);
         $parameters = [$this->item_name, $this->item_type_id, $this->location_id, $this->item_location, 
-        $this->description, $this->owner_id , $this->price_per_unit, $this->unit_id, this->avaible];
+        $this->description, $this->owner_id , $this->price_per_unit, $this->unit_id, $this->avaible];
         return $statement->execute($parameters);
     }
 
-    
-
 }
 
-    $item = new Item();
-    $item->latestItem();
+    // $item = new Item();
+    // $item->latestItem();
     
 /*
 // Use the setters to set the properties of the item

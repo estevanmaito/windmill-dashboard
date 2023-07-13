@@ -7,6 +7,8 @@ use public\app\models\User;
 
 class UserController extends BaseController
 {
+    private static $productsPerPage = 3;
+
 
     public static function  getModel()
     {
@@ -17,6 +19,26 @@ class UserController extends BaseController
         return static::$model ;
     }
 
+    public static function makeProductPager() {
+        $totalPages= static::lengthAction();
+        if(!isset($_GET['page']) || intval($_GET['page']) == 0 || intval($_GET['page']) == 1 || intval($_GET['page']) < 0) {
+            $pageNumber = 1;
+            $leftLimit = 0;
+            $rightLimit = static::$productsPerPage; 
+        } elseif (intval($_GET['page']) > $totalPages || intval($_GET['page']) == $totalPages) {
+            $pageNumber = $totalPages; 
+            $leftLimit = static::$productsPerPage * ($pageNumber - 1); 
+            $rightLimit = $allProducts; 
+        } else {
+            $pageNumber = intval($_GET['page']);
+            $leftLimit = static::$productsPerPage * ($pageNumber-1); 
+            $rightLimit = static::$productsPerPage; 
+        }
+        
+        return static::getModel()->getLimitProducts($leftLimit, $rightLimit);
+
+    }
+
     public static function indexAction()
     {
         $search = isset($_POST['search']) ? $_POST['search'] : null;
@@ -25,7 +47,7 @@ class UserController extends BaseController
         if ($search !== "" && $requestMethod === 'POST') {
             $users = static::getModel()->find('user_account',$search);
         } else {
-            $users = static::getModel()->latest('user_account');
+            $users = static::makeProductPager();
         }
        
         static::requir("list", $users);
@@ -46,7 +68,7 @@ class UserController extends BaseController
     public static function createAction()
     {
         static::requir("create");
-        echo 'hello';
+       
     }
     public static function storeAction()
     {
@@ -128,6 +150,8 @@ class UserController extends BaseController
         return static::getModel()::length('user_account');
     }
 
+
+    
 
 
 }

@@ -1,5 +1,6 @@
 <?php
-namespace public\app\controllers;
+namespace app\controllers ;
+
 
 
 class BaseController
@@ -17,10 +18,6 @@ class BaseController
         header("location: index1.php?action=$route");
     }
 
-    public function paginator( $TotalPage , $TotalPerPege )
-    {
-        
-    }
 
 }
 

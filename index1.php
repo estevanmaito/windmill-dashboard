@@ -4,8 +4,8 @@ require "public/app/controllers/UserController.php";
    require "public/app/controllers/ItemController.php";
 
 
-   use public\app\controllers\UserController;
-   use public\app\controllers\ItemController;
+   use \app\controllers\UserController;
+   use \app\controllers\ItemController;
 
     // Création d'un routeur.
     if (isset($_GET['action'])) 
@@ -33,6 +33,9 @@ require "public/app/controllers/UserController.php";
             break;
             case 'propertyList':
                 ItemController::indexActionItem();
+            break;
+            case 'createItem':
+                ItemController::createActionItem();
             break;
 
             default :

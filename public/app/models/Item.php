@@ -1,10 +1,14 @@
 <?php
-namespace public\app\models;
-require 'Model.php' ;
+namespace app\models;
+
+// Reste du code de la classe User
+require_once __DIR__ . '/Model.php';
+use \app\models\Model;
+
 
 use PDO;
 
-class Item extends Model
+class Item extends \app\models\Model
 {
    // private $id;
     private $item_name;
@@ -123,11 +127,11 @@ class Item extends Model
 
     public static function latestItem(  )
   {
-      return var_dump(static::database()->query('SELECT I.id , I.item_name, It.type_name, l.name , I.item_location , I.description ,
+      return static::database()->query('SELECT I.id , I.item_name, It.type_name, l.name , I.item_location , I.description ,
        U.username , I.price_per_unit , Un.unit_name , I.avaible FROM user_account U INNER JOIN item I ON I.owner_id  = U.id 
        INNER JOIN item_type It ON I.item_type_id  =  It.id INNER JOIN location l ON I.location_id = l.id 
        INNER JOIN unit Un ON I.unit_id = Un.id')
-          ->fetchAll(PDO::FETCH_CLASS, __CLASS__));
+          ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
   }
 
     public function createItem()

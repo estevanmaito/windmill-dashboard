@@ -1,5 +1,8 @@
 <?php
-namespace public\app\models;
+namespace app\models;
+
+// Reste du code de la classe User
+
 
 use PDO;
 
@@ -48,5 +51,11 @@ class Model
         echo $resultat[0];
 */
     }
+    // public static function view($table , $id)
+    // {
+    //     $sqlstate = static::database()->prepare( "SELECT * FROM  ".$table." WHERE id = ?" );
+    //     $sqlstate->execute([$id] );
+    //     return current($sqlstate->fetchAll( PDO::FETCH_CLASS, __CLASS__));
+    // }
 
 }

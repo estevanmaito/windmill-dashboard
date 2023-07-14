@@ -1,7 +1,7 @@
 <?php
-namespace public\ressources\views;
-use public\app\models\User;
-use public\app\controllers\UserController;
+namespace ressources\views;
+use \app\models\User;
+use \app\controllers\UserController;
 
 require "vendor/autoload.php";
 //require "public/app/controllers/UserController.php";
@@ -350,6 +350,6 @@ else {
 
 <?php
 $content = ob_get_clean();
-include_once 'layout.php';
+include_once 'public/ressources/views/layout.php';
 ?>
 

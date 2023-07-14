@@ -1,11 +1,17 @@
 <?php
-namespace public\app\models;
-require 'Model.php' ;
+namespace app\models;
+
+// Reste du code de la classe User
+
+require_once __DIR__ . '/Model.php';
+use \app\models\Model;
+
+
 
 use PDO;
 
 
-class User extends Model
+class User extends \app\models\Model
 {
     private $username;
     private $password;
@@ -117,7 +123,7 @@ class User extends Model
 
   public function getLimitProducts($leftLimit, $rightLimit) 
   {
-    $result = array();
+    
     $sql = "SELECT * FROM user_account LIMIT :leftLimit, :rightLimit";
     $stmt = static::database()->prepare($sql);
     $stmt->bindValue(":leftLimit", $leftLimit, PDO::PARAM_INT);
@@ -138,7 +144,8 @@ class User extends Model
     return static::view('user_account',$id);
   }
     */
-    public static function view($id)
+
+    public static function view( $id)
     {
         $sqlstate = static::database()->prepare( "SELECT * FROM  user_account WHERE id = ?" );
         $sqlstate->execute([$id] );

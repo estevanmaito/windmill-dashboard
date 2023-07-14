@@ -1,6 +1,6 @@
 <?php
-namespace public\ressources\views;
-use public\app\models\User;
+namespace ressources\views;
+use \app\models\User;
 
 $title = "Ajouter utilisateur";
 ob_start();
@@ -39,5 +39,6 @@ ob_start();
 <?php
 
 $content = ob_get_clean();
-include_once 'layout.php';
+include_once 'public/ressources/views/layout.php';
+
 ?>

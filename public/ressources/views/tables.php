@@ -195,5 +195,6 @@ else {
 
 <?php
 $content = ob_get_clean();
-include_once 'layout.php';
+include_once 'public/ressources/views/layout.php';
+
 ?>

@@ -1,15 +1,11 @@
 <?php
 namespace app\models;
 
-// Reste du code de la classe User
-
+// Import the base Model class
 require_once __DIR__ . '/Model.php';
 use \app\models\Model;
 
-
-
 use PDO;
-
 
 class User extends \app\models\Model
 {
@@ -108,90 +104,86 @@ class User extends \app\models\Model
   {
       $this->registration_time = $registration_time;
   }
-/*
-  public static function latest( $cond = NULL )
+
+  public static function latest($table)
   {
-      return static::database()->query('SELECT U.username, U.email, I.item_name FROM user_account U INNER JOIN item I ON U.id = I.owner_id')
-          ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
-  }*/
-  
-  public static function latest( $table  )
-  {
+      // Execute a query to fetch the latest records from the specified table
       return static::database()->query('SELECT * FROM '.$table.' ORDER BY id DESC')
           ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
   }
 
   public function getLimitProducts($leftLimit, $rightLimit) 
   {
-    
-    $sql = "SELECT * FROM user_account LIMIT :leftLimit, :rightLimit";
-    $stmt = static::database()->prepare($sql);
-    $stmt->bindValue(":leftLimit", $leftLimit, PDO::PARAM_INT);
-    $stmt->bindValue(":rightLimit", $rightLimit, PDO::PARAM_INT);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_CLASS, __CLASS__);
-   }
+      // Construct the SQL query with placeholders for left and right limit values
+      $sql = "SELECT * FROM user_account LIMIT :leftLimit, :rightLimit";
+      
+      // Prepare the SQL statement
+      $stmt = static::database()->prepare($sql);
+      
+      // Bind the leftLimit and rightLimit values to the placeholders in the query
+      $stmt->bindValue(":leftLimit", $leftLimit, PDO::PARAM_INT);
+      $stmt->bindValue(":rightLimit", $rightLimit, PDO::PARAM_INT);
+      
+      // Execute the prepared statement
+      $stmt->execute();
+      
+      // Fetch all rows as an array of objects of the current class
+      return $stmt->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+  }
 
   public function create()
   {
-      $statement = static::database()->prepare( " INSERT INTO `user_account` (`id`, `username`, `password`, `location_id`, 
-      `location_details`, `phone`, `mobile`, `email`, `registration_time`)  VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)" );
+      // Prepare the SQL statement with placeholders for values
+      $statement = static::database()->prepare("INSERT INTO `user_account` (`id`, `username`, `password`, `location_id`, 
+      `location_details`, `phone`, `mobile`, `email`, `registration_time`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)");
+      
+      // Execute the prepared statement with the corresponding values
       return $statement->execute([$this->username, $this->password, $this->location_id, 
-      $this->location_details, $this->phone, $this->mobile , $this->email, $this->registration_time] );
+      $this->location_details, $this->phone, $this->mobile , $this->email, $this->registration_time]);
   }
-/*
-  public static function retrieve($id){
-    return static::view('user_account',$id);
+  
+  public static function view($id)
+  {
+      // Prepare the SQL statement to select a record from the "user_account" table based on the given id
+      $sqlstate = static::database()->prepare("SELECT * FROM user_account WHERE id = ?");
+      
+      // Execute the prepared statement with the provided id
+      $sqlstate->execute([$id]);
+      
+      // Fetch the result as an array of objects of the current class and return the first element
+      return current($sqlstate->fetchAll(PDO::FETCH_CLASS, __CLASS__));
   }
-    */
-
-    public static function view( $id)
-    {
-        $sqlstate = static::database()->prepare( "SELECT * FROM  user_account WHERE id = ?" );
-        $sqlstate->execute([$id] );
-        return current($sqlstate->fetchAll( PDO::FETCH_CLASS, __CLASS__));
-    }
-
-    //public static function update($id,$username,$password,$location_id,$location_details,$phone,$mobile,$email)
-    
+      
     public function update($id)
     {
+        // Prepare the SQL statement to update the "user_account" table based on the given id
         $statement = static::database()->prepare("UPDATE user_account SET username = ?, password = ?, location_id = ?,
-         location_details = ?, phone = ?, mobile = ?, email = ?, registration_time = ? WHERE id = ".$id);
+        location_details = ?, phone = ?, mobile = ?, email = ?, registration_time = ? WHERE id = " . $id);
+        
+        // Prepare an array of parameters with the values to be updated
         $parameters = [$this->username, $this->password, $this->location_id, $this->location_details,
-         $this->phone, $this->mobile, $this->email, $this->registration_time];
+        $this->phone, $this->mobile, $this->email, $this->registration_time];
+        
+        // Execute the prepared statement with the parameters
         return $statement->execute($parameters);
-
-    }
-/*
-    public function destroy($id)
-    {
-        $statement = static::database()->prepare("DELETE FROM user_account WHERE id = ?");
-        return $statement->execute([$id] );
-    }*/
-
-
-
-/*
-    public function find($username)
-    {
-        $statement = static::database()->prepare('SELECT U.username, U.email, I.item_name FROM user_account U INNER JOIN item I ON U.id = I.owner_id WHERE username LIKE :username');
-        $statement->bindValue(':username', $username);
-        $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
-    }*/
-    
-    public function find($table,$username)
-    {
-        $statement = static::database()->prepare('SELECT * FROM  '.$table.'  WHERE username LIKE :username');
-        $statement->bindValue(':username', $username);
-        $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }
 
-    
+    public function find($table, $username)
+    {
+        // Prepare the SQL statement to select records from the specified table where the username matches the provided value
+        $statement = static::database()->prepare('SELECT * FROM ' . $table . ' WHERE username LIKE :username');
+        
+        // Bind the value of the username parameter to the corresponding placeholder in the query
+        $statement->bindValue(':username', $username);
+        
+        // Execute the prepared statement
+        $statement->execute();
+        
+        // Fetch all rows as an array of objects of the current class and return the result
+        return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+    }   
 
 } 
-// $user = new User();
-// var_dump($user->latest('user_account'));
+
+
 ?>

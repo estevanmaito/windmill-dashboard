@@ -6,18 +6,18 @@ $title = "Ajouter utilisateur";
 ob_start();
 ?>
 
-<form action="index1.php?action=store" method="post" style="color: black; background-color:blue;">
+<form action="index1.php?action=store" method="post" >
     <label for="username">Username:</label><br>
-    <input type="text" name="username" required><br>
+    <input type="text" name="username"  required><br>
 
     <label for="password">Password:</label><br>
     <input type="password" name="password" required><br>
 
     <label for="locationId">LocationId:</label><br>
-    <input type="text" name="location_id" required><br>
+    <input type="text" name="locationId" required><br>
 
     <label for="locationdetails">Location details:</label><br>
-    <input type="text" name="location_details" required><br>
+    <input type="text" name="locationdetails" required><br>
 
     <label for="phone">Phone:</label><br>
     <input type="text" name="phone" required><br>

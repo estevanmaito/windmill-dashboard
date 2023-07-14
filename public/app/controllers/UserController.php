@@ -75,17 +75,19 @@ class UserController extends \app\controllers\BaseController
 
     public static function retrieveSettres()
     {
-        $userUpdated = static::getModel();
+        $user = static::getModel();
 
         // Set the properties of the user object using the values from the form inputs
-        $userUpdated->setUsername($_POST['username']);
-        $userUpdated->setPassword($_POST['password']);
-        $userUpdated->setUserLocationId($_POST['locationId']);
-        $userUpdated->setLocationDetails($_POST['locationdetails']);
-        $userUpdated->setPhone($_POST['phone']);
-        $userUpdated->setMobile($_POST['mobile']);
-        $userUpdated->setUserEmail($_POST['email']);
-        $userUpdated->setRegistrationTime(date('Y-m-d H:i:s'));
+        $user->setUsername($_POST['username']);
+        $user->setPassword($_POST['password']);
+        $user->setUserLocationId($_POST['locationId']);
+        $user->setLocationDetails($_POST['locationdetails']);
+        $user->setPhone($_POST['phone']);
+        $user->setMobile($_POST['mobile']);
+        $user->setUserEmail($_POST['email']);
+        $user->setRegistrationTime(date('Y-m-d H:i:s'));
+
+        return $user ;
     }
     
 
@@ -100,18 +102,8 @@ class UserController extends \app\controllers\BaseController
         // Check if the request method is POST
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Create a new instance of the User model
-            $userCreated = static::getModel();
-    
-            // Set the properties of the user object using the values from the form inputs
-            $userCreated->setUsername($_POST['username']);
-            $userCreated->setPassword($_POST['password']);
-            $userCreated->setUserLocationId($_POST['location_id']);
-            $userCreated->setLocationDetails($_POST['location_details']);
-            $userCreated->setPhone($_POST['phone']);
-            $userCreated->setMobile($_POST['mobile']);
-            $userCreated->setUserEmail($_POST['email']);
-            $userCreated->setRegistrationTime($_POST['registration_time']);
-    
+            $userCreated = static::retrieveSettres();
+        
             // Call the 'create()' method of the User model to store the user in the database
             $userCreated->create();
     
@@ -143,17 +135,7 @@ class UserController extends \app\controllers\BaseController
     // Check if the request method is POST
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Create a new instance of the User model
-        $userUpdated = static::getModel();
-
-        // Set the properties of the user object using the values from the form inputs
-        $userUpdated->setUsername($_POST['username']);
-        $userUpdated->setPassword($_POST['password']);
-        $userUpdated->setUserLocationId($_POST['locationId']);
-        $userUpdated->setLocationDetails($_POST['locationdetails']);
-        $userUpdated->setPhone($_POST['phone']);
-        $userUpdated->setMobile($_POST['mobile']);
-        $userUpdated->setUserEmail($_POST['email']);
-        $userUpdated->setRegistrationTime(date('Y-m-d H:i:s'));
+        $userUpdated = static::retrieveSettres();
 
         // Call the 'update()' method of the User model to update the user in the database
         $userUpdated->update($_POST['id']);
@@ -169,30 +151,33 @@ class UserController extends \app\controllers\BaseController
 }
 
 
-    public static function destroyAction()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+public static function destroyAction()
+{
+    // Check if the request method is GET
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        // Create a new instance of the User model
+        $userDeleted = static::getModel();
 
-            $userdeleted = static::getModel();
-            $userdeleted->destroy('user_account',$_GET['id']);
-            if($userdeleted >0 ){
-                static::redirect('list');
-            }
-            else{
-                echo "Erreur";
-            }
+        // Call the 'destroy()' method of the User model to delete the user
+        $userDeleted->destroy('user_account', $_GET['id']);
 
+        if ($userDeleted > 0) {
+            // If the user deletion is successful, redirect to the "list" page
+            static::redirect('list');
+        } else {
+            // If there is an error during user deletion, display an error message
+            echo "Erreur";
         }
-
     }
-
-    public static function lengthAction()
-    {
-        return static::getModel()::length('user_account');
-    }
+}
 
 
-    
+public static function lengthAction()
+{
+    // Call the 'length()' method of the User model to get the length/count of users
+    return static::getModel()::length('user_account');
+}
+ 
 
 
 }

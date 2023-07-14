@@ -1,8 +1,10 @@
 <?php
 namespace app\controllers ;
-
+// Include the necessary files
 // require "BaseController.php";
 require 'public/app/models/Item.php';
+
+// Use the User class from the app\models namespace
 use \app\models\Item;
 
 
@@ -12,32 +14,43 @@ class ItemController  extends \app\controllers\BaseController
 
    
 
-    public static function  getModelItem()
+    public static function getModelItem()
     {
-        if(is_null(static::$model))
-        {
+        // Check if the model instance is null
+        if (is_null(static::$model)) {
+            // Create a new instance of the Item model
             static::$model = new Item();
         }
-        return static::$model ;
+        return static::$model;
     }
+    
 
     public static function indexActionItem()
-    {
-        $search = isset($_POST['search']) ? $_POST['search'] : null;
-        $requestMethod = $_SERVER['REQUEST_METHOD'];
+{
+    // Retrieve the search input from the POST request
+    $search = isset($_POST['search']) ? $_POST['search'] : null;
     
-        if ($search !== "" && $requestMethod === 'POST') {
-            $item = static::getModelItem()->findItem($search);
-        } else {
-            $item = static::getModelItem()->latestItem();
-        }
-       
-        static::requir("Items/propertyList", $item);
+    // Retrieve the request method
+    $requestMethod = $_SERVER['REQUEST_METHOD'];
+
+    if ($search !== "" && $requestMethod === 'POST') {
+        // Search for items based on the provided search input
+        $items = static::getModelItem()->findItem($search);
+    } else {
+        // Retrieve the latest items
+        $items = static::getModelItem()->latestItem();
     }
-    public static function lengthActionItem()
-    {
-        return static::getModelItem()::length('item');
-    }
+
+    // Render the view "Items/propertyList" and pass the items as data
+    static::requir("Items/propertyList", $items);
+}
+
+public static function lengthActionItem()
+{
+    // Retrieve the length of the "item" table
+    return static::getModelItem()->length('item');
+}
+
     
 /*
     public static function searchActionItem()

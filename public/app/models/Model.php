@@ -1,9 +1,6 @@
 <?php
 namespace app\models;
 
-// Reste du code de la classe User
-
-
 use PDO;
 
 class Model
@@ -22,40 +19,35 @@ class Model
     }
 
     public static function database()
-    {
-        if (is_null(static::$db)) {
-            static::$db = new PDO('mysql:dbname=SAM;host=localhost', "root", "");
-        }
-        return static::$db;
-    }
-
-   /* public static function view($table,$id)
-    {
-        $sqlstate = static::database()->prepare( "SELECT * FROM  ".$table." WHERE id = ?" );
-        $sqlstate->execute([$id] );
-        return current($sqlstate->fetchAll( PDO::FETCH_CLASS, __CLASS__));
-    }*/
-
-    public function destroy($table,$id)
-    {
-        $statement = static::database()->prepare("DELETE FROM ".$table." WHERE id = ?");
-        return $statement->execute([$id] );
+{
+    // Check if the database instance is already created
+    if (is_null(static::$db)) {
+        // If not, create a new PDO instance and assign it to the static property
+        static::$db = new PDO('mysql:dbname=SAM;host=localhost', "root", "");
     }
     
-    public static function length($table)
-    {
-        $requete = static::database()->query('SELECT COUNT(*) FROM '.$table);
-        return $requete->fetch()['COUNT(*)'];
-/*
-        $resultat=mysql_fetch_row($result);
-        echo $resultat[0];
-*/
-    }
-    // public static function view($table , $id)
-    // {
-    //     $sqlstate = static::database()->prepare( "SELECT * FROM  ".$table." WHERE id = ?" );
-    //     $sqlstate->execute([$id] );
-    //     return current($sqlstate->fetchAll( PDO::FETCH_CLASS, __CLASS__));
-    // }
+    // Return the database instance
+    return static::$db;
+}
+
+public function destroy($table, $id)
+{
+    // Prepare the SQL statement with a placeholder for the ID value
+    $statement = static::database()->prepare("DELETE FROM ".$table." WHERE id = ?");
+
+    // Execute the prepared statement with the actual ID value
+    return $statement->execute([$id]);
+}
+
+public static function length($table)
+{
+    // Execute a query to count the number of rows in the specified table
+    $requete = static::database()->query('SELECT COUNT(*) FROM '.$table);
+    
+    // Fetch the result of the query and return the count
+    return $requete->fetch()['COUNT(*)'];
+}
+
+
 
 }

@@ -8,15 +8,21 @@ class BaseController
     protected static $model ;
  
 
-    public static function requir($view , $data = NULL)
+    public static function requir($view, $data = NULL)
     {
-        require "public/ressources/views/".$view.".php";
+        // Construct the file path of the view file
+        $filePath = "public/ressources/views/" . $view . ".php";
+        
+        // Include the view file
+        require $filePath;
     }
-
+    
     public static function redirect($route)
     {
+        // Redirect to the specified route
         header("location: index1.php?action=$route");
     }
+    
 
 
 }

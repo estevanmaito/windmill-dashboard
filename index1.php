@@ -17,8 +17,12 @@ require "public/app/controllers/UserController.php";
             break;
             case 'list' :
             case 'search': 
-                UserController::indexAction();
+                UserController::indexAction(2);
             break;
+            case 'listRenter' :
+                case 'searchRenter': 
+                    UserController::indexAction(3);
+                break;
             case 'store':
                 UserController::storeAction();
             break;

@@ -10,13 +10,12 @@ require "vendor/autoload.php";
 $title = "Liste des utilisateurs";
 ob_start();
 include "listHeader.php" ;
-$totalItems = UserController::lengthAction(2);
-$pages = ceil($totalItems / 2);
+
 ?>
 
   <div class="flex flex-col justify-between flex-wrap mb-4 space-y-4 md:flex-row md:items-end md:space-x-4">
       <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-        Listes des propriétaires : 
+        Listes des locataires :
       </h4>
     <!-- Buttom ajouter -->
    <!-- <button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
@@ -31,11 +30,12 @@ $pages = ceil($totalItems / 2);
                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
               >
               <?php
-              
+              $totalItem = UserController::lengthAction();
+                $pages = ceil($totalItem / 2);
 
                 ?>
                 <span class="flex items-center col-span-3">
-                  Showing 1-30 of <?= $totalItems ?>
+                  Showing 21-30 of <?= $totalItem ?>
                 </span>
                 <span class="col-span-2"></span>
                 <!-- Pagination-->
@@ -61,10 +61,11 @@ $pages = ceil($totalItems / 2);
                         </button>
                       </li>
                       <?php
+                $pages = ceil(UserController::lengthAction(3) / 2);
                 for($i=1; $i<=$pages; $i++) {
           ?>
          <li>
-                        <a
+         <a
                           class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple" href="?action=list&page=<?= $i ?>"
                         >
                           <?=  $i  ?>

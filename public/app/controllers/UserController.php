@@ -23,10 +23,10 @@ class UserController extends \app\controllers\BaseController
         return static::$model ;
     }
 
-    public static function makeProductPager()
+    public static function makeProductPager($key)
     {
         // Get the total number of pages
-        $totalPages = static::lengthAction();
+        $totalPages = static::lengthAction($key);
     
         // Check the value of the 'page' parameter in the URL
         if (!isset($_GET['page']) || intval($_GET['page']) == 0 || intval($_GET['page']) == 1 || intval($_GET['page']) < 0) {
@@ -38,7 +38,7 @@ class UserController extends \app\controllers\BaseController
             // If 'page' parameter is greater than the total number of pages, set the page number to the last page
             $pageNumber = $totalPages;
             $leftLimit = static::$productsPerPage * ($pageNumber - 1);
-            $rightLimit = $allProducts; // Variable $allProducts is undefined, you might need to define it
+            $rightLimit = $leftLimit + static::$productsPerPage; // Variable $allProducts is undefined, you might need to define it
         } else {
             // If 'page' parameter is valid, set the page number based on the value in the URL
             $pageNumber = intval($_GET['page']);
@@ -47,16 +47,16 @@ class UserController extends \app\controllers\BaseController
         }
         
         // Call the 'getLimitProducts()' method of the model to fetch the products within the specified limits
-        return static::getModel()->getLimitProducts($leftLimit, $rightLimit);
+        return static::getModel()->getLimitProducts($leftLimit, $rightLimit,$key);
     }
     
 
-    public static function indexAction()
+    public static function indexAction($key)
     {
-        // Retrieve the search value from the form input
-        $search = isset($_POST['search']) ? $_POST['search'] : null;
         
-        // Get the request method (POST or GET)
+        $search = isset($_POST['search']) ? $_POST['search'] : null;
+    
+    // Get the request method (POST or GET)
         $requestMethod = $_SERVER['REQUEST_METHOD'];
         
         if ($search !== "" && $requestMethod === 'POST') {
@@ -66,11 +66,12 @@ class UserController extends \app\controllers\BaseController
         } else {
             // If no search value is provided or the request method is not POST,
             // retrieve the users using the 'makeProductPager' method
-            $users = static::makeProductPager();
+            $users = static::makeProductPager($key);
         }
-        
+    
+        $file = $key == 2 ? 'list' : 'listRenter' ;
         // Render the "Users/list" view and pass the users data to it
-        static::requir("Users/list", $users);
+        static::requir("Users/$file", $users);
     }
 
     public static function retrieveSettres()
@@ -85,7 +86,8 @@ class UserController extends \app\controllers\BaseController
         $user->setPhone($_POST['phone']);
         $user->setMobile($_POST['mobile']);
         $user->setUserEmail($_POST['email']);
-        $user->setRegistrationTime(date('Y-m-d H:i:s'));
+        $user->setRegistrationTime($_POST['registration_time']);
+        $user->setRegistrationTime($_POST['role_id']);
 
         return $user ;
     }
@@ -172,10 +174,11 @@ public static function destroyAction()
 }
 
 
-public static function lengthAction()
+public static function lengthAction($key= NULL)
 {
     // Call the 'length()' method of the User model to get the length/count of users
-    return static::getModel()::length('user_account');
+    return static::getModel()::length('user_account',$key);
+    
 }
  
 

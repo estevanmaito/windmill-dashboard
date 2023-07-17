@@ -16,6 +16,7 @@ class User extends \app\models\Model
     private $phone;
     private $mobile;
     private $email;
+    private $role_id;
     private $registration_time;
 
     
@@ -56,6 +57,11 @@ class User extends \app\models\Model
   public function getUserEmail()
   {
       return $this->email;
+  }
+
+  public function getRoleId()
+  {
+      return $this->role_id;
   }
 
   public function getRegistrationTime()
@@ -100,6 +106,11 @@ class User extends \app\models\Model
       $this->email = $email;
   }
 
+  public function setRoleId($role_id)
+  {
+      $this->role_id = $role_id;
+  }
+
   public function setRegistrationTime($registration_time)
   {
       $this->registration_time = $registration_time;
@@ -112,17 +123,16 @@ class User extends \app\models\Model
           ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
   }
 
-  public function getLimitProducts($leftLimit, $rightLimit) 
+  public function getLimitProducts($leftLimit, $rightLimit , $key) 
   {
       // Construct the SQL query with placeholders for left and right limit values
-      $sql = "SELECT * FROM user_account LIMIT :leftLimit, :rightLimit";
+      $sql = "SELECT * FROM user_account WHERE role_id = ".$key." LIMIT ".$leftLimit.", ".$rightLimit;
       
       // Prepare the SQL statement
       $stmt = static::database()->prepare($sql);
       
       // Bind the leftLimit and rightLimit values to the placeholders in the query
-      $stmt->bindValue(":leftLimit", $leftLimit, PDO::PARAM_INT);
-      $stmt->bindValue(":rightLimit", $rightLimit, PDO::PARAM_INT);
+     
       
       // Execute the prepared statement
       $stmt->execute();
@@ -135,11 +145,11 @@ class User extends \app\models\Model
   {
       // Prepare the SQL statement with placeholders for values
       $statement = static::database()->prepare("INSERT INTO `user_account` (`id`, `username`, `password`, `location_id`, 
-      `location_details`, `phone`, `mobile`, `email`, `registration_time`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)");
+      `location_details`, `phone`, `mobile`, `email`, `registration_time`, `role_id`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
       
       // Execute the prepared statement with the corresponding values
       return $statement->execute([$this->username, $this->password, $this->location_id, 
-      $this->location_details, $this->phone, $this->mobile , $this->email, $this->registration_time]);
+      $this->location_details, $this->phone, $this->mobile , $this->email , $this->registration_time, $this->role_id]);
   }
   
   public static function view($id)
@@ -158,11 +168,11 @@ class User extends \app\models\Model
     {
         // Prepare the SQL statement to update the "user_account" table based on the given id
         $statement = static::database()->prepare("UPDATE user_account SET username = ?, password = ?, location_id = ?,
-        location_details = ?, phone = ?, mobile = ?, email = ?, registration_time = ? WHERE id = " . $id);
+        location_details = ?, phone = ?, mobile = ?, email = ?, registration_time = ?, role_id = ? WHERE id = " . $id);
         
         // Prepare an array of parameters with the values to be updated
         $parameters = [$this->username, $this->password, $this->location_id, $this->location_details,
-        $this->phone, $this->mobile, $this->email, $this->registration_time];
+        $this->phone, $this->mobile, $this->email, $this->registration_time, $this->role_id];
         
         // Execute the prepared statement with the parameters
         return $statement->execute($parameters);
@@ -182,6 +192,8 @@ class User extends \app\models\Model
         // Fetch all rows as an array of objects of the current class and return the result
         return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }   
+
+
 
 } 
 

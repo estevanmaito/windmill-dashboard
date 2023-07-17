@@ -39,10 +39,17 @@ public function destroy($table, $id)
     return $statement->execute([$id]);
 }
 
-public static function length($table)
+public static function length($table , $key = NULL)
 {
     // Execute a query to count the number of rows in the specified table
-    $requete = static::database()->query('SELECT COUNT(*) FROM '.$table);
+
+    if($key != NULL)
+    {
+        $requete = static::database()->query('SELECT COUNT(*) FROM '.$table.' WHERE role_id = '. $key);
+    }
+    else {
+        $requete = static::database()->query('SELECT COUNT(*) FROM '.$table );
+    }
     
     // Fetch the result of the query and return the count
     return $requete->fetch()['COUNT(*)'];

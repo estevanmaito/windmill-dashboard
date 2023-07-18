@@ -81,12 +81,11 @@ class UserController extends \app\controllers\BaseController
         $user->setUsername($_POST['username']);
         $user->setPassword($_POST['password']);
         $user->setUserLocationId($_POST['locationId']);
-        $user->setLocationDetails($_POST['locationdetails']);
         $user->setPhone($_POST['phone']);
         $user->setMobile($_POST['mobile']);
         $user->setUserEmail($_POST['email']);
         $user->setRegistrationTime($_POST['registration_time']);
-        $user->setRegistrationTime($_POST['role_id']);
+       var_dump( $user->setRoleId($_POST['present']));
 
         return $user ;
     }

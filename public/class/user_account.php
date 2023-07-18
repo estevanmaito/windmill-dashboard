@@ -45,10 +45,6 @@ class user_account
         return $this->location_id;
     }
 
-    public function getLocationDetails()
-    {
-        return $this->location_details;
-    }
 
     public function getPhone()
     {
@@ -91,10 +87,7 @@ class user_account
         $this->location_id = $location_id;
     }
 
-    public function setLocationDetails($location_details)
-    {
-        $this->location_details = $location_details;
-    }
+
 
     public function setPhone($phone)
     {

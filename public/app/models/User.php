@@ -39,11 +39,6 @@ class User extends \app\models\Model
       return $this->location_id;
   }
 
-  public function getLocationDetails()
-  {
-      return $this->location_details;
-  }
-
   public function getPhone()
   {
       return $this->phone;
@@ -84,11 +79,6 @@ class User extends \app\models\Model
   public function setUserLocationId($location_id)
   {
       $this->location_id = $location_id;
-  }
-
-  public function setLocationDetails($location_details)
-  {
-      $this->location_details = $location_details;
   }
 
   public function setPhone($phone)

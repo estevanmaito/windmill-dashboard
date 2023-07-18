@@ -64,43 +64,52 @@ public static function lengthActionItem()
 
     }*/
 
+    public static function retrieveSettresItem()
+    {
+        $Item = static::getModelItem();
+
+        // Set the properties of the user object using the values from the form inputs
+        $Item->setItemName($_POST['name']);
+        $Item->setItemTypeId($_POST['typeId']);
+        $Item->setItemLocationId($_POST['locationId']);
+        $Item->setItemLocation($_POST['itemLocation']);
+        $Item->setItemDescription($_POST['description']);
+        $Item->setOwnerId($_POST['ownerId']);
+        $Item->setPricePerUnit($_POST['price']);
+        $Item->setItemUnitId($_POST['unitId']);
+
+        return $Item ;
+    }
+
     public static function createActionItem()
     {
         static::requir("Items/createItem");
-        echo 'hello';
+        
     }
     public static function storeActionItem()
     {
-        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        //     $userCreated = static::getModelItem();
-        //     $userCreated->setUsername( $_POST['username']);
-        //     $userCreated->setPassword($_POST['password']);
-        //     $userCreated->setUserLocationId($_POST['location_id']);
-        //     $userCreated->setLocationDetails($_POST['location_details']);
-        //     $userCreated->setPhone($_POST['phone']);   
-        //     $userCreated->setMobile($_POST['mobile']);
-        //     $userCreated->setUserEmail($_POST['email']);
-        //     $userCreated->setRegistrationTime($_POST['registration_time']);
-        //     $userCreated->create();
-        //     if($userCreated >0){
-        //         static::redirect('list');
-        //     }
-        //     else{
-        //         echo "Erreur";
-        //     }
+            $ItemCreated = static::retrieveSettresItem();
+            $ItemCreated->createItem();
+            if($ItemCreated >0){
+                static::redirect('propertyList');
+            }
+            else{
+                echo "Erreur";
+            }
 
-        // }
+        }
 
-    }/*
-    public static function editAction()
+    }
+    public static function editActionItem()
     {
         $id=$_GET['id'];
         $user = self::getModel()::view($id);
-        static::requir('edit',$user);
+        static::requir('editItem',$user);
 
     }
-
+/*
     public static function updateAction()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -110,7 +119,6 @@ public static function lengthActionItem()
             $userUpdated->setUsername( $_POST['username']);
             $userUpdated->setPassword($_POST['password']);
             $userUpdated->setUserLocationId($_POST['locationId']);
-            $userUpdated->setLocationDetails($_POST['locationdetails']);
             $userUpdated->setPhone($_POST['phone']);   
             $userUpdated->setMobile($_POST['mobile']);
             $userUpdated->setUserEmail($_POST['email']);

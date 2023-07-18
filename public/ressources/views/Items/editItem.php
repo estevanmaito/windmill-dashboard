@@ -1,21 +1,21 @@
 <?php
 namespace public\ressources\views;
-use public\app\models\User;
+use public\app\models\Item;
 
-$title = "modifier utilisateur";
+$title = "modifier propriété";
 ob_start();
 ?>
 
-<form action="index1.php?action=update" method="post" >
+<form action="index1.php?action=updateItem" method="post" >
 
     <input type="hidden" value="<?= $data->getId()?>" name="id" ><br>
 
-    <label for="username">Username:</label><br>
-    <input type="text" value="<?= $data->getUsername()?>" name="username"
+    <label for="name">name:</label><br>
+    <input type="text" value="<?= $data->getItemName()?>" name="name"
     class="py-1 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 border focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" required><br>
 
-    <label for="password">Password:</label><br>
-    <input type="password" value="<?= $data->getPassword()?>" name="password" 
+    <label for="typeId">Type Id:</label><br>
+    <input type="text" value="<?= $data->getItemTypeId()?>" name="typeId" 
     class="py-1 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 border focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" required><br>
     
     <label for="locationId">LocationId:</label><br>

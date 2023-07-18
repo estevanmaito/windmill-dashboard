@@ -47,7 +47,7 @@ ob_start();
             <th>Username</th>
             <th class="px-4 py-3">Password</th>
             <th class="px-4 py-3">Location ID</th>
-            <th class="px-4 py-3">Location Details</th>
+
             <th class="px-4 py-3">Phone</th>
             <th class="px-4 py-3">Mobile</th>
             <th class="px-4 py-3">Email</th>
@@ -67,7 +67,6 @@ ob_start();
           <td><?= $user->getUsername() ?></td>
           <td><?= $user->getPassword() ?></td>
           <td><?= $user->getUserLocationId() ?></td>
-          <td><?= $user->getLocationDetails() ?></td>
           <td><?= $user->getPhone() ?></td>
           <td><?= $user->getMobile() ?></td>
           <td><?= $user->getUserEmail() ?></td>

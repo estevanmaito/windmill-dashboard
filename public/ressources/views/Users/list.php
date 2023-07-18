@@ -96,8 +96,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800" >
           <th>Username</th>
           <th class="px-4 py-3">Password</th>
-          <th class="px-4 py-3">Location ID</th>
-          <th class="px-4 py-3">Location Details</th>
+          <th class="px-4 py-3">Location </th>
           <th class="px-4 py-3">Phone</th>
           <th class="px-4 py-3">Mobile</th>
           <th class="px-4 py-3">Email</th>
@@ -118,7 +117,6 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
           <td class="px-4 py-3 text-sm"><?= $user->getUsername()?></td>
           <td class="px-4 py-3 text-sm"><?= $user->getPassword() ?></td>
           <td class="px-4 py-3 text-sm"><?= $user->getUserLocationId()?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getLocationDetails() ?></td>
           <td class="px-4 py-3 text-sm"><?= $user->getPhone()?></td>
           <td class="px-4 py-3 text-sm"><?= $user->getMobile() ?></td>
           <td class="px-4 py-3 text-sm"><?= $user->getUserEmail() ?></td>

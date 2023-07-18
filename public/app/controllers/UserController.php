@@ -50,7 +50,6 @@ class UserController extends \app\controllers\BaseController
         return static::getModel()->getLimitProducts($leftLimit, $rightLimit,$key);
     }
     
-
     public static function indexAction($key)
     {
         
@@ -92,7 +91,6 @@ class UserController extends \app\controllers\BaseController
         return $user ;
     }
     
-
     public static function createAction()
     {
         // Render the "Users/create" view
@@ -130,28 +128,26 @@ class UserController extends \app\controllers\BaseController
         // Render the "Users/edit" view and pass the user data to it
         static::requir('Users/edit', $user);
     }
-
-    
+   
     public static function updateAction()
-{
-    // Check if the request method is POST
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Create a new instance of the User model
-        $userUpdated = static::retrieveSettres();
+    {
+        // Check if the request method is POST
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Create a new instance of the User model
+            $userUpdated = static::retrieveSettres();
 
-        // Call the 'update()' method of the User model to update the user in the database
-        $userUpdated->update($_POST['id']);
+            // Call the 'update()' method of the User model to update the user in the database
+            $userUpdated->update($_POST['id']);
 
-        if ($userUpdated > 0) {
-            // If the user update is successful, redirect to the "list" page
-            static::redirect('list');
-        } else {
-            // If there is an error during user update, display an error message
-            echo "Erreur";
+            if ($userUpdated > 0) {
+                // If the user update is successful, redirect to the "list" page
+                static::redirect('list');
+            } else {
+                // If there is an error during user update, display an error message
+                echo "Erreur";
+            }
         }
     }
-}
-
 
 public static function destroyAction()
 {
@@ -173,19 +169,14 @@ public static function destroyAction()
     }
 }
 
-
 public static function lengthAction($key= NULL)
 {
     // Call the 'length()' method of the User model to get the length/count of users
     return static::getModel()::length('user_account',$key);
     
 }
- 
-
 
 }
-
-
 
 ?>
  

@@ -2,7 +2,7 @@
 class user_account
 {
     private $id;
-    private $username;
+    private $name;
     private $password;
     private $location_id;
     private $location_details;
@@ -11,18 +11,7 @@ class user_account
     private $email;
     private $registration_time;
 
-    public function __construct($id_ = NULL, $username_ = NULL, $password_ = NULL, $location_id_ = NULL, $location_details_ = NULL, $phone_ = NULL, $mobile_ = NULL, $email_ = NULL , $registration_time_ = NULL)
-    {
-        $this->id = $id_;
-        $this->username = $username_;
-        $this->password = $password_;
-        $this->location_id = $location_id_;
-        $this->location_details = $location_details_;
-        $this->phone = $phone_;
-        $this->mobile = $mobile_;
-        $this->email = $email_;
-        $this->registration_time = $registration_time_;
-    }
+
 
     // Getters
     public function getUserId()
@@ -32,7 +21,7 @@ class user_account
 
     public function getUsername()
     {
-        return $this->username;
+        return $this->name;
     }
 
     public function getPassword()
@@ -72,9 +61,9 @@ class user_account
         $this->id = $id;
     }
 
-    public function setUsername($username)
+    public function setUsername($name)
     {
-        $this->username = $username;
+        $this->name = $name;
     }
 
     public function setPassword($password)

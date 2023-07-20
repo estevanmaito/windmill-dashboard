@@ -156,7 +156,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
 <div class="w-full overflow-hidden rounded-lg shadow-xs">
   <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800" >
     <span class="flex items-center col-span-3">
-      <?php echo "SHOWING $startItem-$endItem OF $totalItems"; ?>
+      <?php echo "AFFICHAGE $startItem-$endItem SUR $totalItems"; ?>
     </span>
     <span class="col-span-2"></span>
     <!-- Pagination-->
@@ -207,14 +207,16 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
       <table class="w-full whitespace-no-wrap">
           <thead>
             <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800" >
-              <th>name</th>
-              <th class="px-4 py-3">type</th>
-              <th class="px-4 py-3">Location </th>
-              <th class="px-4 py-3">item Location </th>
-              <th class="px-4 py-3">description</th>
-              <th class="px-4 py-3">owner</th>
-              <th class="px-4 py-3">price</th>
-              <th class="px-4 py-3">unit </th>                      
+              <th>NOM </th>
+              <th class="px-4 py-3">TYPE</th>
+              <th class="px-4 py-3"> EMPLACEMENT </th>
+              <th class="px-4 py-3"> EMPLACEMENT DE L'ARTICLE </th>
+              <th class="px-4 py-3"> DESCRIPTION </th>
+              <th class="px-4 py-3">PROPRIÉTAIRE</th>
+              <th class="px-4 py-3"> PRIX </th>
+              <th class="px-4 py-3">UNITÉ </th>        
+              <th class="px-4 py-3">ACTION </th>                      
+
             </tr>
           </thead>
           <tbody>
@@ -238,7 +240,8 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
             <div class="flex items-center space-x-4 text-sm">
               <a
                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                aria-label="Edit" href="" >
+                aria-label="Edit" href="index1.php?action=editItem&id=<?php echo $item->getId()?>" >
+
                 <svg
                   class="w-5 h-5"
                   aria-hidden="true"

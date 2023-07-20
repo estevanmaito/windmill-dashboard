@@ -106,12 +106,7 @@ class User extends \app\models\Model
       $this->registration_time = $registration_time;
   }
 
-  public static function latest($table)
-  {
-      // Execute a query to fetch the latest records from the specified table
-      return static::database()->query('SELECT * FROM '.$table.' ORDER BY id DESC')
-          ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
-  }
+
 
   public function getLimitProducts($leftLimit, $rightLimit , $key) 
   {
@@ -119,10 +114,7 @@ class User extends \app\models\Model
       $sql = "SELECT * FROM user_account WHERE role_id = ".$key." LIMIT ".$leftLimit.", ".$rightLimit;
       
       // Prepare the SQL statement
-      $stmt = static::database()->prepare($sql);
-      
-      // Bind the leftLimit and rightLimit values to the placeholders in the query
-     
+      $stmt = static::database()->prepare($sql);  
       
       // Execute the prepared statement
       $stmt->execute();
@@ -135,11 +127,11 @@ class User extends \app\models\Model
   {
       // Prepare the SQL statement with placeholders for values
       $statement = static::database()->prepare("INSERT INTO `user_account` (`id`, `username`, `password`, `location_id`, 
-      `location_details`, `phone`, `mobile`, `email`, `registration_time`, `role_id`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+      `phone`, `mobile`, `email`, `registration_time`, `role_id`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)");
       
       // Execute the prepared statement with the corresponding values
       return $statement->execute([$this->username, $this->password, $this->location_id, 
-      $this->location_details, $this->phone, $this->mobile , $this->email , $this->registration_time, $this->role_id]);
+       $this->phone, $this->mobile , $this->email , $this->registration_time, $this->role_id]);
   }
   
   public static function view($id)
@@ -158,10 +150,10 @@ class User extends \app\models\Model
     {
         // Prepare the SQL statement to update the "user_account" table based on the given id
         $statement = static::database()->prepare("UPDATE user_account SET username = ?, password = ?, location_id = ?,
-        location_details = ?, phone = ?, mobile = ?, email = ?, registration_time = ?, role_id = ? WHERE id = " . $id);
+         phone = ?, mobile = ?, email = ?, registration_time = ?, role_id = ? WHERE id = " . $id);
         
         // Prepare an array of parameters with the values to be updated
-        $parameters = [$this->username, $this->password, $this->location_id, $this->location_details,
+        $parameters = [$this->username, $this->password, $this->location_id, 
         $this->phone, $this->mobile, $this->email, $this->registration_time, $this->role_id];
         
         // Execute the prepared statement with the parameters
@@ -183,9 +175,54 @@ class User extends \app\models\Model
         return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }   
 
+    // Function to retrieve the referenced table from a foreign key column
+//     public static function retrieveTable($column, $table)
+//     {
+//         $conn = static::database();
+//         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//         $query = "SELECT REFERENCED_TABLE_NAME
+//                   FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+//                   WHERE TABLE_NAME = :tableName
+//                   AND COLUMN_NAME = :column
+//                   AND REFERENCED_TABLE_NAME IS NOT NULL";
+
+//         $stmt = $conn->prepare($query);
+//         $stmt->bindParam(':tableName', $table, PDO::PARAM_STR);
+//         $stmt->bindParam(':column', $column, PDO::PARAM_STR);
+//         var_dump($stmt->execute());
+
+//         var_dump( $result = $stmt->fetch(PDO::FETCH_ASSOC));
+
+//         if ($result && var_dump(isset($result['REFERENCED_TABLE_NAME']))) {
+//             return $result['REFERENCED_TABLE_NAME'];
+//         } else {
+//             return null;
+//         }
+//     }
+
+//     public static function SelectJoin($column, $table)
+//     {
+//         $referencedTable = static::retrieveTable($column, $table);
+
+//         if ($referencedTable) {
+//             $statement = static::database()->prepare('SELECT ' . $referencedTable . '.name FROM ' . $table . ' INNER JOIN ' . $referencedTable . ' ON ' . $table . '.' . $column . ' = ' . $referencedTable . '.id');
+
+//         // Execute the prepared statement
+//         $statement->execute();
+        
+//         // Fetch all rows as an array of objects of the current class and return the result
+//         return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+//         } else {
+//             echo "The column '$column' is not a foreign key.";
+//         }
+//     }
 
 
-} 
+}
 
-
-?>
+// $user = new User();
+// $user->SelectJoin('location_id ', 'user_account','location');
+// foreach ($user as $row) {
+//     echo $row['name'] . '<br>';
+// }

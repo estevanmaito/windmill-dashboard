@@ -105,9 +105,15 @@ public static function lengthActionItem()
     public static function editActionItem()
     {
         $id=$_GET['id'];
-        $user = self::getModel()::view($id);
-        static::requir('editItem',$user);
+        $item = self::getModelItem()::viewItem($id);
+        static::requir('Items/editItem',$item);
 
+    }
+
+    public static function SelectOptionItem($referencedTable , $column ,  $cond = NULL)
+    {
+        
+        return static::getModelItem()::SelectInputs($referencedTable, $column ,  $cond = NULL) ;
     }
 /*
     public static function updateAction()

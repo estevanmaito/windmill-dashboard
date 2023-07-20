@@ -880,7 +880,7 @@
                             class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
                           >
                           <!----------------------------------------------->
-                          <?php echo $row['username']; ?>
+                          <?php echo $row['name']; ?>
                             <div
                               class="absolute inset-0 rounded-full shadow-inner"
                               aria-hidden="true"

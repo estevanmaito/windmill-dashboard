@@ -85,7 +85,7 @@ class UserController extends \app\controllers\BaseController
         $user->setMobile($_POST['mobile']);
         $user->setUserEmail($_POST['email']);
         $user->setRegistrationTime($_POST['registration_time']);
-       var_dump( $user->setRoleId($_POST['present']));
+        $user->setRoleId($_POST['present']);
 
         return $user ;
     }
@@ -174,6 +174,14 @@ public static function lengthAction($key= NULL)
     return static::getModel()::length('user_account',$key);
     
 }
+
+public static function SelectOption($referencedTable , $column ,  $cond = NULL)
+{
+    
+    return static::getModel()::SelectInputs($referencedTable , $column , $cond) ;
+}
+
+    
 
 }
 

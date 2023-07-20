@@ -44,7 +44,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
   <div class="w-full overflow-hidden rounded-lg shadow-xs">
   <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800" >
     <span class="flex items-center col-span-3">
-      <?php echo "SHOWING $startItem-$endItem OF $totalItems"; ?>
+      <?php echo "AFFICHAGE $startItem-$endItem SUR $totalItems"; ?>
     </span>
     <span class="col-span-2"></span>
     <!-- Pagination-->
@@ -95,13 +95,13 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
     <table class="w-full whitespace-no-wrap">
       <thead>
         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800" >
-          <th>Username</th>
-          <th class="px-4 py-3">Password</th>
-          <th class="px-4 py-3">Location </th>
-          <th class="px-4 py-3">Phone</th>
-          <th class="px-4 py-3">Mobile</th>
-          <th class="px-4 py-3">Email</th>
-          <th class="px-4 py-3">Registration Time</th>
+        <th>NOM D'UTILISATEUR</th>
+          <th class="px-4 py-3">Mot de passe</th>
+          <th class="px-4 py-3">EMPLACEMENT </th>
+          <th class="px-4 py-3">TÉLÉPHONE </th>
+          <th class="px-4 py-3">PORTABLE</th>
+          <th class="px-4 py-3"> EMAIL</th>
+          <th class="px-4 py-3"> HEURE D'INSCRIPTION</th>
           <th class="px-4 py-3">Action</th>
                     
         </tr>

@@ -2,12 +2,12 @@
 class unit
 {
     private $id;
-    private $unit_name;
+    private $name;
 
-    public function __construct($id_, $unit_name_)
+    public function __construct($id_, $name_)
     {
         $this->id = $id_;
-        $this->unit_name = $unit_name_;
+        $this->name = $name_;
     }
 
     // Getters
@@ -18,7 +18,7 @@ class unit
 
     public function getUnitName()
     {
-        return $this->unit_name;
+        return $this->name;
     }
 
     // Setters
@@ -27,9 +27,9 @@ class unit
         $this->id = $id;
     }
 
-    public function setUnitName($unit_name)
+    public function setUnitName($name)
     {
-        $this->unit_name = $unit_name;
+        $this->name = $name;
     }
 }
 

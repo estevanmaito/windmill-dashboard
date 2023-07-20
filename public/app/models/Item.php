@@ -134,6 +134,17 @@ class Item extends \app\models\Model
         return $statement->execute([$this->item_name, $this->item_type_id, $this->location_id, $this->item_location, 
             $this->description, $this->owner_id, $this->price_per_unit, $this->unit_id]);
     }
+    public static function viewItem($id)
+    {
+        // Prepare the SQL statement to select a record from the "user_account" table based on the given id
+        $sqlstate = static::database()->prepare("SELECT * FROM item WHERE id = ?");
+        
+        // Execute the prepared statement with the provided id
+        $sqlstate->execute([$id]);
+        
+        // Fetch the result as an array of objects of the current class and return the first element
+        return current($sqlstate->fetchAll(PDO::FETCH_CLASS, __CLASS__));
+    }
     
     public function updateItem($id)
 {

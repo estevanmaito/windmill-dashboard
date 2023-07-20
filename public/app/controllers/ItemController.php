@@ -115,23 +115,15 @@ public static function lengthActionItem()
         
         return static::getModelItem()::SelectInputs($referencedTable, $column ,  $cond = NULL) ;
     }
-/*
-    public static function updateAction()
+
+    public static function updateActionItem()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $userUpdated = static::getModel();
-            
-            $userUpdated->setUsername( $_POST['username']);
-            $userUpdated->setPassword($_POST['password']);
-            $userUpdated->setUserLocationId($_POST['locationId']);
-            $userUpdated->setPhone($_POST['phone']);   
-            $userUpdated->setMobile($_POST['mobile']);
-            $userUpdated->setUserEmail($_POST['email']);
-            $userUpdated->setRegistrationTime(date('Y-m-d H:i:s'));
-            $userUpdated->update($_POST['id']);
+            $userUpdated = static::retrieveSettresItem();
+            $userUpdated->updateItem($_POST['id']);
             if($userUpdated >0 ){
-                static::redirect('list');
+                static::redirect('propertyList');
             }
             else{
                 echo "Erreur";
@@ -141,14 +133,14 @@ public static function lengthActionItem()
 
     }
 
-    public static function destroyAction()
+    public static function destroyActionItem()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-            $userdeleted = static::getModel();
-            $userdeleted->destroy('user_account',$_GET['id']);
+            $userdeleted = static::getModelItem();
+            $userdeleted->destroy('item',$_GET['id']);
             if($userdeleted >0 ){
-                static::redirect('list');
+                static::redirect('propertyList');
             }
             else{
                 echo "Erreur";
@@ -157,7 +149,7 @@ public static function lengthActionItem()
         }
 
     }
-
+/*
     public static function lengthAction()
     {
         return static::getModel()::length();

@@ -44,6 +44,12 @@ require "public/app/controllers/UserController.php";
             case 'editItem':
                 ItemController::editActionItem();
             break;
+            case 'updateItem':
+                ItemController::updateActionItem();
+            break;
+            case 'destroyItem':
+                ItemController::destroyActionItem();
+            break;
 
             default :
             echo " page not found 404";

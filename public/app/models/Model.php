@@ -51,12 +51,10 @@ class Model
     {
         // Execute a query to count the number of rows in the specified table
 
-        if($key != NULL)
+        $requete = static::database()->query('SELECT COUNT(*) FROM '.$table );
+        if(!empty($key) )
         {
             $requete = static::database()->query('SELECT COUNT(*) FROM '.$table.' WHERE role_id = '. $key);
-        }
-        else {
-            $requete = static::database()->query('SELECT COUNT(*) FROM '.$table );
         }
         
         // Fetch the result of the query and return the count

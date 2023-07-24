@@ -7,7 +7,6 @@ require 'public/app/models/User.php';
 // Use the User class from the app\models namespace
 use \app\models\User;
 
-
 class UserController extends \app\controllers\BaseController
 {
     
@@ -148,40 +147,44 @@ class UserController extends \app\controllers\BaseController
         }
     }
 
-public static function destroyAction()
-{
-    // Check if the request method is GET
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        // Create a new instance of the User model
-        $userDeleted = static::getModel();
+    public static function destroyAction()
+    {
+        // Check if the request method is GET
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            // Create a new instance of the User model
+            $userDeleted = static::getModel();
 
-        // Call the 'destroy()' method of the User model to delete the user
-        $userDeleted->destroy('user_account', $_GET['id']);
+            // Call the 'destroy()' method of the User model to delete the user
+            $userDeleted->destroy('user_account', $_GET['id']);
 
-        if ($userDeleted > 0) {
-            // If the user deletion is successful, redirect to the "list" page
-            static::redirect('list');
-        } else {
-            // If there is an error during user deletion, display an error message
-            echo "Erreur";
+            if ($userDeleted > 0) {
+                // If the user deletion is successful, redirect to the "list" page
+                static::redirect('list');
+            } else {
+                // If there is an error during user deletion, display an error message
+                echo "Erreur";
+            }
         }
     }
-}
 
-public static function lengthAction($key= NULL)
-{
-    // Call the 'length()' method of the User model to get the length/count of users
-    return static::getModel()::length('user_account',$key);
-    
-}
+    public static function lengthAction($key= NULL)
+    {
+        // Call the 'length()' method of the User model to get the length/count of users
+        return static::getModel()::length('user_account',$key );
+        
+    }
 
-public static function SelectOption($referencedTable , $column ,  $cond = NULL)
-{
-    
-    return static::getModel()::SelectInputs($referencedTable , $column , $cond) ;
-}
+    public static function SelectOption($referencedTable , $column ,  $cond = NULL)
+    {
+        
+        return static::getModel()::SelectInputs($referencedTable , $column , $cond) ;
+    }
 
-    
+    // Function to handle the AJAX request and retrieve user data by ID
+    public static function sendData($id)
+    {
+        return static::getModel()::fetch_data($id);
+    }
 
 }
 

@@ -18,7 +18,7 @@ class User extends \app\models\Model
     private $email;
     private $role_id;
     private $registration_time;
-
+    
     
 
   // Getters
@@ -106,15 +106,13 @@ class User extends \app\models\Model
       $this->registration_time = $registration_time;
   }
 
-
-
   public function getLimitProducts($leftLimit, $rightLimit , $key) 
   {
       // Construct the SQL query with placeholders for left and right limit values
       $sql = "SELECT * FROM user_account WHERE role_id = ".$key." LIMIT ".$leftLimit.", ".$rightLimit;
       
       // Prepare the SQL statement
-      $stmt = static::database()->prepare($sql);  
+      $stmt = static::database()->prepare($sql);
       
       // Execute the prepared statement
       $stmt->execute();
@@ -122,6 +120,26 @@ class User extends \app\models\Model
       // Fetch all rows as an array of objects of the current class
       return $stmt->fetchAll(PDO::FETCH_CLASS, __CLASS__);
   }
+
+//   public function getLimitProducts($leftLimit, $rightLimit , $key) 
+//   {
+//       // Construct the SQL query with placeholders for left and right limit values
+//       $sql = "SELECT U.username, U.password, L.name, U.phone, U.mobile, U.email, U.registration_time
+//         FROM user_account U
+//         INNER JOIN location L ON U.location_id = L.id
+//         WHERE U.role_id = " . $key . "
+//         LIMIT " . $leftLimit . ", " . $rightLimit;
+
+//       // Prepare the SQL statement
+//       $stmt = static::database()->prepare($sql);  
+      
+//       // Execute the prepared statement
+//       $stmt->execute();
+      
+//       // Fetch all rows as an array of objects of the current class
+//       return $stmt->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+//   }
+
 
   public function create()
   {
@@ -145,6 +163,18 @@ class User extends \app\models\Model
       // Fetch the result as an array of objects of the current class and return the first element
       return current($sqlstate->fetchAll(PDO::FETCH_CLASS, __CLASS__));
   }
+  public static function fetch_data($id){
+     $db = static::database() ;
+     $query="SELECT * from user_account  WHERE id = ".$id ;
+     $exec=mysqli_query($db, $query);
+     if(mysqli_num_rows($exec)>0){
+       $row= mysqli_fetch_all($exec, MYSQLI_ASSOC);
+       return $row;  
+           
+     }else{
+       return $row=[];
+     }
+   }
       
     public function update($id)
     {

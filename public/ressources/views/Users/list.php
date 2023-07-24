@@ -107,13 +107,13 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
       </thead>
       <tbody>
         <?php 
-          /** @var \public\app\models\User[] $data */
+          /** @var \app\models\User[] $data */
 
           if (is_array($data) || is_object($data)) {
             foreach ($data as $user): 
         ?>
         <div class="users-list">
-        <tr id="" class=" text-gray-700 dark:text-gray-400">
+        <tr id="user-row" class="user-row text-gray-700 dark:text-gray-400" data-id="<?php echo $user->getId()?>">
           <td class="px-4 py-3 text-sm"><?= $user->getUsername()?></td>
           <td class="px-4 py-3 text-sm"><?= $user->getPassword() ?></td>
           <td class="px-4 py-3 text-sm"><?= $user->getUserLocationId()?></td>
@@ -147,7 +147,12 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
             </div>
           </td>
         </tr>
-            </div>
+        <tr id="detailsRow" style="display: none;">
+        <td colspan = "8">
+          Additional details about the user will appear here.
+          </td>
+          </tr>
+          </div>
         <?php endforeach;}
         else {
           echo "No data available";
@@ -158,10 +163,15 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
               
   </div>
 </div>
-          
+
 </main>
 </div>
 </div>
+<script>
+<?php
+include_once 'public/assets/js/global.js';
+?>
+</script>
 <?php
 $content = ob_get_clean();
 include_once 'public/ressources/views/layout.php';

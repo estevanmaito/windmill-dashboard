@@ -1,6 +1,6 @@
 <?php
-namespace public\ressources\views;
-use public\app\models\User;
+namespace ressources\views;
+use \app\models\User;
 //require "vendor/autoload.php";
 
 
@@ -58,7 +58,7 @@ ob_start();
         <tbody>
 <?php 
 
-    /** @var \public\app\models\User[] $data */
+    /** @var \app\models\User[] $data */
 
     if (is_array($data) || is_object($data)) {
       foreach ($data as $user): ?>

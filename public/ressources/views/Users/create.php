@@ -13,7 +13,7 @@ ob_start();
     <form action="index1.php?action=store" method="post" >
         <label for="username">Nom d'utilisateur :</label><br>
         <input type="text" name="username"  
-        class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="xxx"  required><br>
+        class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="nom..."  required><br>
 
         <label for="password">Mot de passe :</label><br>
         <input type="password" name="password"
@@ -43,7 +43,7 @@ ob_start();
 
         <label for="email">Email :</label><br>
         <input type="text" name="email"
-        class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="xxx@xx.ma" required><br>
+        class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="xxx@gmail.ma" required><br>
 
         <label class="block mb-6">
         <span class="text-gray-700">Rôle : </span >

@@ -18,7 +18,7 @@ ob_start();
         <form action="index1.php?action=storeItem" method="post" >
             <label for="name">Nom :</label>
             <input type="text" name="name" 
-            class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="xxxx" required >
+            class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="nom..." required >
           
             <label class="block mb-6">
                 <span class="text-gray-700">Type :</span>

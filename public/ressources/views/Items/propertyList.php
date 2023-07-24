@@ -240,7 +240,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
             <div class="flex items-center space-x-4 text-sm">
               <a
                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                aria-label="Edit" href="index1.php?action=editItem&id=<?php echo $item->getId()?>" >
+                aria-label="Edit" href="index1.php?action=editItem&id=<?php echo $item->getItemId()?>" >
 
                 <svg
                   class="w-5 h-5"
@@ -256,7 +256,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
               <a
                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                 aria-label="Delete" onclick="return confirm('voulez vous vraiment supprimer ce utilisateur')" 
-                 href="index1.php?action=destroyItem&id=<?php echo $item->getId()?>" >
+                 href="index1.php?action=destroyItem&id=<?php echo $item->getItemId()?>" >
                 <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" >
                   <path
                     fill-rule="evenodd"

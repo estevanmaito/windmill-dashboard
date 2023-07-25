@@ -1,13 +1,12 @@
 <?php
 namespace app\controllers ;
  // Include the necessary files
-require "BaseController.php";
-require 'public/app/models/User.php';
+require "vendor/autoload.php";
 
 // Use the User class from the app\models namespace
 use \app\models\User;
 
-class UserController extends \app\controllers\BaseController
+class UserController extends BaseController
 {
     
     private static $productsPerPage = 3;
@@ -52,15 +51,18 @@ class UserController extends \app\controllers\BaseController
     public static function indexAction($key)
     {
         
-        $search = isset($_POST['search']) ? $_POST['search'] : null;
+        $searchType = isset($_POST['search_type']) ? $_POST['search_type'] : null;
+        $searchValue = isset($_POST['search']) ? $_POST['search'] : null;
+    
     
     // Get the request method (POST or GET)
         $requestMethod = $_SERVER['REQUEST_METHOD'];
         
-        if ($search !== "" && $requestMethod === 'POST') {
+        if ($searchValue !== "" && $searchType !== "" && $requestMethod === 'POST') {
             // If a search value is provided and the request method is POST,
             // perform a search using the User model's 'find' method
-            $users = static::getModel()->find('user_account', $search);
+            
+            $users = static::getModel()->find('user_account', $searchType, $searchValue);
         } else {
             // If no search value is provided or the request method is not POST,
             // retrieve the users using the 'makeProductPager' method

@@ -11,7 +11,7 @@ class BaseController
     public static function requir($view, $data = NULL)
     {
         // Construct the file path of the view file
-        $filePath = "public/ressources/views/" . $view . ".php";
+        $filePath = "ressources/views/" . $view . ".php";
         
         // Include the view file
         require $filePath;

@@ -1,14 +1,10 @@
 <?php
 namespace public\app\controllers ;
 
-// require "UserController.php";
-// require "public/app/controllers/UserController.php";
-require_once 'C:\wamp64\wamp64\www\SAM\public\app\controllers\UserController.php';
 
-use \app\controllers\UserController;
-// use \app\models\User;
+// require_once 'C:\wamp64\wamp64\www\SAM\public\app\controllers\UserController.php';
+require "vendor/autoload.php";
 
-// require 'C:\wamp64\wamp64\www\SAM\public\app\models\User.php';
 
 
 $x = $_POST["param1"];

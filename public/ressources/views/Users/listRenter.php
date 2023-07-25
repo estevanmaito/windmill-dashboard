@@ -164,6 +164,6 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
 </div>
 <?php
 $content = ob_get_clean();
-include_once 'public/ressources/views/layout.php';
+include_once 'ressources/views/layout.php';
 ?>
 

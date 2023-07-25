@@ -1,13 +1,13 @@
 <?php
 namespace app\models;
 
-// Import the base Model class
-require_once __DIR__ . '/Model.php';
+require "vendor/autoload.php";
+
 use \app\models\Model;
 
 use PDO;
 
-class User extends \app\models\Model
+class User extends Model
 {
     private $username;
     private $password;
@@ -190,20 +190,45 @@ class User extends \app\models\Model
         return $statement->execute($parameters);
     }
 
-    public function find($table, $username)
+    // public function find($table, $username)
+    // {
+    //     // Prepare the SQL statement to select records from the specified table where the username matches the provided value
+    //     $statement = static::database()->prepare('SELECT * FROM ' . $table . ' WHERE username LIKE :username');
+        
+    //     // Bind the value of the username parameter to the corresponding placeholder in the query
+    //     $statement->bindValue(':username', $username);
+        
+    //     // Execute the prepared statement
+    //     $statement->execute();
+        
+    //     // Fetch all rows as an array of objects of the current class and return the result
+    //     return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+    // }   
+    public function find($table, $searchType, $searchValue)
     {
-        // Prepare the SQL statement to select records from the specified table where the username matches the provided value
-        $statement = static::database()->prepare('SELECT * FROM ' . $table . ' WHERE username LIKE :username');
-        
-        // Bind the value of the username parameter to the corresponding placeholder in the query
-        $statement->bindValue(':username', $username);
-        
+        // Define the allowed search types (you can customize this as needed)
+        $allowedSearchTypes = ['id', 'username'];
+    
+        // Validate the search type parameter
+        if (!in_array($searchType, $allowedSearchTypes)) {
+            var_dump('nothing');
+            // throw new InvalidArgumentException('Invalid search type. Allowed types: ' . implode(', ', $allowedSearchTypes));
+        }
+    
+        // Prepare the SQL statement to select records from the specified table where the search type matches the provided value
+        $statement = static::database()->prepare('SELECT * FROM ' . $table . ' WHERE ' . $searchType . ' LIKE :search_value');
+    
+        // Bind the value of the search_value parameter to the corresponding placeholder in the query
+        $statement->bindValue(':search_value', $searchValue);
+    
         // Execute the prepared statement
         $statement->execute();
-        
+    
         // Fetch all rows as an array of objects of the current class and return the result
         return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
-    }   
+    }
+    
+
 
     // Function to retrieve the referenced table from a foreign key column
 //     public static function retrieveTable($column, $table)

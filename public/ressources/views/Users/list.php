@@ -169,11 +169,11 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
 </div>
 <script>
 <?php
-include_once 'public/assets/js/global.js';
+include_once 'assets/js/global.js';
 ?>
 </script>
 <?php
 $content = ob_get_clean();
-include_once 'public/ressources/views/layout.php';
+include_once 'ressources/views/layout.php';
 ?>
 

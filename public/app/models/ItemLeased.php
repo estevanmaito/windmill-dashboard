@@ -1,11 +1,11 @@
 <?php
 namespace app\models;
 
-// Import the base Model class
-require_once __DIR__ . '/Model.php';
+require "vendor/autoload.php";
+
 use \app\models\Model;
 
-class item_leased extends \app\models\Model
+class item_leased extends Model
 {
     // private $id;
     private $item_id;

@@ -1,14 +1,14 @@
 <?php
 namespace app\controllers ;
 // Include the necessary files
-// require "BaseController.php";
-require 'public/app/models/Item.php';
+require "vendor/autoload.php";
+
 
 // Use the User class from the app\models namespace
 use \app\models\Item;
 
 
-class ItemController  extends \app\controllers\BaseController
+class ItemController  extends BaseController
 {
 
 

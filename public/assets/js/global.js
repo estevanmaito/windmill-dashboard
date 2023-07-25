@@ -36,7 +36,7 @@ userRows.forEach(function(userRow) {
           var userId = userRow.dataset.id;
           
           $.ajax({
-            url: '/SAM/public/app/controllers/Function.php',
+            url: '/SAM/public/app/controllers/Functions.php',
             type: 'POST',
             data: {
               action: 'getUserDataAjax', // Sending the function name as an action parameter
@@ -44,14 +44,23 @@ userRows.forEach(function(userRow) {
             },
              success: function (response) {
               // Set the HTML content inside the detailsRow 
-              detailsRow.innerHTML = '<td> hello </td>';
+            // Assuming 'response' is an array with values you want to concatenate
+            let detailsRowHTML = '<td> ';
 
-              // Handle the response from the PHP function             
-              console.log('Result from PHP function:',response)
+            for (const key in response) {
+              if (response.hasOwnProperty(key)) {
+                detailsRowHTML += response[key] + '</td> <td>';
+                console.log( response[key])
+              }
+            }
+            
+            detailsRow.innerHTML = detailsRowHTML;
+            
              
             },
             error: function (xhr, status, error) {
               // Handle errors, if any
+              detailsRow.innerHTML = 'hi';
               console.error('Error occurred:', error);
             }
           });

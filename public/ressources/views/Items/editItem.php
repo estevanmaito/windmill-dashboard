@@ -19,10 +19,6 @@ ob_start();
     <input type="text" value="<?= $data->getItemName() ?>" name="name"
         class="py-1 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 border focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" required><br>
 
-    <label for="typeId">Identifiant de type :</label><br>
-    <input type="text" value="<?= $data->getItemTypeId() ?>" name="typeId"
-        class="py-1 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 border focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" required><br>
-
     <label class="block mb-6">
         <span class="text-gray-700">Type :</span>
             <select name="typeId" class="py-1 px-4 block w-full mt-1 border border-gray-500 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
@@ -54,8 +50,8 @@ ob_start();
             class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Emplacement..." required >
        
             <label for="description">Description :</label>
-            <textarea name="description" rows="4" value="<?= $data->getItemDescription() ?>"
-            class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Écrivez vos pensées ici..."></textarea>
+            <textarea name="description" rows="4" value=""
+            class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Écrivez vos pensées ici..."><?php echo $data->getItemDescription() ?></textarea>
 
             <label class="block mb-6">
                 <span class="text-gray-700">Propriétaire :</span>
@@ -94,5 +90,5 @@ ob_start();
 <?php
 
 $content = ob_get_clean();
-include_once 'public/ressources/views/layout.php';
+include_once 'ressources/views/layout.php';
 ?>

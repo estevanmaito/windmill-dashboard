@@ -19,11 +19,16 @@
 </head>
 
 <body>
-  <div class="flex">
-    <?php include 'header.php';
-     ?>
-    
-    <?= $content; ?>
+  <div
+  class="flex h-screen bg-gray-50 dark:bg-gray-900"
+  :class="{ 'overflow-hidden': isSideMenuOpen}"
+  >
+      <?php include 'header.php';
+      ?>
+      <main class="h-full pb-16 overflow-y-auto">
+        <?= $content; ?>
+      </main>
+    </div>
   </div>
 </body>
 </html>

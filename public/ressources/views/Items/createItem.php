@@ -9,20 +9,22 @@ $locationOption = ItemController::SelectOptionItem('location','name');
 $proprietaireOption = ItemController::SelectOptionItem('user_account','username','role_id = 2');
 $unitOption = ItemController::SelectOptionItem('unit','unit_name');
 
-
-
 ob_start();
 ?>
-<div class="w-full md:w-96 md:max-w-full mx-auto">
-    <div class="p-6 sm:rounded-md font-semibold text-gray-600 dark:text-gray-300">
+<div class="container px-6 mx-auto grid">
+    <h4 class=" my-6 mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"> Ajouter une nouvelle propriété</h4>
+    <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
         <form action="index1.php?action=storeItem" method="post" >
-            <label for="name">Nom :</label>
-            <input type="text" name="name" 
-            class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="nom..." required >
+
+            <label class="block text-sm" for="name"> 
+                <span class="text-gray-700 dark:text-gray-400" >Nom :</span>
+                <input type="text" name="name" 
+                class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="nom..." required >
+            </label>
           
-            <label class="block mb-6">
-                <span class="text-gray-700">Type :</span>
-                    <select name="typeId" class="py-1 px-4 block w-full mt-1 border border-gray-500 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+            <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400" >Type :</span>
+                    <select name="typeId" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
                         <option value="">Choisir un type</option>
                         <?php
                     
@@ -33,9 +35,9 @@ ob_start();
                     </select>
             </label>
  
-            <label class="block mb-6">
-                <span class="text-gray-700">Emplacement :</span>
-                    <select name="locationId" class="py-1 px-4 block w-full mt-1 border border-gray-500 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+            <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400" >Emplacement :</span>
+                    <select name="locationId" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
                         <option value="">Choisir un emplacement</option>
                         <?php
                     
@@ -46,17 +48,21 @@ ob_start();
                     </select>
             </label>    
 
-            <label for="itemLocation">Emplacement de l'article :</label>
-            <input type="text" name="itemLocation" 
-            class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Emplacement..." required >
-       
-            <label for="description">Description :</label>
-            <textarea name="description" rows="4" 
-            class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Écrivez vos pensées ici..."></textarea>
+            <label class="block text-sm" for="itemLocation">
+                <span class="text-gray-700 dark:text-gray-400" >Emplacement de l'article :</span>   
+                <input type="text" name="itemLocation" 
+                class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Emplacement..." required >
+            </label>
 
-            <label class="block mb-6">
-                <span class="text-gray-700">Propriétaire :</span>
-                    <select name="ownerId" class="py-1 px-4 block w-full mt-1 border border-gray-500 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+            <label class="block text-sm" for="description">
+                <span class="text-gray-700 dark:text-gray-400" >Desciption :</span>
+                <textarea name="description" rows="4" 
+                class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Écrivez vos pensées ici..."></textarea>
+            </label>
+
+            <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400" >Propriétaire :</span>
+                    <select name="ownerId" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
                         <option value="">Choisir un propriétaire</option>
                         <?php
                     
@@ -67,13 +73,15 @@ ob_start();
                     </select>
             </label>   
 
-            <label for="price">Prix :</label>
-            <input type="text" name="price" 
-            class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0000.00" required >
+            <label class="block text-sm" for="price"> 
+                <span class="text-gray-700 dark:text-gray-400" >Prix :</span>
+                <input type="text" name="price" 
+                class="py-1 px-4 block w-full border border-gray-200 rounded-md text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0000.00" required >
+            </label>
 
-            <label class="block mb-6">
-                <span class="text-gray-700">Unité :</span>
-                <select name="unitId" class="py-1 px-4 block w-full mt-1 border border-gray-500 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+            <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400" >Unité :</span>
+                <select name="unitId" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"required>
                 <option value="">Choisir une unité</option>
 
                     <?php
@@ -91,7 +99,6 @@ ob_start();
 </div>
 
 <?php
-
 $content = ob_get_clean();
 include_once 'ressources/views/layout.php';
 ?>

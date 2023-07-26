@@ -11,9 +11,6 @@ use \app\models\Item;
 class ItemController  extends BaseController
 {
 
-
-   
-
     public static function getModelItem()
     {
         // Check if the model instance is null
@@ -26,31 +23,31 @@ class ItemController  extends BaseController
     
 
     public static function indexActionItem()
-{
-    // Retrieve the search input from the POST request
-    $searchType = isset($_POST['search_type']) ? $_POST['search_type'] : null;
-    $searchValue = isset($_POST['search']) ? $_POST['search'] : null;
-    
-    // Retrieve the request method
-    $requestMethod = $_SERVER['REQUEST_METHOD'];
+    {
+        // Retrieve the search input from the POST request
+        $searchType = isset($_POST['search_type']) ? $_POST['search_type'] : null;
+        $searchValue = isset($_POST['search']) ? $_POST['search'] : null;
+        
+        // Retrieve the request method
+        $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-    if ($searchValue !== "" && $searchType !== "" && $requestMethod === 'POST') {
-        // Search for items based on the provided search input
-        $items = static::getModelItem()->findItem($searchType, $searchValue);
-    } else {
-        // Retrieve the latest items
-        $items = static::getModelItem()->latestItem();
+        if ($searchValue !== "" && $searchType !== "" && $requestMethod === 'POST') {
+            // Search for items based on the provided search input
+            $items = static::getModelItem()->findItem($searchType, $searchValue);
+        } else {
+            // Retrieve the latest items
+            $items = static::getModelItem()->latestItem();
+        }
+
+        // Render the view "Items/propertyList" and pass the items as data
+        static::requir("Items/propertyList", $items);
     }
 
-    // Render the view "Items/propertyList" and pass the items as data
-    static::requir("Items/propertyList", $items);
-}
-
-public static function lengthActionItem()
-{
-    // Retrieve the length of the "item" table
-    return static::getModelItem()->length('item');
-}
+    public static function lengthActionItem()
+    {
+        // Retrieve the length of the "item" table
+        return static::getModelItem()->length('item');
+    }
 
     public static function retrieveSettresItem()
     {
@@ -74,6 +71,7 @@ public static function lengthActionItem()
         static::requir("Items/createItem");
         
     }
+
     public static function storeActionItem()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -90,6 +88,7 @@ public static function lengthActionItem()
         }
 
     }
+
     public static function editActionItem()
     {
         $id=$_GET['id'];
@@ -137,6 +136,25 @@ public static function lengthActionItem()
         }
 
     }
+
+    public static function statutActionItem($id)
+    {
+        $statut = static::getModelItem()->statut($id);
+        $etat = '';
+    
+        if ($statut) {
+            // Assuming $statut contains the result from the database query
+            // If you have a specific condition to check for "app", modify it accordingly
+            $etat = '<span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">occupée</span>';
+        }
+        else
+        {
+            $etat = '<span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">inoccupée<span>';
+        }
+    
+        return $etat;
+    }
+
 /*
     public static function lengthAction()
     {

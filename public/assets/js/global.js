@@ -36,7 +36,7 @@ userRows.forEach(function(userRow) {
           var userId = userRow.dataset.id;
           
           $.ajax({
-            url: '/SAM/public/app/controllers/Functions.php',
+            url: 'app/controllers/Function.php',
             type: 'POST',
             data: {
               action: 'getUserDataAjax', // Sending the function name as an action parameter

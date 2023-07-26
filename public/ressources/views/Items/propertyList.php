@@ -214,7 +214,8 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
               <th class="px-4 py-3"> DESCRIPTION </th>
               <th class="px-4 py-3">PROPRIÉTAIRE</th>
               <th class="px-4 py-3"> PRIX </th>
-              <th class="px-4 py-3">UNITÉ </th>        
+              <th class="px-4 py-3">UNITÉ </th>    
+              <th class="px-4 py-3">SATUT </th>        
               <th class="px-4 py-3">ACTION </th>                      
 
             </tr>
@@ -227,7 +228,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
     if (is_array($data) || is_object($data)) {
       foreach ($data as $item): ?>
 
-        <tr class="text-gray-700 dark:text-gray-400">
+        <tr class="text-gray-700 hover:bg-gray-100  dark:text-gray-400">
           <td class="px-4 py-3 text-sm"><?= $item->getItemName()?></td>
           <td class="px-4 py-3 text-sm"><?= $item->type_name ?></td>
           <td class="px-4 py-3 text-sm"><?= $item->name?></td>
@@ -236,6 +237,9 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
           <td class="px-4 py-3 text-sm"><?= $item->username ?></td>
           <td class="px-4 py-3 text-sm"><?= $item->getPricePerUnit() ?></td>
           <td class="px-4 py-3 text-sm"><?= $item->unit_name ?></td>
+          <td class="px-4 py-3 text-sm">
+          <?php echo ItemController::statutActionItem($item->getItemId()) ; ?>
+          </td>
           <td class="px-4 py-3 text-sm">
             <div class="flex items-center space-x-4 text-sm">
               <a

@@ -28,14 +28,15 @@ class ItemController  extends BaseController
     public static function indexActionItem()
 {
     // Retrieve the search input from the POST request
-    $search = isset($_POST['search']) ? $_POST['search'] : null;
+    $searchType = isset($_POST['search_type']) ? $_POST['search_type'] : null;
+    $searchValue = isset($_POST['search']) ? $_POST['search'] : null;
     
     // Retrieve the request method
     $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-    if ($search !== "" && $requestMethod === 'POST') {
+    if ($searchValue !== "" && $searchType !== "" && $requestMethod === 'POST') {
         // Search for items based on the provided search input
-        $items = static::getModelItem()->findItem($search);
+        $items = static::getModelItem()->findItem($searchType, $searchValue);
     } else {
         // Retrieve the latest items
         $items = static::getModelItem()->latestItem();
@@ -50,19 +51,6 @@ public static function lengthActionItem()
     // Retrieve the length of the "item" table
     return static::getModelItem()->length('item');
 }
-
-    
-/*
-    public static function searchActionItem()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['search']) ) {
-
-            $userSearch = static::getModel();
-            $userSearch->find($_POST['search']);
-            static::requir("list",$userSearch);
-        }
-
-    }*/
 
     public static function retrieveSettresItem()
     {

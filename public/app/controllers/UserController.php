@@ -54,7 +54,6 @@ class UserController extends BaseController
         $searchType = isset($_POST['search_type']) ? $_POST['search_type'] : null;
         $searchValue = isset($_POST['search']) ? $_POST['search'] : null;
     
-    
     // Get the request method (POST or GET)
         $requestMethod = $_SERVER['REQUEST_METHOD'];
         

@@ -147,28 +147,56 @@ class Item extends Model
     }
     
     public function updateItem($id)
-{
-    // Prepare the SQL statement with placeholders for values
-    $statement = static::database()->prepare("UPDATE item SET item_name = ?, item_type_id = ?, location_id = ?, 
-        item_location = ?, description = ?, owner_id = ?, price_per_unit = ?, unit_id = ?, avaible = ? WHERE id = ".$id);
+    {
+        // Prepare the SQL statement with placeholders for values
+        $statement = static::database()->prepare("UPDATE item SET item_name = ?, item_type_id = ?, location_id = ?, 
+            item_location = ?, description = ?, owner_id = ?, price_per_unit = ?, unit_id = ?, avaible = ? WHERE id = ".$id);
 
-    // Create an array of parameters containing the updated values
-    $parameters = [
-        $this->item_name, 
-        $this->item_type_id, 
-        $this->location_id, 
-        $this->item_location, 
-        $this->description, 
-        $this->owner_id, 
-        $this->price_per_unit, 
-        $this->unit_id, 
-        $this->avaible
-    ];
+        // Create an array of parameters containing the updated values
+        $parameters = [
+            $this->item_name, 
+            $this->item_type_id, 
+            $this->location_id, 
+            $this->item_location, 
+            $this->description, 
+            $this->owner_id, 
+            $this->price_per_unit, 
+            $this->unit_id, 
+            $this->avaible
+        ];
 
-    // Execute the prepared statement with the actual values
-    return $statement->execute($parameters);
-}
+        // Execute the prepared statement with the actual values
+        return $statement->execute($parameters);
+    }
 
+    public function findItem( $searchType, $searchValue)
+    {
+        // Define the allowed search types (you can customize this as needed)
+        $allowedSearchTypes = ['id', 'item_name' ];
+        $search = $searchType == 'username' ? 'item_name' : $searchType ;
+        // Validate the search type parameter
+        if (!in_array($search, $allowedSearchTypes)) {
+            var_dump('nothing');
+            // throw new InvalidArgumentException('Invalid search type. Allowed types: ' . implode(', ', $allowedSearchTypes));
+        }
+
+        // Prepare the SQL statement to select records from the specified table where the search type matches the provided value
+        $statement = static::database()->prepare('SELECT I.id, I.item_name, It.type_name, l.name, I.item_location, I.description,
+        U.username, I.price_per_unit, Un.unit_name, I.avaible FROM user_account U 
+        INNER JOIN item I ON I.owner_id = U.id 
+        INNER JOIN item_type It ON I.item_type_id = It.id 
+        INNER JOIN location l ON I.location_id = l.id 
+        INNER JOIN unit Un ON I.unit_id = Un.id WHERE ' . $search . ' LIKE :search_value');
+
+        // Bind the value of the search_value parameter to the corresponding placeholder in the query
+        $statement->bindValue(':search_value', $searchValue);
+
+        // Execute the prepared statement
+        $statement->execute();
+
+        // Fetch all rows as an array of objects of the current class and return the result
+        return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+    }
 
 }
 

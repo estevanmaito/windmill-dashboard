@@ -1,3 +1,9 @@
+<?php
+
+$current_page = $_SERVER['REQUEST_URI'];
+parse_str(parse_url($current_page, PHP_URL_QUERY), $query);
+$actionValue = isset($query['action']) ? $query['action'] : '';
+?>
 <div
       class="flex h-screen bg-gray-50 dark:bg-gray-900"
       :class="{ 'overflow-hidden': isSideMenuOpen}"
@@ -328,11 +334,9 @@
               </svg>
             </button>
             <!-- Search input -->
-            <form class="relative w-full max-w-xl mr-6 focus-within:text-purple-500" action="index1.php?action=search" method="post">
+            <form class="relative w-full max-w-xl mr-6 focus-within:text-purple-500" action="index1.php?action=search<?= $actionValue?>" method="post">
             <div class="flex justify-center flex-1 lg:mr-32">
-              <div
-                class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
-              >
+              <div class="relative w-full max-w-xl mr-6 focus-within:text-purple-500" >
                 <div class="absolute inset-y-0 flex items-center pl-2">
                   <svg
                     class="w-4 h-4"
@@ -350,12 +354,10 @@
                 </div>
                 <input
                   class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
-                  type="text"
+                  type="text" name="search"
                   placeholder="Recherche selon..."
                   aria-label="Search"
                 />
-                  <!--  une recherche selon... -->
-
               </div>
               <label class="inline-flex items-center">
                 <select name="search_type" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-indigo-900">

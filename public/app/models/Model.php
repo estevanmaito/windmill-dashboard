@@ -63,22 +63,22 @@ class Model
     }
 
     public static function SelectInputs($referencedTable , $column , $cond = NULL)
-{
-    if($cond != NULL)
     {
-        $statement = static::database()->prepare('SELECT '. $column .' , id FROM ' . $referencedTable . ' WHERE '.$cond );
-    }
-    else
-    {
-        $statement = static::database()->prepare('SELECT '. $column .' , id FROM ' . $referencedTable );
-    }
-    
+        if($cond != NULL)
+        {
+            $statement = static::database()->prepare('SELECT '. $column .' , id FROM ' . $referencedTable . ' WHERE '.$cond );
+        }
+        else
+        {
+            $statement = static::database()->prepare('SELECT '. $column .' , id FROM ' . $referencedTable );
+        }
+        
         // Execute the prepared statement
         $statement->execute();
-        
+            
         // Fetch all rows as an array of objects of the current class and return the result
         return $statement->fetchAll(PDO::FETCH_ASSOC);
-}
+    }
 
 
 

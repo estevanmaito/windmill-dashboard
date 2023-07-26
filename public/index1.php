@@ -15,11 +15,11 @@
                 UserController::createAction();
             break;
             case 'list' :
-            case 'search': 
+            case 'searchlist': 
                 UserController::indexAction(2);
             break;
             case 'listRenter' :
-                case 'searchRenter': 
+                case 'searchlistRenter': 
                     UserController::indexAction(3);
                 break;
             case 'store':
@@ -35,6 +35,7 @@
                 UserController::updateAction();
             break;
             case 'propertyList':
+                case 'searchpropertyList' :
                 ItemController::indexActionItem();
             break;
             case 'createItem':

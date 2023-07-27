@@ -199,16 +199,32 @@ class Item extends Model
     }
 
     public  function statut($id)
-{
-    $statement = static::database()->prepare('SELECT * FROM item I
-        INNER JOIN item_leased Il ON I.id = Il.item_id
-        WHERE I.id = :id'); // Adding the WHERE condition based on the provided $id
-    $statement->bindParam(':id', $id, PDO::PARAM_INT); // Binding the $id parameter
-    $statement->execute();
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC); // Fetching the results as an associative array
-    return $result;
-}
+    {
+        $statement = static::database()->prepare('SELECT * FROM item I
+            INNER JOIN item_leased Il ON I.id = Il.item_id
+            WHERE I.id = :id'); // Adding the WHERE condition based on the provided $id
+        $statement->bindParam(':id', $id, PDO::PARAM_INT); // Binding the $id parameter
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC); // Fetching the results as an associative array
+        return $result;
+    }
 
+    public static function fetch_data($id) {
+        $db = static::database();
+        $query = "SELECT * FROM item WHERE id = :id";
+
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+        $exec = $stmt->execute();
+
+        if ($exec) {
+            $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $row;
+        } else {
+            return [];
+        }
+    }
 
 }
 

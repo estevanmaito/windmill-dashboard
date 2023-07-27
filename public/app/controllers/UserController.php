@@ -182,11 +182,8 @@ class UserController extends BaseController
     }
 
     // Function to handle the AJAX request and retrieve user data by ID
-    public static function sendData($id)
-    {
-        return static::getModel()::fetch_data($id);
-    }
 
+    
 }
 
 ?>

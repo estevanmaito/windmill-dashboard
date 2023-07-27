@@ -20,7 +20,7 @@
 
 
 // JavaScript click event handler for .user-row elements
-var userRows = document.querySelectorAll('.user-row');
+var userRows = document.querySelectorAll('.table-row');
 userRows.forEach(function(userRow) {
     userRow.addEventListener('click', function () {
         // Find the corresponding .detailsRow element for the clicked .user-row
@@ -36,8 +36,8 @@ userRows.forEach(function(userRow) {
           var userId = userRow.dataset.id;
           
           $.ajax({
-            url: 'app/controllers/Function.php',
-            type: 'POST',
+            url: 'index1.php',
+            type: 'GET',
             data: {
               action: 'getUserDataAjax', // Sending the function name as an action parameter
               param1 : userId
@@ -53,9 +53,17 @@ userRows.forEach(function(userRow) {
                 console.log( response[key])
               }
             }
-            
-            detailsRow.innerHTML = detailsRowHTML;
-            
+            const newDiv = document.createElement('div');
+  //           detailsRow.innerHTML = `
+  //   <div class="grid grid-cols-3 gap-4 p-5">
+  //     <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg row-span-2">1</div>
+  //     <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg">2</div>
+  //     <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg row-span-2">3</div>
+  //     <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg">4</div>
+  //   </div>
+  // `;
+  // detailsRow.replaceWith(newDiv); 
+            // detailsRow.innerHTML = response
              
             },
             error: function (xhr, status, error) {

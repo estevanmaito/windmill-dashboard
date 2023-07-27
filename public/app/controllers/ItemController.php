@@ -155,6 +155,38 @@ class ItemController  extends BaseController
         return $etat;
     }
 
+    public static function sendData($id)
+    {
+        $itemData = static::getModelItem()::fetch_data($id);
+    
+        if ($itemData !== null)
+        {
+            // Prepare the data to be sent back in JSON format
+            // $responseData = array(
+            //     'name' => $itemData[0]['item_name'], // Assuming the 'username' field is in the first row of the returned data
+            //     'phone' => $itemData[0]['item_location'],   // Assuming the 'phone' field is in the first row of the returned data
+            //       // Assuming the 'email' field is in the first row of the returned data
+            //     // Add more properties as needed
+            // );
+            $responseData = <<<HTML
+<div class="grid grid-cols-3 gap-4 p-5">
+  <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg row-span-2">1</div>
+  <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg">2</div>
+  <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg row-span-2">3</div>
+  <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg">4</div>
+</div>
+HTML;
+            header('Content-Type: application/json');
+    
+                        // Output the JSON data
+            echo json_encode($responseData);
+            // var_dump('hi');
+            // return $responseData;
+        }
+        
+        return null; // Return null if user data is not found or there's an error
+    }
+
 /*
     public static function lengthAction()
     {

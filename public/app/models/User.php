@@ -163,18 +163,6 @@ class User extends Model
       // Fetch the result as an array of objects of the current class and return the first element
       return current($sqlstate->fetchAll(PDO::FETCH_CLASS, __CLASS__));
   }
-  public static function fetch_data($id){
-     $db = static::database() ;
-     $query="SELECT * from user_account  WHERE id = ".$id ;
-     $exec=mysqli_query($db, $query);
-     if(mysqli_num_rows($exec)>0){
-       $row= mysqli_fetch_all($exec, MYSQLI_ASSOC);
-       return $row;  
-           
-     }else{
-       return $row=[];
-     }
-   }
       
     public function update($id)
     {

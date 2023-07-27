@@ -123,12 +123,12 @@ require "vendor/autoload.php";
 
         <div class="flex grid  mb-8  md:grid-cols-2  p-6 sm:rounded-md font-semibold text-gray-600 dark:text-gray-300"">
           <a href="index1.php?action=list" class="flex-1">
-            <button class="w-full px-6 py-3 font-semibold hover:border-gray-500 transition-all duration-200 ease-in-out bg-indigo-600 border border-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            <button class="w-full px-6 py-3 font-semibold hover:border-gray-500 transition-all duration-200 ease-in-out  border  rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300">
               Propriétaire
             </button>
           </a>
           <a href="index1.php?action=listRenter" class="flex-1">
-            <button class="w-full px-6 py-3 font-semibold hover:border-gray-500  transition-all duration-200 ease-in-out bg-indigo-600 border border-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            <button class="w-full px-6 py-3 font-semibold hover:border-gray-500  transition-all duration-200 ease-in-outborder border  rounded-lg shadow-md  focus:outline-none focus:ring-2 focus:ring-purple-300">
               Locataire
             </button>
           </a>

@@ -50,6 +50,10 @@
             case 'destroyItem':
                 ItemController::destroyActionItem();
             break;
+            case "getUserDataAjax":
+                // echo 'hello' ;
+             ItemController::sendData($_GET['param1']);
+            break;
 
             default :
             echo " page not found 404";

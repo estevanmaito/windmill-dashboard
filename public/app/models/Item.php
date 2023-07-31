@@ -114,13 +114,14 @@ class Item extends Model
     public static function latestItem()
     {
         // Perform a database query to retrieve the latest items
-        return static::database()->query('SELECT I.id, I.item_name, It.type_name, l.name, I.item_location, I.description,
+        $statement = static::database()->query('SELECT I.id, I.item_name, It.type_name, l.name, I.item_location, I.description,
             U.username, I.price_per_unit, Un.unit_name, I.avaible FROM user_account U 
             INNER JOIN item I ON I.owner_id = U.id 
             INNER JOIN item_type It ON I.item_type_id = It.id 
             INNER JOIN location l ON I.location_id = l.id 
-            INNER JOIN unit Un ON I.unit_id = Un.id')
-            ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+            INNER JOIN unit Un ON I.unit_id = Un.id');
+
+        return  $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }
     
     public function createItem()
@@ -134,6 +135,7 @@ class Item extends Model
         return $statement->execute([$this->item_name, $this->item_type_id, $this->location_id, $this->item_location, 
             $this->description, $this->owner_id, $this->price_per_unit, $this->unit_id]);
     }
+
     public static function viewItem($id)
     {
         // Prepare the SQL statement to select a record from the "user_account" table based on the given id
@@ -175,7 +177,8 @@ class Item extends Model
         $allowedSearchTypes = ['id', 'item_name' ];
         $search = $searchType == 'username' ? 'item_name' : $searchType ;
         // Validate the search type parameter
-        if (!in_array($search, $allowedSearchTypes)) {
+        if (!in_array($search, $allowedSearchTypes)) 
+        {
             var_dump('nothing');
             // throw new InvalidArgumentException('Invalid search type. Allowed types: ' . implode(', ', $allowedSearchTypes));
         }
@@ -202,31 +205,85 @@ class Item extends Model
     {
         $statement = static::database()->prepare('SELECT * FROM item I
             INNER JOIN item_leased Il ON I.id = Il.item_id
-            WHERE I.id = :id'); // Adding the WHERE condition based on the provided $id
+            WHERE I.id = :id AND Il.time_to >= CURRENT_DATE;'); // Adding the WHERE condition based on the provided $id
         $statement->bindParam(':id', $id, PDO::PARAM_INT); // Binding the $id parameter
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC); // Fetching the results as an associative array
         return $result;
     }
 
-    public static function fetch_data($id) {
-        $db = static::database();
-        $query = "SELECT * FROM item WHERE id = :id";
+    // public static function fetch_data($id) 
+    // {
+    //     $db = static::database(); // Get the database connection.
 
-        $stmt = $db->prepare($query);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    //     $query = "SELECT I.item_name, I.description, Il.price_total 
+    //             FROM item I
+    //             INNER JOIN item_leased Il ON I.id = Il.item_id
+    //             WHERE I.id = :id"; // SQL query to fetch data.
 
-        $exec = $stmt->execute();
+    //     $stmt = $db->prepare($query);
+    //     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
-        if ($exec) {
-            $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $row;
-        } else {
-            return [];
-        }
+    //     $exec = $stmt->execute();
+
+    //     if ($exec) {
+    //         $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //         return $row;
+    //     } else {
+    //         return [];
+    //     }
+    // }
+
+    public static function fetch_data($id) 
+    {
+        $db = static::database(); // Get the database connection.
+
+        $query = "SELECT item_name, description, price_per_unit 
+                FROM item 
+                WHERE id = :id"; // SQL query to fetch data.
+
+        $stmt = $db->prepare($query); // Prepare the SQL query.
+        $stmt->execute(['id' => $id]); // Execute the prepared statement with the 'id' parameter.
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); // Return the fetched data as an associative array.
     }
 
+    public static function fetch_latest_data($id) 
+    {
+        $db = static::database(); // Get the database connection.
+
+        $query = "SELECT time_from, time_to, price_total 
+                FROM item_leased 
+                WHERE item_id = :id
+                ORDER BY time_to DESC
+                "; // SQL query to fetch the latest data for the item.
+
+        $stmt = $db->prepare($query); // Prepare the SQL query.
+        $stmt->execute(['id' => $id]); // Execute the prepared statement with the 'id' parameter.
+
+        return ($stmt->fetch(PDO::FETCH_ASSOC)); // Return the fetched data as an associative array.
+    }
+
+
 }
+
+
+// $item = new Item();
+// $itemLatestData = $item::fetch_latest_data(1); // <-- Corrected the variable name from $itme to $item
+// var_dump( $itemLatestData) ;
+// if ($itemLatestData !== null) {
+ 
+//         $responseData = array(
+//                         'name' => $itemLatestData['time_from'], // Assuming the 'username' field is in the first row of the returned data
+//                         'phone' => $itemLatestData['time_to'],  
+//                         'd' => $itemLatestData['price_total'],   
+//                           // Assuming the 'email' field is in the first row of the returned data
+//                         // Add more properties as needed
+//                     );
+
+//                     var_dump($responseData );
+// }
+
 
 
 

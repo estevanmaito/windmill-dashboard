@@ -1,0 +1,38 @@
+
+/* .item-row {
+width: auto;
+background-color: aqua;
+overflow: hidden;
+  
+} */
+
+.sam-details__box{
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+ 
+}
+
+.sam-details__item-box{
+    flex: 1 1 30%;
+    background: green;
+    border-radius: 5px;
+    height: 200px;
+    padding: 10px;
+}
+
+.sam-details__item{
+    
+    background: rgb(187, 187, 187);
+    border-radius: 5px;
+    padding: 10px;
+    height: 50%;
+}
+
+.fff{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    
+}
+

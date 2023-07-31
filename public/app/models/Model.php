@@ -64,14 +64,13 @@ class Model
 
     public static function SelectInputs($referencedTable , $column , $cond = NULL)
     {
-        if($cond != NULL)
+        $query = 'SELECT '. $column .' , id FROM ' . $referencedTable;
+        if(!empty($cond))
         {
-            $statement = static::database()->prepare('SELECT '. $column .' , id FROM ' . $referencedTable . ' WHERE '.$cond );
+            $query .= ' WHERE  '.$cond ;
         }
-        else
-        {
-            $statement = static::database()->prepare('SELECT '. $column .' , id FROM ' . $referencedTable );
-        }
+         $statement = static::database()->prepare($query );
+        
         
         // Execute the prepared statement
         $statement->execute();

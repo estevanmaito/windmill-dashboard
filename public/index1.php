@@ -41,6 +41,9 @@
             case 'createItem':
                 ItemController::createActionItem();
             break;
+            case 'storeItem':
+                ItemController::storeActionItem();
+            break;
             case 'editItem':
                 ItemController::editActionItem();
             break;

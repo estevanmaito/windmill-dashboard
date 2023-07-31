@@ -211,7 +211,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
           <!-- row -->
           <div class="table-row flex text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
               <!-- columns -->
-              <div class="table-cell px-4 py-3 p-2 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b border-gray-500 dark:border-gray-700" style="width: 16.6667%;">NOM</div>
+              <div class="table-cell name-field px-4 py-3 p-2 text-sm" style="width: 16.6667%;flex-grow:0!important">NOM</div>
               <div class="table-cell px-4 py-3 p-2 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b border-gray-500 dark:border-gray-700" style="width: 16.6667%;">TYPE</div>
               <div class="table-cell px-4 py-3 p-2 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b border-gray-500 dark:border-gray-700" style="width: 16.6667%;"> EMPLACEMENT </div>
               <div class="table-cell px-4 py-3 p-2 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b border-gray-500 dark:border-gray-700" style="width: 16.6667%;"> EMPLACEMENT DE L'ARTICLE </div>
@@ -225,15 +225,17 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
           </div>
           </div>
             <!-- Table rows -->
-          <div class="table-row-group ">
+         
             <?php 
 
              /** @var \public\app\models\Item[] $data */
 
               if (is_array($data) || is_object($data)) {
                 foreach ($data as $item): ?>
-              <div class="table-row flex bg-gray-100 dark:bg-gray-900 text-gray-700 hover:bg-gray-200 dark:text-gray-400 h-12"data-id="<?php echo $item->getItemId()?>">
-              <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $item->getItemName()?></div>
+                <?php echo $item->getItemId()?>
+            <div class="item-row table-row-group "  data-id="<?php echo $item->getItemId()?>">
+              <div  class=" table-row flex bg-gray-50 dark:bg-gray-900 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-400 h-12"  data-id="<?php echo $item->getItemId()?>">
+                <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $item->getItemName()?></div>
                   <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $item->type_name ?></div>
                   <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $item->name?></div>
                   <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $item->getItemLocation() ?></div>
@@ -276,23 +278,40 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
                     </div>
                   </div>
               </div> 
-              <div  style="display:none;"
-                class="table-row bg-gray-100 dtext-gray-700 neglect-row">
-                  <div class="grid grid-cols-3 gap-4 p-5" >
+           
+            </div>
+              <div class=" sam-details__box" style='display:none;' >
+                <div class="sam-details__item-box">1</div>
+                <div class="sam-details__item-box fff">
+                  <div class="sam-details__item">2</div>          
+                  <div class="sam-details__item">3</div>
+                </div>
+                <div class="sam-details__item-box">4</div>
+              </div> 
+         
+        
+
+                  <!-- <div class="grid grid-cols-3 gap-4 p-5" >
                           <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-5 rounded-lg row-span-2">1</div>
                           <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-5 rounded-lg">2</div>          
                           <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-5 rounded-lg row-span-2">3</div>
                           <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-5 rounded-lg">4</div>
-                 </div> 
-              </div>
+                 </div>  -->
+         
 
-            </div>
+            
           <?php endforeach;}
           else {
             echo "No data available";
           } ?>
-        </div>
-      </div>     
+                   
+     
+        
+    
+
+    
+      </div>  
+    
     </div>   
     <!-- <div class="grid grid-cols-2 gap-x-5 gap-y-3">
   <div class="bg-green-100 text-green-500 text-lg font-bold text-center p-14 rounded-lg">1</div>
@@ -301,14 +320,17 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
   <div class="bg-green-100 text-green-500 text-lg font-bold text-center p-14 rounded-lg">4</div>
 </div> -->
 
-<div class="grid grid-cols-3 gap-4 p-5">
+<!-- <div class="grid grid-cols-3 gap-4 p-5">
             <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg row-span-2">1</div>
             <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg">2</div>
             
             <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg row-span-2">3</div>
             <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg">4</div>
             </div> 
-  </div>
+  </div> -->
+
+
+  <div id='new'></div>
 </main>
 <script>
   <?php

@@ -91,38 +91,44 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
   </span> 
                 
 </div>
-  <div class="w-full overflow-x-auto">
-    <table class="w-full whitespace-no-wrap">
-      <thead>
-        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800" >
-        <th>NOM D'UTILISATEUR</th>
-          <th class="px-4 py-3">Mot de passe</th>
-          <th class="px-4 py-3">EMPLACEMENT </th>
-          <th class="px-4 py-3">TÉLÉPHONE </th>
-          <th class="px-4 py-3">PORTABLE</th>
-          <th class="px-4 py-3"> EMAIL</th>
-          <th class="px-4 py-3"> HEURE D'INSCRIPTION</th>
-          <th class="px-4 py-3">Action</th>
-                    
-        </tr>
-      </thead>
-      <tbody>
+<div class="w-full overflow-x-auto">
+  <!-- Table container -->
+  <div class="w-full whitespace-no-wrap container mx-auto ">
+    <!-- Table header -->
+    <div class="table-header-group">
+      <!-- row -->
+      <div class="table-row flex text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+            
+        <!-- columns -->
+        <div class="table-cell px-4 py-3 p-2 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b border-gray-500 dark:border-gray-700" style="width: 16.6667%;">NOM D'UTILISATEUR</div>
+        <div class="table-cell px-4 py-3 p-2 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b border-gray-500 dark:border-gray-700" style="width: 16.6667%;">Mot de passe</div>
+        <div class="table-cell px-4 py-3 p-2 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b border-gray-500 dark:border-gray-700" style="width: 16.6667%;">EMPLACEMENT</div>
+        <div class="table-cell px-4 py-3 p-2 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b border-gray-500 dark:border-gray-700" style="width: 16.6667%;">TÉLÉPHONE</div>
+        <div class="table-cell px-4 py-3 p-2 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b border-gray-500 dark:border-gray-700" style="width: 16.6667%;">PORTABLE</div>
+        <div class="table-cell px-4 py-3 p-2 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b border-gray-500 dark:border-gray-700" style="width: 16.6667%;">EMAIL</div>
+        <div class="table-cell px-4 py-3 p-2 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b border-gray-500 dark:border-gray-700" style="width: 16.6667%;">HEURE D'INSCRIPTION</div>
+        <div class="table-cell px-4 py-3 p-2 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b border-gray-500 dark:border-gray-700" style="width: 16.6667%;">Action</div>                  
+      </div>
+    </div>
+    <!-- Table rows -->
+    <div class="table-row-group ">
         <?php 
-          /** @var \public\app\models\User[] $data */
+          /** @var \app\models\User[] $data */
 
           if (is_array($data) || is_object($data)) {
             foreach ($data as $user): 
         ?>
+        <div id="user-row"  class=" table-row flex bg-gray-50 dark:bg-gray-900 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-400 h-12">
 
-        <tr class="text-gray-700 dark:text-gray-400">
-          <td class="px-4 py-3 text-sm"><?= $user->getUsername()?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getPassword() ?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getUserLocationId()?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getPhone()?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getMobile() ?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getUserEmail() ?></td>
-          <td class="px-4 py-3 text-sm"><?= $user->getRegistrationTime() ?></td>
-          <td class="px-4 py-3 text-sm">
+          <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $user->getUsername()?></div>
+
+          <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $user->getPassword() ?></div>
+          <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $user->getUserLocationId()?></div>
+          <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $user->getPhone()?></div>
+          <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $user->getMobile() ?></div>
+          <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $user->getUserEmail() ?></div>
+          <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $user->getRegistrationTime() ?></div>
+          <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;">
             <div class="flex items-center space-x-4 text-sm">
               <a
                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
@@ -146,17 +152,19 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
                 </svg>
               </a>
             </div>
-          </td>
-        </tr>
+          </div>
+        </div>
+      
         <?php endforeach;}
         else {
           echo "No data available";
         } ?>
 
-      </tbody>
+      </div>
     </div>
               
   </div>
+</div>
 </div>
           
 </main>

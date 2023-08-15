@@ -52,6 +52,7 @@
 // });
 
 
+
 var userRows = document.querySelectorAll('.item-row');
 userRows.forEach(function (userRow) {
   userRow.addEventListener('click', function () {

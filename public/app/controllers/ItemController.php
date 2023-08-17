@@ -34,8 +34,13 @@ class ItemController  extends BaseController
         if ($searchValue !== "" && $searchType !== "" && $requestMethod === 'POST') {
             // Search for items based on the provided search input
             $items = static::getModelItem()->findItem($searchType, $searchValue);
+           
         } else {
             // Retrieve the latest items
+            $items = static::getModelItem()->latestItem();
+        }
+        if(is_null($items))
+        {
             $items = static::getModelItem()->latestItem();
         }
 

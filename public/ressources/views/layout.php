@@ -24,6 +24,179 @@
   href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
 />
 
+<style>
+    @media screen and (max-width: 980px) {
+    .project-boxes.jsGridView .project-box-wrapper {
+      width: 50%;
+    }
+    
+    .status-number, .status-type {
+      font-size: 14px;
+    }
+    
+    .status-type:after {
+      width: 4px;
+      height: 4px;
+    }
+    
+    .item-status {
+      margin-right: 0;
+    }
+  }
+
+  @media screen and (max-width: 880px) {
+    .messages-section {
+      transform: translateX(100%);
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      z-index: 2;
+      height: 100%;
+      width: 100%;
+    }
+    
+    .messages-close {
+      display: block;
+    }
+    
+    .messages-btn {
+      display: flex;
+    }
+  }
+
+  @media screen and (max-width: 720px) {
+    .app-name, .profile-btn span {
+      display: none;
+    }
+    
+    .add-btn, .notification-btn, .mode-switch {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .add-btn svg, .notification-btn svg, .mode-switch svg {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .app-header-right button {
+      margin-left: 4px;
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    .projects-section {
+      overflow: auto;
+    }
+    
+    .project-boxes {
+      overflow-y: visible;
+    }
+    
+    .app-sidebar, .app-icon {
+      display: none;
+    }
+    
+    .app-content {
+      padding: 16px 12px 24px 12px;
+    }
+    
+    .status-number, .status-type {
+      font-size: 10px;
+    }
+    
+    .view-btn {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .app-header {
+      padding: 16px 10px;
+    }
+    
+    .search-input {
+      max-width: 120px;
+    }
+    
+    .project-boxes.jsGridView .project-box-wrapper {
+      width: 100%;
+    }
+    
+    .projects-section {
+      /* padding: 24px 16px 0 16px; */
+    }
+    
+    .profile-btn img {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .app-header {
+      padding: 10px;
+    }
+    
+    .projects-section-header p,
+    .projects-section-header .time {
+      font-size: 18px;
+    }
+    
+    .status-type {
+      padding-right: 4px;
+    }
+    
+    .status-type:after {
+      display: none;
+    }
+    
+    .search-input {
+      font-size: 14px;
+    }
+    
+    .messages-btn {
+      top: 48px;
+    }
+
+    .box-content-header {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .box-content-subheader {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .project-boxes.jsListView .project-box-header > span {
+      font-size: 10px;
+    }
+
+    .box-progress-header {
+      font-size: 12px;
+    }
+
+    .box-progress-percentage {
+      font-size: 10px;
+    }
+
+    .days-left {
+      font-size: 8px;
+      padding: 6px 6px;
+      text-align: center;
+    }
+
+    .project-boxes.jsListView .project-box > * {
+      margin-right: 10px;
+    }
+
+    .project-boxes.jsListView .more-wrapper {
+      right: 2px;
+      top: 10px;
+    }
+  }
+
+    
+</style>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 

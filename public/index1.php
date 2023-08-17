@@ -5,6 +5,8 @@
 
    use \app\controllers\UserController;
    use \app\controllers\ItemController;
+   use \app\controllers\DashController;
+
 
     // Création d'un routeur.
     if (isset($_GET['action'])) 
@@ -57,7 +59,10 @@
                 // echo 'hello' ;
              ItemController::sendData($_GET['param1']);
             break;
-
+            case "dash":
+                // echo 'hello' ;
+             DashController::dashFile();
+            break;
             default :
             echo " page not found 404";
             break;

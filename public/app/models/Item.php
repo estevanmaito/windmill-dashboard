@@ -18,6 +18,7 @@ class Item extends Model
     private $owner_id;
     private $price_per_unit;
     private $unit_id;
+    private $titrePropriete;
 
     // Getters
     public function getItemId()
@@ -63,6 +64,11 @@ class Item extends Model
     public function getItemUnitId()
     {
         return $this->unit_id;
+    }
+
+    public function getItemTitle()
+    {
+        return $this->titrePropriete;
     }
 
     // Setters
@@ -111,6 +117,11 @@ class Item extends Model
         $this->unit_id = $unit_id;
     }
 
+    public function setItemTitle($titrePropriete)
+    {
+         $this->titrePropriete = $titrePropriete;
+    }
+
     public static function latestItem()
     {
         // Perform a database query to retrieve the latest items
@@ -128,12 +139,12 @@ class Item extends Model
     {
         // Prepare the SQL statement with placeholders for values
         $statement = static::database()->prepare("INSERT INTO `item` (`id`, `item_name`, `item_type_id`, `location_id`, 
-            `item_location`, `description`, `owner_id`, `price_per_unit`, `unit_id`) 
-            VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)");
+            `item_location`, `description`, `owner_id`, `price_per_unit`, `unit_id` , `titrePropriete`) 
+            VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     
         // Execute the prepared statement with the actual values
         return $statement->execute([$this->item_name, $this->item_type_id, $this->location_id, $this->item_location, 
-            $this->description, $this->owner_id, $this->price_per_unit, $this->unit_id]);
+            $this->description, $this->owner_id, $this->price_per_unit, $this->unit_id , $this->titrePropriete]);
     }
 
     public static function viewItem($id)

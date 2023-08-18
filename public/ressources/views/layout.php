@@ -44,25 +44,30 @@
     }
   }
 
-  @media screen and (max-width: 880px) {
-    .messages-section {
-      transform: translateX(100%);
+  .messages-section {
+    display: none;
+  }
+  /* @media screen and (max-width: 880px) { */
+    .messages-section.show {
+      /* transform: translateX(100%); */
+      display: block;
       position: absolute;
-      opacity: 0;
+      opacity: 1;
       top: 0;
-      z-index: 2;
+      z-index: 100;
       height: 100%;
-      width: 100%;
+      width: auto;
+      background-color: white;
     }
     
-    .messages-close {
+    /* .messages-close {
       display: block;
     }
     
     .messages-btn {
       display: flex;
-    }
-  }
+    } */
+  /* } */
 
   @media screen and (max-width: 720px) {
     .app-name, .profile-btn span {
@@ -193,11 +198,12 @@
       top: 10px;
     }
   }
-
+  
     
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
 </head>
 
 <body>

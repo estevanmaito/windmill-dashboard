@@ -1,58 +1,4 @@
 
-// // JavaScript click event handler for .user-row elements
-// var userRows = document.querySelectorAll('.item-row');
-// userRows.forEach(function(userRow) {
-//     userRow.addEventListener('click', function () {
-//         // Find the corresponding .detailsRow element for the clicked .user-row
-//         var detailsRow = this.nextElementSibling;
-
-//         // Check if the display property is set to 'none'
-//         if (detailsRow.style.display === 'none') {
-
-//           // Change the display property to 'table-row'
-//           // detailsRow.style.display = 'table-row';
-          
-//           var userId = userRow.dataset.id;
-          
-//           $.ajax({
-//             url: 'index1.php',
-//             type: 'GET',
-//             data: {
-//               action: 'getUserDataAjax', // Sending the function name as an action parameter
-//               param1 : userId
-//             },
-//              success: function (response) {
-//               // Set the HTML content inside the detailsRow 
-//             // Assuming 'response' is an array with values you want to concatenate
-
-//             for (const key in response) { if (response.hasOwnProperty(key)) { console.log( response[key]) }}
-
-//             newtext = '<div class="grid grid-cols-3 gap-4 p-5">'
-//             newtext += '<div class="shadow-lg bg-gray-100 px-4 py-3 text-sm  p-10 rounded-lg row-span-2">1</div>'
-//             newtext +='<div class="shadow-lg bg-gray-100 px-4 py-3 text-sm  p-10 rounded-lg">'
-//             newtext += '<span class="font-semibold">Titre : </span> '+ response['titre'] + '<br><span class="font-semibold"> Description : </span>' 
-//             newtext += '</div> <div class="shadow-lg bg-gray-100 px-4 py-3 text-sm  p-10 rounded-lg row-span-2">'
-//             newtext += '<span class="font-semibold">Prix : </span> ' + response['price'] + '<br> <span class="font-semibold"> Statut : </span>' + response['statut'] + '<br><span class="font-semibold"> Last occup : </span>de ' + response['from'] + 'à ' + response['to']
-//             newtext += '</div> <div class="shadow-lg bg-gray-100 px-4 py-3 text-sm   p-10 rounded-lg"><span class="font-semibold"> Details : </span>'+ response['desc'] + '</div> </div>'
-//             document.getElementById('new').innerHTML = newtext
-//             // detailsRow.innerHTML = newtext
-//             },
-//             error: function (xhr, status, error) {
-//               // Handle errors, if any
-//               detailsRow.innerHTML = 'hi';
-//               console.error('Error occurred:', error);
-//             }
-//           });
-  
-//         } else {
-//           // Hide the .detailsRow
-//           detailsRow.style.display = 'none';
-//         }
-//     });
-// });
-
-
-
 var userRows = document.querySelectorAll('.item-row');
 userRows.forEach(function (userRow) {
   userRow.addEventListener('click', function () {
@@ -218,7 +164,20 @@ alt="Dar bouazza, Bel appartement a louer, semi meublé 3CH - 2" loading="lazy">
 
 
 
+// document.querySelector('.messages-btn').addEventListener('click', function () {
+//   // document.querySelector('.header').style.display === 'none'
+//   console.log('1')
+//   document.querySelector('.mainDash').style.display === 'none'
+//   console.log('2')
+//   document.querySelector('.messages-section').style.display === 'block';
+//   console.log('3')
+// });
 
+
+
+// document.querySelector('.messages-close').addEventListener('click', function() {
+//   document.querySelector('.messages-section').classList.remove('show');
+// });
 
 
 

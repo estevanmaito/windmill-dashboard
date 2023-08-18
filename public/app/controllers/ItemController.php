@@ -67,6 +67,8 @@ class ItemController  extends BaseController
         $Item->setOwnerId($_POST['ownerId']);
         $Item->setPricePerUnit($_POST['price']);
         $Item->setItemUnitId($_POST['unitId']);
+        $Item->setItemTitle($_POST['titrePropriete']);
+
 
         return $Item ;
     }

@@ -58,6 +58,12 @@ ob_start();
         </label>
 
         <label class="block text-sm">
+          <span class="text-gray-700 dark:text-gray-400" >CIN : </span >
+          <input class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
+           id="default_size" type="file" required>
+        </label>
+
+        <label class="block text-sm">
         <span class="text-gray-700 dark:text-gray-400" >Rôle : </span >
           <select name="present" 
           class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" required >

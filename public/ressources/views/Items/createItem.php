@@ -48,6 +48,7 @@ ob_start();
                     </select>
             </label>    
 
+            
             <label class="block text-sm" for="itemLocation">
                 <span class="text-gray-700 dark:text-gray-400" >Emplacement de l'article :</span>   
                 <input type="text" name="itemLocation" 
@@ -72,6 +73,12 @@ ob_start();
                         <?php endforeach; ?>
                     </select>
             </label>   
+
+            <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400" >Titre de propriété : </span >
+                <input class="block w-full  text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
+                 name="titrePropriete" type="file" required>
+            </label>
 
             <label class="block text-sm" for="price"> 
                 <span class="text-gray-700 dark:text-gray-400" >Prix :</span>

@@ -21,7 +21,7 @@ ob_start();
       <div class="container grid px-6 mx-auto">
         <div class="flex justify-between items-center pb-2">
           <div class="flex">
-            <div class="flex flex-col mr-16 md:mr-0">
+            <div class="flex flex-col mr-16 ">
               <span class="text-24 font-bold leading-32 text-main-color md:text-xl lg:text-2xl text-gray-700 dark:text-gray-200 " >45</span>
               <span class="text-14 md:text-sm md:pr-1 sm:pr-1 sm:text-xs text-gray-700 dark:text-gray-200">In Progress</span>
             </div>
@@ -271,14 +271,14 @@ ob_start();
             <p>Projects</p>
             <p class="text-2xl">December, 12</p>
 
-          </div>
-          <div class="flex justify-between items-center pb-8">
-            <div class="flex">
-            <div class="flex flex-col md:flex-row items-start md:items-center">
-            <div class="flex flex-col md:flex-row md:items-center mb-4 md:mb-0">
-              <span class="text-2xl md:text-xl mr-2">45</span>
-              <span class="relative text-secondary-color md:pr-6">In Progress</span>
             </div>
+            <div class="flex justify-between items-center pb-8">
+              <div class="flex">
+              <div class="flex flex-col md:flex-row items-start md:items-center">
+              <div class="flex flex-col md:flex-row md:items-center mb-4 md:mb-0">
+                <span class="text-2xl md:text-xl mr-2">45</span>
+                <span class="relative text-secondary-color md:pr-6">In Progress</span>
+              </div>
 
           </div> -->
     
@@ -325,7 +325,6 @@ ob_start();
         </div>
       </div>
   </div>
-<!-- </main> -->
 
   <?php
 $content = ob_get_clean();
@@ -333,14 +332,7 @@ include_once 'layout.php';
 
 ?>
 <script>
-
-
-  document.querySelector('.messages-btn').addEventListener('click', function() {
-  document.querySelector('.messages-section').classList.toggle('show');
-});
-
-
-document.querySelector('.messages-close').addEventListener('click', function() {
-  document.querySelector('.messages-section').classList.remove('show');
-});
+  <?php
+  include_once 'assets/js/global.js';
+  ?>
 </script>

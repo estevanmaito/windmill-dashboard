@@ -4,43 +4,44 @@ userRows.forEach(function (userRow) {
   userRow.addEventListener('click', function () {
     // Find the corresponding .detailsRow element for the clicked .user-row
     var detailsRow = this.nextElementSibling;
-
+    if ( event.target.tagName !== 'A' && !event.target.closest('button')) {
     // Check if the display property is set to 'none'
-    if (detailsRow.style.display === 'none') {
-      // Change the display property to 'table-row'
-      detailsRow.style.display = 'table-row';
+      if (detailsRow.style.display === 'none') {
+        // Change the display property to 'table-row'
+        detailsRow.style.display = 'table-row';
 
-      // Get the user ID from the data-id attribute of the clicked row
-      var userId = userRow.dataset.id;
-      console.log(userId)
-      //  make an API call to get more details about the user.
-      var apiEndpoint = 'https://www.sakane.ma/oc-content/plugins/rest/api.php?key=DOoebZRUU1ozFAelnC5u7x8hMvcqBV&type=read&object=item&action=byId&itemId=' + userId;
-      var apiPictures = 'https://www.sakane.ma/oc-content/plugins/rest/api.php?key=DOoebZRUU1ozFAelnC5u7x8hMvcqBV&type=read&object=item&action=resourcesById&itemId=' + userId
-        
-      Promise.all([fetch(apiEndpoint), fetch(apiPictures)])
-        .then(responses => {
-          // Check for errors in the responses
-          if (!responses[0].ok || !responses[1].ok) {
-            throw new Error('One or both API responses were not ok');
-          }
+        // Get the user ID from the data-id attribute of the clicked row
+        var userId = userRow.dataset.id;
+        console.log(userId)
+        //  make an API call to get more details about the user.
+        var apiEndpoint = 'https://www.sakane.ma/oc-content/plugins/rest/api.php?key=DOoebZRUU1ozFAelnC5u7x8hMvcqBV&type=read&object=item&action=byId&itemId=' + userId;
+        var apiPictures = 'https://www.sakane.ma/oc-content/plugins/rest/api.php?key=DOoebZRUU1ozFAelnC5u7x8hMvcqBV&type=read&object=item&action=resourcesById&itemId=' + userId
+          
+        Promise.all([fetch(apiEndpoint), fetch(apiPictures)])
+          .then(responses => {
+            // Check for errors in the responses
+            if (!responses[0].ok || !responses[1].ok) {
+              throw new Error('One or both API responses were not ok');
+            }
 
-          // Parse the responses as JSON
-          return Promise.all([responses[0].json(), responses[1].json()]);
-        })
-        .then(data => {
-          var userData = data[0];
-          var picturesData = data[1];
+            // Parse the responses as JSON
+            return Promise.all([responses[0].json(), responses[1].json()]);
+          })
+          .then(data => {
+            var userData = data[0];
+            var picturesData = data[1];
 
-          // Process the user data and pictures data received from the APIs
-          displayItemData(userData);
-          displayItemPictures(picturesData)
-        })
-        .catch(error => {
-          console.error('Error fetching user data or pictures:', error);
-        });
-    } else {
-      // If the details row is visible, hide it by setting the display property to 'none'
-      detailsRow.style.display = 'none';
+            // Process the user data and pictures data received from the APIs
+            displayItemData(userData);
+            displayItemPictures(picturesData)
+          })
+          .catch(error => {
+            console.error('Error fetching user data or pictures:', error);
+          });
+      } else {
+        // If the details row is visible, hide it by setting the display property to 'none'
+        detailsRow.style.display = 'none';
+      }
     }
   });
 });
@@ -158,34 +159,35 @@ function displayItemPictures(picturesData) {
    });
 }
 
-{/* <img class="lazy" src="https://www.sakane.ma/oc-content/uploads/84/24159_thumbnail.jpg" 
+/* <img class="lazy" src="https://www.sakane.ma/oc-content/uploads/84/24159_thumbnail.jpg" 
 data-src="https://www.sakane.ma/oc-content/uploads/84/24159_thumbnail.jpg" 
-alt="Dar bouazza, Bel appartement a louer, semi meublé 3CH - 2" loading="lazy"></img> */}
+alt="Dar bouazza, Bel appartement a louer, semi meublé 3CH - 2" loading="lazy"></img> */
 
 
-
-// document.querySelector('.messages-btn').addEventListener('click', function () {
-//   // document.querySelector('.header').style.display === 'none'
-//   console.log('1')
-//   document.querySelector('.mainDash').style.display === 'none'
-//   console.log('2')
-//   document.querySelector('.messages-section').style.display === 'block';
-//   console.log('3')
-// });
+document.querySelector('.messages-btn').addEventListener('click', function() {
+  document.querySelector('.messages-section').classList.toggle('show');
+});
 
 
-
-// document.querySelector('.messages-close').addEventListener('click', function() {
-//   document.querySelector('.messages-section').classList.remove('show');
-// });
-
+document.querySelector('.messages-close').addEventListener('click', function() {
+  document.querySelector('.messages-section').classList.remove('show');
+});
 
 
+function toggleDropdown(button) {
+  var itemId = button.getAttribute("data-item-id");
+  var dropdown = document.getElementById("dropdownDelay-" + itemId);
+  dropdown.classList.toggle("hidden");
+}
 
-
-
-
-
+      // document.getElementById('optionsButton').addEventListener('click', function() {
+      //   document.getElementById('optionsList').classList.toggle('hidden');
+      // });
+      
+      
+      // document.getElementById('optionsButton').addEventListener('click', function() {
+      //   document.getElementById('optionsList').classList.remove('hidden');
+      // });
 
 
 

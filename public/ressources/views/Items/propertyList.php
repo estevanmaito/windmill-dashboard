@@ -273,7 +273,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
                         </a>
                       </button> -->
                       <div class="relative ">
-                        <button data-dropdown-trigger="hover" class="relative z-10 align-middle text-purple-600  rounded-md focus:outline-none focus:shadow-outline-purple" type="button" onclick="toggleDropdown(this)" data-item-id="<?php echo $item->getItemId() ?>">
+                        <button data-dropdown-trigger="hover" class=" flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 z-10  text-purple-600  rounded-lg focus:outline-none focus:shadow-outline-purple dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" type="button" onclick="toggleDropdown(this)" data-item-id="<?php echo $item->getItemId() ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
                           <circle cx="12" cy="12" r="1"></circle>
                           <circle cx="12" cy="5" r="1"></circle>
@@ -284,10 +284,10 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
                         <div id="dropdownDelay-<?php echo $item->getItemId() ?>" class="absolute z-20 right-0 w-56 p-2 mt-2 space-y-2 hidden text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
                           <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDelayButton">
                             <li><a href="index1.php?action=editItem&id=<?php echo $item->getItemId()?>"
-                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Modifier</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Réserver</a></li>
+                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Modifier</a></li>
+                            <li><a href="index1.php?action=reserveItem" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Réserver</a></li>
                             <li><a onclick="return confirm('voulez vous vraiment supprimer ce utilisateur')" href="index1.php?action=destroyItem&id=<?php echo $item->getItemId()?>" 
-                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Supprimer</a></li>
+                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Supprimer</a></li>
                           </ul>
                         </div>
                       </div>

@@ -78,6 +78,11 @@ class ItemController  extends BaseController
         static::requir("Items/createItem");
         
     }
+    public static function reserveActionItem()
+    {
+        static::requir("Items/reserveItem");
+        
+    }
 
     public static function storeActionItem()
     {

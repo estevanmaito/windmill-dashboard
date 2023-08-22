@@ -55,6 +55,9 @@
             case 'destroyItem':
                 ItemController::destroyActionItem();
             break;
+            case 'reserveItem':
+                ItemController::reserveActionItem();
+            break;
             case "getUserDataAjax":
                 // echo 'hello' ;
              ItemController::sendData($_GET['param1']);
@@ -64,7 +67,7 @@
              DashController::dashFile();
             break;
             default :
-            echo " page not found 404";
+            require 'ressources/views/404.php';
             break;
             }
     }

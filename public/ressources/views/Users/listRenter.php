@@ -35,7 +35,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
 
   <div class="flex flex-col justify-between flex-wrap mb-4 space-y-4 md:flex-row md:items-end md:space-x-4">
       <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-        Listes des locataires :
+        Liste des locataires :
       </h4>
     <a href="index1.php?action=create" > <button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
       Ajouter </button>

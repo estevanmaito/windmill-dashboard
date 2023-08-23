@@ -120,7 +120,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
         <div id="user-row"  class=" table-row flex bg-gray-50 dark:bg-gray-900 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-400 h-12">
 
           <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $user->getUsername()?></div>
-
+          
           <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $user->getPassword() ?></div>
           <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $user->getUserLocationId()?></div>
           <div class="table-cell px-4 py-3 p-2 text-sm" style="width: 16.6667%;"><?= $user->getPhone()?></div>

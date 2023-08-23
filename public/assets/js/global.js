@@ -1,4 +1,5 @@
 
+//--- This function handles the toggling of user details display and API data retrieval for individual user rows in the interface ---
 var userRows = document.querySelectorAll('.item-row');
 userRows.forEach(function (userRow) {
   userRow.addEventListener('click', function () {
@@ -46,7 +47,7 @@ userRows.forEach(function (userRow) {
   });
 });
 
-// Function to display the fetched user data
+//---------------- Function to display the fetched user data ----------------
 function displayItemData(userData ) {
   // Create an HTML element using the fetched data
   var newtext = '<div class="grid grid-cols-3 gap-4 p-5">';
@@ -61,7 +62,8 @@ function displayItemData(userData ) {
 }
 
 
-
+//---------------- Display images in a Swiper gallery using data from the API response ----------------
+//---------------- API response containing image data ----------------
 function displayItemPictures(picturesData) {
   // Create the initial HTML structure for the Swiper slides
   var text = '<div class="swiper gallery-top">';
@@ -163,31 +165,21 @@ function displayItemPictures(picturesData) {
 data-src="https://www.sakane.ma/oc-content/uploads/84/24159_thumbnail.jpg" 
 alt="Dar bouazza, Bel appartement a louer, semi meublé 3CH - 2" loading="lazy"></img> */
 
-
+//---------------- Show or hide the messages list ----------------
 document.querySelector('.messages-btn').addEventListener('click', function() {
   document.querySelector('.messages-section').classList.toggle('show');
 });
 
-
+//---------------- Close the messages list ----------------
 document.querySelector('.messages-close').addEventListener('click', function() {
   document.querySelector('.messages-section').classList.remove('show');
 });
 
-
+//---------------- Dropdown function: modify, reserve, and delete ----------------
 function toggleDropdown(button) {
   var itemId = button.getAttribute("data-item-id");
   var dropdown = document.getElementById("dropdownDelay-" + itemId);
   dropdown.classList.toggle("hidden");
 }
-
-      // document.getElementById('optionsButton').addEventListener('click', function() {
-      //   document.getElementById('optionsList').classList.toggle('hidden');
-      // });
-      
-      
-      // document.getElementById('optionsButton').addEventListener('click', function() {
-      //   document.getElementById('optionsList').classList.remove('hidden');
-      // });
-
 
 

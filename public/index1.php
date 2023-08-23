@@ -5,6 +5,7 @@
 
    use \app\controllers\UserController;
    use \app\controllers\ItemController;
+   use \app\controllers\ItemLeasedController;
    use \app\controllers\DashController;
 
 
@@ -13,6 +14,10 @@
     {
         $action = $_GET['action'];
         switch ($action) {
+            case "dash":
+                // echo 'hello' ;
+             DashController::dashFile();
+            break;
             case 'create':
                 UserController::createAction();
             break;
@@ -62,9 +67,9 @@
                 // echo 'hello' ;
              ItemController::sendData($_GET['param1']);
             break;
-            case "dash":
-                // echo 'hello' ;
-             DashController::dashFile();
+            case 'itemLeasedList':
+                case 'searchitemLeasedList' :
+                ItemLeasedController::indexActionItemLeased();
             break;
             default :
             require 'ressources/views/404.php';

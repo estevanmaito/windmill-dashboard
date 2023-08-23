@@ -4,8 +4,9 @@ namespace app\models;
 require "vendor/autoload.php";
 
 use \app\models\Model;
+use PDO;
 
-class item_leased extends Model
+class ItemLeased extends Model
 {
     // private $id;
     private $item_id;
@@ -23,10 +24,10 @@ class item_leased extends Model
 
     // Getters
 
-    // public function getItemLeasedId()
-    // {
-    //     return $this->id;
-    // }
+    public function getItemLeasedId()
+    {
+        return $this->id;
+    }
 
     public function getItemId()
     {
@@ -135,7 +136,45 @@ class item_leased extends Model
         $this->rentier_grade_description = $rentier_grade_description;
     }
 
+    public static function latestItemLeased()
+    {
+        // Perform a database query to retrieve the latest items
+        $statement = static::database()->query('SELECT IL.id, I.item_name, U.username, IL.time_from, IL.time_to, IL.price_total
+         FROM item_leased IL
+            INNER JOIN item I ON IL.item_id = I.id
+            INNER JOIN user_account U  ON IL.renter_id = U.id');
 
+        return  $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+    }
+
+    public function findItemLeased( $searchType, $searchValue)
+    {
+        // Define the allowed search types (you can customize this as needed)
+        $allowedSearchTypes = ['id', 'item_name' ];
+        $search = $searchType == 'username' ? 'item_name' : $searchType ;
+        // Validate the search type parameter
+        if (!in_array($search, $allowedSearchTypes)) 
+        {
+            var_dump('nothing');
+            // throw new InvalidArgumentException('Invalid search type. Allowed types: ' . implode(', ', $allowedSearchTypes));
+        }
+
+        // Prepare the SQL statement to select records from the specified table where the search type matches the provided value
+        $statement = static::database()->prepare('SELECT IL.id, I.item_name, U.username, IL.time_from, IL.time_to, IL.Price_total
+        FROM item_leased IL
+           INNER JOIN item I ON IL.item_id = I.id
+           INNER JOIN user_account U  ON IL.renter_id = U.id
+           WHERE ' . $search . ' LIKE :search_value');
+
+        // Bind the value of the search_value parameter to the corresponding placeholder in the query
+        $statement->bindValue(':search_value', $searchValue);
+
+        // Execute the prepared statement
+        $statement->execute();
+
+        // Fetch all rows as an array of objects of the current class and return the result
+        return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
+    }
 }
 
 ?>

@@ -175,6 +175,39 @@ class ItemLeased extends Model
         // Fetch all rows as an array of objects of the current class and return the result
         return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }
+
+    public static function TimeDifference($dateFrom,$dateTo)
+    {
+        $dateTimeFrom = new \DateTime($dateFrom);
+        $dateTimeTo = new \DateTime($dateTo);
+
+        // Calculate the difference between the two dates
+        $dateInterval = $dateTimeFrom->diff($dateTimeTo);
+
+        // Get the difference in days, hours, minutes, and seconds
+        return $dateInterval->days;
+    }
+
+    function TimePercentage($startDate, $endDate) {
+        // Create DateTime objects for the provided start and end dates
+        $dateTimeFrom = new \DateTime($startDate);
+        $dateTimeTo = new \DateTime($endDate);
+    
+        // Get the current DateTime
+        $currentDateTime = new \DateTime();
+    
+        // Calculate the time difference in seconds between the start date and the current date
+        $timeDifference = $currentDateTime->getTimestamp() - $dateTimeFrom->getTimestamp();
+    
+        // Calculate the total time difference in seconds between the start and end dates
+        $totalTimeDifference = $dateTimeTo->getTimestamp() - $dateTimeFrom->getTimestamp();
+    
+        // Calculate the percentage
+        $percentage = ($timeDifference / $totalTimeDifference) * 100;
+    
+        return number_format($percentage, 2);
+    }
+    
 }
 
 ?>

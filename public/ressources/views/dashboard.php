@@ -1,10 +1,17 @@
 <?php
 namespace ressources\views;
+use \app\models\ItemLeased;
+use \app\controllers\ItemLeasedController;
+
+require "vendor/autoload.php";
+
+$title = "Dashboard";
 ob_start();
+
+
 ?>
 
-<!-- <main class="h-full pb-16 overflow-y-auto"> -->
-  <div class="mainDash " >
+<div class="mainDash " >
     <div class="flex justify-between items-center p-2 " >
       <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Tableau de bord</h2>
       <div class="dark:text-gray-200 dark:bg-gray-200">
@@ -59,230 +66,76 @@ ob_start();
 
 
         <div class="grid gap-6 mb-8  md:grid-cols-2 xl:grid-cols-4">
+        <?php 
+          /** @var \app\models\ItemLeased[] $data */
+          // Loop through the data to generate project boxes
+          if (is_array($data) || is_object($data)) {
+            foreach ($data as $item): 
+        ?>
 
-          <!-- <div class="flex justify-between items-center mb-6 text-main-colortext-2xl">
-            <p>Projects</p>
-            <p class="text-2xl">December, 12</p>
-
-          </div>
-          <div class="flex justify-between items-center pb-8">
-            <div class="flex">
-            <div class="flex flex-col md:flex-row items-start md:items-center">
-            <div class="flex flex-col md:flex-row md:items-center mb-4 md:mb-0">
-              <span class="text-2xl md:text-xl mr-2">45</span>
-              <span class="relative text-secondary-color md:pr-6">In Progress</span>
+        <!-- Project box starts here -->
+        <div class="custom-background items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800" >
+          <div class="project-box bg-main-color-card p-4">
+            <!-- Project header -->
+            <div class="project-box-header flex items-center justify-between mb-4 text-main-color">
+              <!-- Date -->
+              <span class="opacity-70 text-sm"><?= $item->getTimeFrom()?></span>
+              <div class="more-wrapper">
+                <!-- More button -->
+                <button class="project-btn-more">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="12" cy="5" r="1"></circle>
+                    <circle cx="12" cy="19" r="1"></circle>
+                  </svg>
+                </button>
+              </div>
             </div>
-
-          </div> -->
-
-          <div class=" items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800" style="background-color: #fee4cb;">
-            
-            <div class="project-box bg-main-color-card p-4 " >
-              <div class="project-box-header flex items-center justify-between mb-4 text-main-color">
-                <span class="opacity-70 text-sm">December 10, 2020</span>
-                <div class="more-wrapper">
-                  <button class="project-btn-more">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                      <circle cx="12" cy="12" r="1"></circle>
-                      <circle cx="12" cy="5" r="1"></circle>
-                      <circle cx="12" cy="19" r="1"></circle>
-                    </svg>
-                  </button>
-                </div>
+            <!-- Project content -->
+            <div class="project-box-content-header mb-4">
+              <p class="box-content-header text-xl font-semibold opacity-70"><?= $item->item_name?></p>
+              <p class="box-content-subheader opacity-70"><?= $item->username ?></p>
+            </div>
+            <!-- Progress bar -->
+            <?php 
+              $pourc = $item->TimePercentage($item->getTimeFrom(),$item->getTimeTo()); 
+              $daysDifference = $item->TimeDifference($item->getTimeFrom(),$item->getTimeTo()); 
+            ?>
+            <div class="box-progress-wrapper">
+              <p class="box-progress-header text-sm font-semibold mb-1">Progrès</p>
+              <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                <div class="box-progress-perc  h-1 rounded-full " style="width: <?php echo $pourc ; ?>%; "></div>
               </div>
-              <div class="project-box-content-header mb-4">
-                <p class="box-content-header text-xl font-semibold opacity-70">Web Designing</p>
-                <p class="box-content-subheader opacity-70">Prototyping</p>
+              <p class=" text-right text-sm font-semibold"><?php echo $pourc ; ?>%</p>
+            </div>
+            <!-- Participants and days left -->
+            <div class="flex justify-between relative pt-4">
+              <div class="participants flex items-center">
+                <!-- Participant images -->
+                <img src="..." alt="participant" class="w-5 h-5 -ml-1 rounded-full overflow-hidden object-cover">
+                <img src="..." alt="participant" class="w-5 -ml-1 h-5 rounded-full overflow-hidden object-cover ml-2">
+                <button  class="add-participant w-5 h-5 rounded-full border border-none bg-white bg-opacity-60 ml-2 flex items-center justify-center p-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                    <path d="M12 5v14M5 12h14"></path>
+                  </svg>
+                </button>
               </div>
-              <div class="box-progress-wrapper">
-                <p class="box-progress-header text-sm font-semibold mb-1">Progress</p>
-                <div class="w-full bg-gray-200 rounded-full h-1  dark:bg-gray-700">
-                  <div class="bg-blue-600 h-1 rounded-full dark:bg-blue-500" style="width: 60%; background-color: #ff942e ;"></div>
-                </div>
-
-                <p class="box-progress-percentage text-right text-sm font-semibold">60%</p>
-              </div>
-              <div class=" flex justify-between relative pt-4">
-                <div class="participants flex items-center ">
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80" 
-                  alt="participant" class="w-5 h-5 -ml-1 rounded-full overflow-hidden object-cover">
-                  <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                  alt="participant" class="w-5 -ml-1 h-5 rounded-full overflow-hidden object-cover ml-2">
-                  <button style="color: #ff942e"  class="add-participant w-5 h-5 rounded-full border border-none bg-white bg-opacity-60 ml-2 flex items-center justify-center p-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                      <path d="M12 5v14M5 12h14"></path>
-                    </svg>
-                  </button>
-                </div>
-
-                <div style=" color: #ff942e " class="days-left bg-white ml-2 bg-opacity-60 text-white text-opacity-80 text-xs rounded-full flex-shrink-0 px-4 py-1 font-semibold">
-                  2 Days Left
-                </div>
-
+              <!-- Days left -->
+              <div class="days-left bg-white ml-2 bg-opacity-60 text-white text-opacity-80 text-xs rounded-full flex-shrink-0 px-4 py-1 font-semibold">
+              <?php echo $daysDifference ; ?> Days Left
               </div>
             </div>
           </div>
-
-          <div class=" items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800" style="background-color: #fee4cb;">
-            
-            <div class="project-box bg-main-color-card p-4 " >
-              <div class="project-box-header flex items-center justify-between mb-4 text-main-color">
-                <span class="opacity-70 text-sm">December 10, 2020</span>
-                <div class="more-wrapper">
-                  <button class="project-btn-more">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                      <circle cx="12" cy="12" r="1"></circle>
-                      <circle cx="12" cy="5" r="1"></circle>
-                      <circle cx="12" cy="19" r="1"></circle>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div class="project-box-content-header mb-4">
-                <p class="box-content-header text-xl font-semibold opacity-70">Web Designing</p>
-                <p class="box-content-subheader opacity-70">Prototyping</p>
-              </div>
-              <div class="box-progress-wrapper">
-                <p class="box-progress-header text-sm font-semibold mb-1">Progress</p>
-                <div class="w-full bg-gray-200 rounded-full h-1  dark:bg-gray-700">
-                  <div class="bg-blue-600 h-1 rounded-full dark:bg-blue-500" style="width: 60%; background-color: #ff942e ;"></div>
-                </div>
-
-                <p class="box-progress-percentage text-right text-sm font-semibold">60%</p>
-              </div>
-              <div class=" flex justify-between relative pt-4">
-                <div class="participants flex items-center ">
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80" 
-                  alt="participant" class="w-5 h-5 -ml-1 rounded-full overflow-hidden object-cover">
-                  <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                  alt="participant" class="w-5 -ml-1 h-5 rounded-full overflow-hidden object-cover ml-2">
-                  <button style="color: #ff942e"  class="add-participant w-5 h-5 rounded-full border border-none bg-white bg-opacity-60 ml-2 flex items-center justify-center p-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                      <path d="M12 5v14M5 12h14"></path>
-                    </svg>
-                  </button>
-                </div>
-
-                <div style=" color: #ff942e " class="days-left bg-white ml-2 bg-opacity-60 text-white text-opacity-80 text-xs rounded-full flex-shrink-0 px-4 py-1 font-semibold">
-                  2 Days Left
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class=" items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800" style="background-color: #fee4cb;">
-            
-            <div class="project-box bg-main-color-card p-4 " >
-              <div class="project-box-header flex items-center justify-between mb-4 text-main-color">
-                <span class="opacity-70 text-sm">December 10, 2020</span>
-                <div class="more-wrapper">
-                  <button class="project-btn-more">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                      <circle cx="12" cy="12" r="1"></circle>
-                      <circle cx="12" cy="5" r="1"></circle>
-                      <circle cx="12" cy="19" r="1"></circle>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div class="project-box-content-header mb-4">
-                <p class="box-content-header text-xl font-semibold opacity-70">Web Designing</p>
-                <p class="box-content-subheader opacity-70">Prototyping</p>
-              </div>
-              <div class="box-progress-wrapper">
-                <p class="box-progress-header text-sm font-semibold mb-1">Progress</p>
-                <div class="w-full bg-gray-200 rounded-full h-1  dark:bg-gray-700">
-                  <div class="bg-blue-600 h-1 rounded-full dark:bg-blue-500" style="width: 60%; background-color: #ff942e ;"></div>
-                </div>
-
-                <p class="box-progress-percentage text-right text-sm font-semibold">60%</p>
-              </div>
-              <div class=" flex justify-between relative pt-4">
-                <div class="participants flex items-center ">
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80" 
-                  alt="participant" class="w-5 h-5 -ml-1 rounded-full overflow-hidden object-cover">
-                  <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                  alt="participant" class="w-5 -ml-1 h-5 rounded-full overflow-hidden object-cover ml-2">
-                  <button style="color: #ff942e"  class="add-participant w-5 h-5 rounded-full border border-none bg-white bg-opacity-60 ml-2 flex items-center justify-center p-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                      <path d="M12 5v14M5 12h14"></path>
-                    </svg>
-                  </button>
-                </div>
-
-                <div style=" color: #ff942e " class="days-left bg-white ml-2 bg-opacity-60 text-white text-opacity-80 text-xs rounded-full flex-shrink-0 px-4 py-1 font-semibold">
-                  2 Days Left
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class=" items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800" style="background-color: #fee4cb;">
-            
-            <div class="project-box bg-main-color-card p-4 " >
-              <div class="project-box-header flex items-center justify-between mb-4 text-main-color">
-                <span class="opacity-70 text-sm">December 10, 2020</span>
-                <div class="more-wrapper">
-                  <button class="project-btn-more">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                      <circle cx="12" cy="12" r="1"></circle>
-                      <circle cx="12" cy="5" r="1"></circle>
-                      <circle cx="12" cy="19" r="1"></circle>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div class="project-box-content-header mb-4">
-                <p class="box-content-header text-xl font-semibold opacity-70">Web Designing</p>
-                <p class="box-content-subheader opacity-70">Prototyping</p>
-              </div>
-              <div class="box-progress-wrapper">
-                <p class="box-progress-header text-sm font-semibold mb-1">Progress</p>
-                <div class="w-full bg-gray-200 rounded-full h-1  dark:bg-gray-700">
-                  <div class="bg-blue-600 h-1 rounded-full dark:bg-blue-500" style="width: 60%; background-color: #ff942e ;"></div>
-                </div>
-
-                <p class="box-progress-percentage text-right text-sm font-semibold">60%</p>
-              </div>
-              <div class=" flex justify-between relative pt-4">
-                <div class="participants flex items-center ">
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2550&amp;q=80" 
-                  alt="participant" class="w-5 h-5 -ml-1 rounded-full overflow-hidden object-cover">
-                  <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
-                  alt="participant" class="w-5 -ml-1 h-5 rounded-full overflow-hidden object-cover ml-2">
-                  <button style="color: #ff942e"  class="add-participant w-5 h-5 rounded-full border border-none bg-white bg-opacity-60 ml-2 flex items-center justify-center p-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                      <path d="M12 5v14M5 12h14"></path>
-                    </svg>
-                  </button>
-                </div>
-
-                <div style=" color: #ff942e " class="days-left bg-white ml-2 bg-opacity-60 text-white text-opacity-80 text-xs rounded-full flex-shrink-0 px-4 py-1 font-semibold">
-                  2 Days Left
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <!-- <div class="flex justify-between items-center mb-6 text-main-colortext-2xl">
-            <p>Projects</p>
-            <p class="text-2xl">December, 12</p>
-
-            </div>
-            <div class="flex justify-between items-center pb-8">
-              <div class="flex">
-              <div class="flex flex-col md:flex-row items-start md:items-center">
-              <div class="flex flex-col md:flex-row md:items-center mb-4 md:mb-0">
-                <span class="text-2xl md:text-xl mr-2">45</span>
-                <span class="relative text-secondary-color md:pr-6">In Progress</span>
-              </div>
-
-          </div> -->
-    
         </div>
+        <!-- Project box ends here -->
+
+        <?php 
+            endforeach;
+          } else {
+            echo "<br>No data available";
+          }
+        ?>
+      </div>
         
 
       </div>
@@ -336,3 +189,29 @@ include_once 'layout.php';
   include_once 'assets/js/global.js';
   ?>
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const projectBoxes = document.querySelectorAll(".custom-background");
+  const backgroundColors = ['#fee4cb', '#e9e7fd', '#dbf6fd', '#ffd3e2', '#c8f7dc', '#d5deff'];
+  const textColors = [ '#ff942e', '#4f3ff0', '#096c86', '#df3670', '#34c471', '#4067f9'];
+
+  projectBoxes.forEach((box, index) => {
+    const backgroundColor = backgroundColors[index % backgroundColors.length];
+    const textColor = textColors[index % textColors.length];
+
+    box.style.backgroundColor = backgroundColor;
+
+    const elementsToColor = box.querySelectorAll(' .add-participant, .days-left');
+    elementsToColor.forEach((element) => {
+      element.style.color = textColor; // Use lowercase "color" here
+      // You might also want to update other styles like font color, border, etc.
+    });
+    const progressColor = box.querySelectorAll('.box-progress-perc');
+    progressColor.forEach((progress) => {
+      progress.style.backgroundColor = textColor; // Use lowercase "color" here
+      // You might also want to update other styles like font color, border, etc.
+    });
+  });
+});
+</script>
+

@@ -28,24 +28,25 @@ class ItemLeasedController  extends BaseController
         
         // Retrieve the request method
         $requestMethod = $_SERVER['REQUEST_METHOD'];
-
+    
         if ($searchValue !== "" && $searchType !== "" && $requestMethod === 'POST') {
             // Search for itemLeased based on the provided search input
             $itemLeased = static::getModelItemLeased()->findItemLeased($searchType, $searchValue);
            
         } else {
-            // Retrieve the latest itemLeased
+            // Retrieve the leased items using the fetchLeasedItems function
             $itemLeased = static::getModelItemLeased()->latestItemLeased();
         }
-        if(is_null($itemLeased))
-        {
+        
+        if (empty($itemLeased)) {
+            // If no leased items are found, retrieve the latest itemLeased
             $itemLeased = static::getModelItemLeased()->latestItemLeased();
         }
-
+    
         // Render the view "ItemLeased/itemLeasedList" and pass the itemLeased as data
         static::requir("ItemLeased/itemLeasedList", $itemLeased);
     }
-
+    
     public static function lengthActionItemLeased()
     {
         // Retrieve the length of the "item" table

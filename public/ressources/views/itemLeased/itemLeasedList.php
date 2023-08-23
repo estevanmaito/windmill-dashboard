@@ -1,5 +1,5 @@
 <?php
-namespace ressources\views;
+namespace ressources\views\ItemLeased;
 use \app\models\ItemLeased;
 use \app\controllers\ItemLeasedController;
 
@@ -29,9 +29,8 @@ $startItem = ($current_page - 1) * $itemsPerPage + 1;
 $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
 
 ?>
-  <main class="h-full pb-16 overflow-y-auto">
     <div class="container grid px-6 mx-auto">
-    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">propriétés</h2>
+    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">propriétés réservées</h2>
 
     <div class="grid gap-6 mb-8  md:grid-cols-2 xl:grid-cols-4">
         <!-- Card -->
@@ -115,8 +114,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
         </div>
         <!-- Card -->
         <div
-          class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-        >
+          class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
           <div
             class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500"
           >
@@ -144,14 +142,14 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
       </div>
        
       <!-- With actions -->
-      <div class="flex flex-col justify-between flex-wrap mb-4 space-y-4 md:flex-row md:items-end md:space-x-4">
+  <div class="flex flex-col justify-between flex-wrap mb-4 space-y-4 md:flex-row md:items-end md:space-x-4">
        <!-- With actions -->
-  <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-    Liste des propriétés réservées
-  </h4>
-  <a href="index1.php?action=createItem" ><button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-    Ajouter </button>
-  </a>
+    <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+      Liste des propriétés réservées
+    </h4>
+    <a href="index1.php?action=createItem" ><button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+      Ajouter </button>
+    </a>
   </div>  
   <div class="w-full overflow-hidden rounded-lg shadow-xs">
     <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800" >
@@ -223,8 +221,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
             <!-- Table rows -->
         <div class="table-row-group ">
           <?php 
-            /** @var \public\app\models\Item[] $data */
-
+            /** @var \app\models\ItemLeased[] $data */
             if (is_array($data) || is_object($data)) {
               foreach ($data as $item): ?>
             <div id="itemLeased-row"  class=" table-row flex bg-gray-50 dark:bg-gray-900 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-400 h-12" data-id="<?php echo $item->getItemLeasedId()?>">
@@ -279,7 +276,6 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
     
     </div>   
 
-</main>
 <?php
 $content = ob_get_clean();
 include_once 'ressources/views/layout.php';

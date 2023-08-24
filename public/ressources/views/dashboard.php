@@ -1,10 +1,12 @@
 <?php
 namespace ressources\views;
-use \app\models\ItemLeased;
+use \app\controllers\ItemController;
 use \app\controllers\ItemLeasedController;
 
 require "vendor/autoload.php";
-
+$totalLeasedItems = ItemLeasedController::lengthActionItemLeased();
+$totalItems=ItemController::lengthActionItem();
+$restItems = $totalItems - $totalLeasedItems ;
 $title = "Dashboard";
 ob_start();
 
@@ -27,18 +29,18 @@ ob_start();
 
       <div class="container grid px-6 mx-auto">
         <div class="flex justify-between items-center pb-2">
-          <div class="flex">
+          <div class="information flex">
             <div class="flex flex-col mr-16 ">
-              <span class="text-24 font-bold leading-32 text-main-color md:text-xl lg:text-2xl text-gray-700 dark:text-gray-200 " >45</span>
-              <span class="text-14 md:text-sm md:pr-1 sm:pr-1 sm:text-xs text-gray-700 dark:text-gray-200">In Progress</span>
+              <span class="text-24 font-bold leading-32 text-main-color md:text-xl lg:text-2xl text-gray-700 dark:text-gray-200 " ><?php echo $totalLeasedItems; ?></span>
+              <span class="text-14 md:text-sm md:pr-1 sm:pr-1 sm:text-xs text-gray-700 dark:text-gray-200">Biens Réservés</span>
             </div>
             <div class="flex flex-col mr-16">
-              <span class="text-24 font-bold leading-32 text-main-color md:text-xl lg:text-2xl text-gray-700 dark:text-gray-200">24</span>
-              <span class="text-14 md:text-sm md:pr-1 sm:pr-1 sm:text-xs text-gray-700 dark:text-gray-200">Upcoming</span>
+              <span class="text-24 font-bold leading-32 text-main-color md:text-xl lg:text-2xl text-gray-700 dark:text-gray-200"><?php echo $restItems; ?></span>
+              <span class="text-14 md:text-sm md:pr-1 sm:pr-1 sm:text-xs text-gray-700 dark:text-gray-200">Biens Restants</span>
             </div>
             <div class="flex flex-col">
-              <span class="text-24 font-bold leading-32 text-main-color md:text-xl lg:text-2xl text-gray-700 dark:text-gray-200 ">62</span>
-              <span class="text-14 md:text-sm md:pr-1 sm:pr-1 sm:text-xs text-gray-700 dark:text-gray-200">Total Projects</span>
+              <span class="text-24 font-bold leading-32 text-main-color md:text-xl lg:text-2xl text-gray-700 dark:text-gray-200 "><?php echo $totalItems; ?></span>
+              <span class="text-14 md:text-sm md:pr-1 sm:pr-1 sm:text-xs text-gray-700 dark:text-gray-200">Total des Biens</span>
             </div>
           </div>
           <div class="flex">
@@ -65,7 +67,7 @@ ob_start();
 
 
 
-        <div class="grid gap-6 mb-8  md:grid-cols-2 xl:grid-cols-4">
+        <div class="grid gap-6 mb-8 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3">
         <?php 
           /** @var \app\models\ItemLeased[] $data */
           // Loop through the data to generate project boxes
@@ -74,10 +76,11 @@ ob_start();
         ?>
 
         <!-- Project box starts here -->
-        <div class="custom-background items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800" >
+        <div class="custom-background items-center p-4 rounded-lg shadow-xs " >
           <div class="project-box bg-main-color-card p-4">
             <!-- Project header -->
             <div class="project-box-header flex items-center justify-between mb-4 text-main-color">
+              <!--    <div class="project-box-header p-3 flex relative rounded-3xl " style="background-color: #fee4cb;">  -->
               <!-- Date -->
               <span class="opacity-70 text-sm"><?= $item->getTimeFrom()?></span>
               <div class="more-wrapper">
@@ -99,7 +102,7 @@ ob_start();
             <!-- Progress bar -->
             <?php 
               $pourc = $item->TimePercentage($item->getTimeFrom(),$item->getTimeTo()); 
-              $daysDifference = $item->TimeDifference($item->getTimeFrom(),$item->getTimeTo()); 
+              $daysDifference = $item->TimeDifference($item->getTimeTo()); 
             ?>
             <div class="box-progress-wrapper">
               <p class="box-progress-header text-sm font-semibold mb-1">Progrès</p>

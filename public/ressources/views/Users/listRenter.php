@@ -9,7 +9,7 @@ $title = "Liste des utilisateurs";
 ob_start();
 include "listHeader.php" ;
 // Define the total number of items
-$totalItems = UserController::lengthAction(3);
+$totalItems = UserController::lengthAction(' role_id = 3');
 
 // Define the number of items to display per page
 $itemsPerPage = 3;

@@ -50,7 +50,15 @@ class ItemLeasedController  extends BaseController
     public static function lengthActionItemLeased()
     {
         // Retrieve the length of the "item" table
-        return static::getModelItemLeased()->length('item_leased');
+        return static::getModelItemLeased()->length('item_leased' , ' NOW() < time_to;');
     }
+
+    public static function CountNewItemLeased()
+    {
+        // Retrieve the length of the "item" table
+        return static::getModelItemLeased()->countNewIU('item_leased' , ' time_from ');
+    }
+
+
 
 }

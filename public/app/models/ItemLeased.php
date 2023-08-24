@@ -142,7 +142,8 @@ class ItemLeased extends Model
         $statement = static::database()->query('SELECT IL.id, I.item_name, U.username, IL.time_from, IL.time_to, IL.price_total
          FROM item_leased IL
             INNER JOIN item I ON IL.item_id = I.id
-            INNER JOIN user_account U  ON IL.renter_id = U.id');
+            INNER JOIN user_account U  ON IL.renter_id = U.id
+            WHERE NOW() < IL.time_to;');
 
         return  $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }
@@ -164,7 +165,8 @@ class ItemLeased extends Model
         FROM item_leased IL
            INNER JOIN item I ON IL.item_id = I.id
            INNER JOIN user_account U  ON IL.renter_id = U.id
-           WHERE ' . $search . ' LIKE :search_value');
+           WHERE ' . $search . ' LIKE :search_value
+           &&  NOW() < IL.time_to;');
 
         // Bind the value of the search_value parameter to the corresponding placeholder in the query
         $statement->bindValue(':search_value', $searchValue);
@@ -176,13 +178,13 @@ class ItemLeased extends Model
         return $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }
 
-    public static function TimeDifference($dateFrom,$dateTo)
+    public static function TimeDifference($dateTo)
     {
-        $dateTimeFrom = new \DateTime($dateFrom);
+        $currentDateTime = new \DateTime();
         $dateTimeTo = new \DateTime($dateTo);
 
         // Calculate the difference between the two dates
-        $dateInterval = $dateTimeFrom->diff($dateTimeTo);
+        $dateInterval = $dateTimeTo->diff($currentDateTime);
 
         // Get the difference in days, hours, minutes, and seconds
         return $dateInterval->days;

@@ -54,7 +54,7 @@ class Model
         $comm = 'SELECT COUNT(*) FROM '.$table ;
         if(!empty($key) )
         {
-            $comm .=' WHERE role_id = '. $key;
+            $comm .=' WHERE  '. $key;
         }    
         
         $requete = static::database()->query($comm);
@@ -79,6 +79,15 @@ class Model
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function countNewIU($table, $date)
+    {
+        // Current month
+        $currentMonth = date("m");
+        $comm = 'SELECT COUNT(*) FROM ' . $table . ' WHERE MONTH(' . $date . ') = ' . $currentMonth;
+        $requete = static::database()->query($comm);
+        // Fetch the result of the query and return the count
+        return $requete->fetch()['COUNT(*)'];
 
+    }
 
 }

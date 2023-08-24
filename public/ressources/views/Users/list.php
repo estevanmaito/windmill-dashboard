@@ -10,7 +10,7 @@ ob_start();
 include "listHeader.php" ;
 
 // Define the total number of items
-$totalItems = UserController::lengthAction(2);
+$totalItems = UserController::lengthAction(' role_id =2');
 
 // Define the number of items to display per page
 $itemsPerPage = 3;

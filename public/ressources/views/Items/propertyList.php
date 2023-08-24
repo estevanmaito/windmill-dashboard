@@ -8,6 +8,7 @@ require "vendor/autoload.php";
 $title = "Liste des utilisateurs";
 ob_start();
 $totalItems = ItemController::lengthActionItem();
+$newItems = ItemController::CountNewItems();
 
 // Define the number of items to display per page
 $itemsPerPage = 3;
@@ -54,7 +55,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
             </p>
             
             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200" >
-              <?php echo ItemController::lengthActionItem() ;
+              <?php echo $totalItems ;
               ?>
             </p>
           </div>
@@ -104,12 +105,13 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
             <p
               class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
             >
-              New sales
+            Nouveaux Biens
             </p>
             <p
               class="text-lg font-semibold text-gray-700 dark:text-gray-200"
             >
-              376
+            <?php echo $newItems ;
+              ?>
             </p>
           </div>
         </div>

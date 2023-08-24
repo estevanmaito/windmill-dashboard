@@ -73,6 +73,12 @@ class UserController extends BaseController
         static::requir("Users/$file", $users);
     }
 
+    public static function CountNewUsers()
+    {
+        // Retrieve the length of the "item" table
+        return static::getModel()->countNewIU('user_account' , ' registration_time ');
+    }
+
     public static function retrieveSettres()
     {
         $user = static::getModel();

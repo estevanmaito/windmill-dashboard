@@ -4,6 +4,9 @@ use \app\models\User;
 use \app\controllers\UserController;
 
 require "vendor/autoload.php";
+
+$newUsers = UserController::CountNewUsers();
+$totalUesrs = UserController::lengthAction() ;
 ?>
         <main class="h-full overflow-y-auto">
           <div class="container grid px-6 mx-auto">
@@ -32,7 +35,7 @@ require "vendor/autoload.php";
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
                     <!-- number -->
-                    <?php echo UserController::lengthAction() ;
+                    <?php echo $totalUesrs ;
                     ?>
                   </p>
                 </div>
@@ -82,12 +85,12 @@ require "vendor/autoload.php";
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    New sales
+                    Nouveaux Clients
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    376
+                    <?php echo $newUsers ; ?>
                   </p>
                 </div>
               </div>

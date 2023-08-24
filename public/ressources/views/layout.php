@@ -51,9 +51,6 @@
     }
   } 
 
-  
-    
-
     .option {
       display: block;
       padding: 8px 12px;

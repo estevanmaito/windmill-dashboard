@@ -53,6 +53,11 @@ class ItemController  extends BaseController
         // Retrieve the length of the "item" table
         return static::getModelItem()->length('item');
     }
+    public static function CountNewItems()
+    {
+        // Retrieve the length of the "item" table
+        return static::getModelItem()->countNewIU('item' , ' date_creation ');
+    }
 
     public static function retrieveSettresItem()
     {

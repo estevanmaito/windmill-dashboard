@@ -136,15 +136,20 @@ class ItemLeased extends Model
         $this->rentier_grade_description = $rentier_grade_description;
     }
 
-    public static function latestItemLeased($leftLimit,$rightLimit )
+    public static function latestItemLeased($leftLimit = '',$rightLimit ='')
     {
         // Perform a database query to retrieve the latest items
-        $statement = static::database()->query('SELECT IL.id, I.item_name, U.username, IL.time_from, IL.time_to, IL.price_total
+        $comm = 'SELECT IL.id, I.item_name, U.username, IL.time_from, IL.time_to, IL.price_total
          FROM item_leased IL
             INNER JOIN item I ON IL.item_id = I.id
             INNER JOIN user_account U  ON IL.renter_id = U.id
-            WHERE NOW() < IL.time_to
-            LIMIT '.$leftLimit.', '.$rightLimit );
+            WHERE NOW() < IL.time_to';
+
+        if(!empty($rightLimit) || !empty($leftLimit)  )
+        {
+            $comm .= ' LIMIT '.$leftLimit.', '.$rightLimit ;
+        }
+        $statement = static::database()->query($comm);
 
         return  $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }

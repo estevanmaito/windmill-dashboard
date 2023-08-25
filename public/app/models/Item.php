@@ -122,16 +122,20 @@ class Item extends Model
          $this->titrePropriete = $titrePropriete;
     }
 
-    public static function latestItem($leftLimit,$rightLimit)
+    public static function latestItem($leftLimit = '' ,$rightLimit ='')
     {
         // Perform a database query to retrieve the latest items
-        $statement = static::database()->query('SELECT I.id, I.item_name, It.type_name, l.name, I.item_location, I.description,
+        $comm = 'SELECT I.id, I.item_name, It.type_name, l.name, I.item_location, I.description,
             U.username, I.price_per_unit, Un.unit_name, I.avaible FROM user_account U 
             INNER JOIN item I ON I.owner_id = U.id 
             INNER JOIN item_type It ON I.item_type_id = It.id 
             INNER JOIN location l ON I.location_id = l.id 
-            INNER JOIN unit Un ON I.unit_id = Un.id
-            LIMIT '.$leftLimit.', '.$rightLimit );
+            INNER JOIN unit Un ON I.unit_id = Un.id';
+        if(!empty($rightLimit) || !empty($leftLimit) )
+        {
+            $comm .= ' LIMIT '.$leftLimit.', '.$rightLimit ;
+        }
+        $statement = static::database()->query($comm);
 
         return  $statement->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }

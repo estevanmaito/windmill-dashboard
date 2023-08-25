@@ -46,7 +46,7 @@
     .messages-section.show {
       transform: translateX(0);
       opacity: 1;
-      position: absolute;
+      position: fixed;
       
     }
   } 

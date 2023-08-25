@@ -176,10 +176,32 @@ document.querySelector('.messages-close').addEventListener('click', function() {
 });
 
 //---------------- Dropdown function: modify, reserve, and delete ----------------
+
+// Function to toggle a dropdown and close others
 function toggleDropdown(button) {
-  var itemId = button.getAttribute("data-item-id");
-  var dropdown = document.getElementById("dropdownDelay-" + itemId);
+  var dropdown = button.nextElementSibling;
+  closeDropdown(dropdown)
   dropdown.classList.toggle("hidden");
 }
+// Function to close all dropdowns except a specific one
+function closeDropdown(dropdown)
+{
+  var dropdowns = document.querySelectorAll('.drop');
+  dropdowns.forEach(function (drop) {
+    if(dropdown.id != drop.id)
+    drop.classList.add('hidden');
+  });
+}
 
+// Event listener for clicks on the body
+document.body.addEventListener('click', function(event) {
+  var clickedElement = event.target;
+  
+  if (!clickedElement.classList.contains('dropdownbtton')) {
+    var dropdowns = document.querySelectorAll('.drop');
+    dropdowns.forEach(function (drop) {
+    drop.classList.add('hidden');
+  });
+  } 
+});
 

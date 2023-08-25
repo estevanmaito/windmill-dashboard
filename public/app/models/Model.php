@@ -33,7 +33,8 @@ class Model
     public static function latest($table)
     {
         // Execute a query to fetch the latest records from the specified table
-        return static::database()->query('SELECT * FROM '.$table.' ORDER BY id DESC')
+        return static::database()->query('SELECT * FROM '.$table.' ORDER BY id DESC
+        ')
             ->fetchAll(PDO::FETCH_CLASS, __CLASS__);
     }
     

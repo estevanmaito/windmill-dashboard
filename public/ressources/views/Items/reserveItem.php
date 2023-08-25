@@ -1,5 +1,5 @@
 <?php
-namespace ressources\views;
+namespace ressources\views\Items;
 use \app\models\Item;
 use \app\controllers\ItemController;
 //variables

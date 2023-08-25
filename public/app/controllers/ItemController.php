@@ -10,6 +10,7 @@ use \app\models\Item;
 
 class ItemController  extends BaseController
 {
+    private static $productsPerPage = 3;
 
     public static function getModelItem()
     {
@@ -21,6 +22,32 @@ class ItemController  extends BaseController
         return static::$model;
     }
     
+    public static function makeItemsProductPager()
+    {
+        // Get the total number of pages
+        $totalPages = static::lengthActionItem();
+    
+        // Check the value of the 'page' parameter in the URL
+        if (!isset($_GET['page']) || intval($_GET['page']) == 0 || intval($_GET['page']) == 1 || intval($_GET['page']) < 0) {
+            // If 'page' parameter is not set or is invalid, set the page number to 1
+            $pageNumber = 1;
+            $leftLimit = 0;
+            $rightLimit = static::$productsPerPage; // Set the limit based on the number of products per page
+        } elseif (intval($_GET['page']) > $totalPages || intval($_GET['page']) == $totalPages) {
+            // If 'page' parameter is greater than the total number of pages, set the page number to the last page
+            $pageNumber = $totalPages;
+            $leftLimit = static::$productsPerPage * ($pageNumber - 1);
+            $rightLimit = $leftLimit + static::$productsPerPage; // Variable $allProducts is undefined, you might need to define it
+        } else {
+            // If 'page' parameter is valid, set the page number based on the value in the URL
+            $pageNumber = intval($_GET['page']);
+            $leftLimit = static::$productsPerPage * ($pageNumber - 1);
+            $rightLimit = static::$productsPerPage;
+        }
+        
+        // Call the 'getLimitProducts()' method of the model to fetch the products within the specified limits
+        return static::getModelItem()->latestItem($leftLimit, $rightLimit);
+    }
 
     public static function indexActionItem()
     {
@@ -37,11 +64,11 @@ class ItemController  extends BaseController
            
         } else {
             // Retrieve the latest items
-            $items = static::getModelItem()->latestItem();
+            $items = static::makeItemsProductPager();
         }
         if(is_null($items))
         {
-            $items = static::getModelItem()->latestItem();
+            $items = static::makeItemsProductPager();
         }
 
         // Render the view "Items/propertyList" and pass the items as data

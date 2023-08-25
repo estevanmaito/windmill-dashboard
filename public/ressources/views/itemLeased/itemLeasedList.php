@@ -178,7 +178,7 @@ $endItem = min($startItem + $itemsPerPage - 1, $totalItems);
             ?>
             <li>
               <a class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple" 
-              href="?action=propertyList&page=<?= $i ?>" >
+              href="?action=itemLeasedList&page=<?= $i ?>" >
                 <?=  $i  ?>
               </a>
             </li>

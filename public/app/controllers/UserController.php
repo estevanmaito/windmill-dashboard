@@ -20,6 +20,7 @@ class UserController extends BaseController
         }
         return static::$model ;
     }
+    // private static $productsPerPage = 3;
 
     public static function makeProductPager($key)
     {

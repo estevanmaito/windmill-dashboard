@@ -1,5 +1,5 @@
 <?php
-namespace ressources\views;
+namespace ressources\views\itemleased;
 use \app\controllers\ItemController;
 use \app\controllers\ItemLeasedController;
 
@@ -84,16 +84,28 @@ ob_start();
               <!-- Date -->
               <span class="opacity-70 text-sm"><?= $item->getTimeFrom()?></span>
               <div class="more-wrapper">
-                <!-- More button -->
-                <button class="project-btn-more">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                    <circle cx="12" cy="12" r="1"></circle>
-                    <circle cx="12" cy="5" r="1"></circle>
-                    <circle cx="12" cy="19" r="1"></circle>
-                  </svg>
-                </button>
+                <div class="relative ">
+                  <!-- More button -->
+                    <button class="dropdownbtton"
+                      type="button" onclick="toggleDropdown(this)" data-item-id="<?php echo $item->getItemLeasedId() ?>">
+                      <svg class="dropdownbtton" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+                        <circle cx="12" cy="12" r="1"></circle>
+                        <circle cx="12" cy="5" r="1"></circle>
+                        <circle cx="12" cy="19" r="1"></circle>
+                      </svg>
+                    </button>
+                      <!-- Dropdown menu -->
+                      <div id="dropdownDelay-<?php echo $item->getItemLeasedId() ?>" class="drop absolute z-20 right-0 w-56 space-y-2 hidden text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDelayButton">
+                          <li><a href="index1.php?action=ItemLeasedDetails&id=<?php echo $item->getItemLeasedId()?>"
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Plus de details</a>
+                          </li>
+                        </ul>
+                      </div>
+                </div>
               </div>
             </div>
+          
             <!-- Project content -->
             <div class="project-box-content-header mb-4">
               <p class="box-content-header text-xl font-semibold opacity-70"><?= $item->item_name?></p>

@@ -208,7 +208,7 @@ include_once 'layout.php';
 document.addEventListener("DOMContentLoaded", function() {
   const projectBoxes = document.querySelectorAll(".custom-background");
   const backgroundColors = ['#fee4cb', '#e9e7fd', '#dbf6fd', '#ffd3e2', '#c8f7dc', '#d5deff'];
-  const textColors = [ '#ff942e', '#4f3ff0', '#096c86', '#df3670', '#34c471', '#4067f9'];
+  const textColors = [ '#ff942e', '#8a2be2', '#096c86', '#df3670', '#34c471', '#4067f9'];
 
   projectBoxes.forEach((box, index) => {
     const backgroundColor = backgroundColors[index % backgroundColors.length];

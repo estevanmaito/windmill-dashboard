@@ -4,6 +4,7 @@
 
 
    use \app\controllers\UserController;
+   use \app\controllers\BaseController;
    use \app\controllers\ItemController;
    use \app\controllers\ItemLeasedController;
    use \app\controllers\DashController;
@@ -70,6 +71,9 @@
             case 'itemLeasedList':
                 case 'searchitemLeasedList' :
                 ItemLeasedController::indexActionItemLeased();
+            break;
+            case 'calendar' :
+                BaseController::requir('Calendrier');
             break;
             default :
             require 'ressources/views/404.php';

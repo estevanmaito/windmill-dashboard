@@ -10,16 +10,17 @@ ob_start();
 
 ?>
 <div class="flex pb-2 md:overflow-auto">
-  <div class="flex px-4 py-2 mx-auto md:py-24">
-    <ul class=" border px-2 lg:w-48 w-32 rounded-lg shadow overflow-hidden">
+  <div class=" px-4 py-2 mx-auto md:py-24">
+    <ul class=" text-center border dark:border-gray-600 px-2 lg:w-48 w-32 rounded-lg shadow-xs inline-block shadow-r overflow-hidden">
       <?php 
         /** @var \app\models\Item[] $data */
         // Loop through the data to generate project boxes
         if (is_array($data) || is_object($data)) {
           foreach ($data as $item): 
       ?>
-        <div id="itemLeased-row"  class="bg-gray-50 dark:bg-gray-900 text-gray-700 " data-id="<?php echo $item->getItemId()?>">
-        <li class=" py-4  text-sm hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-400 h-12"><?= $item->getItemName()?></li>
+        <div id="itemLeased-row" class="bg-gray-50 dark:bg-gray-900 text-gray-700" data-id="<?php echo $item->getItemId() ?>">
+          <li class="py-4 border-b dark:border-gray-700 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-400 h-12"><?= $item->getItemName() ?></li>
+        </div>
       <?php 
         endforeach;
         } else {
@@ -173,7 +174,7 @@ include_once 'layout.php';
       eventsContainer.className = 'event-container';
       events[eventDateStr].forEach(event => {
         const eventElement = document.createElement('div');
-        eventElement.className = 'event';
+        eventElement.className = 'event rounded-lg px-2 py-1 rounded-lg mt-1 overflow-hidden border ';
         eventElement.textContent = event.title;
         eventElement.style.backgroundColor = event.theme; 
         eventsContainer.appendChild(eventElement);
@@ -242,10 +243,6 @@ function formatDate(date) {
   toggleEventModal();
   generateCalendar();
 });
-
-
-
-
 
 
     // Initialize the calendar

@@ -21,11 +21,16 @@ class CalendarController extends BaseController
 
     public static function calendarFile()
     {
-        $itemLeased = static::getModelItemClendar()->latestItem();
-        static::requir('Calendrier', $itemLeased);
+        $item = static::getModelItemClendar()->latestItem();
+        static::requir('Calendrier', $item);
 
     }
 
+    public static function getData()
+    {
+        $item = static::getModelItemClendar();
+        
+    }
   
 }
 

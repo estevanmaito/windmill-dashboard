@@ -23,13 +23,13 @@
                 UserController::createAction();
             break;
             case 'list' :
-            case 'searchlist': 
+                case 'searchlist': 
                 UserController::indexAction(2);
             break;
             case 'listRenter' :
                 case 'searchlistRenter': 
                     UserController::indexAction(3);
-                break;
+            break;
             case 'store':
                 UserController::storeAction();
             break;
@@ -63,10 +63,6 @@
             break;
             case 'reserveItem':
                 ItemController::reserveActionItem();
-            break;
-            case "getUserDataAjax":
-                // echo 'hello' ;
-             ItemController::sendData($_GET['param1']);
             break;
             case 'itemLeasedList':
                 case 'searchitemLeasedList' :

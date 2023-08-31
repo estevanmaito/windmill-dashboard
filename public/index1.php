@@ -8,7 +8,7 @@
    use \app\controllers\ItemController;
    use \app\controllers\ItemLeasedController;
    use \app\controllers\DashController;
-
+   use \app\controllers\CalendarController;
 
     // Création d'un routeur.
     if (isset($_GET['action'])) 
@@ -17,7 +17,7 @@
         switch ($action) {
             case "dash":
                 // echo 'hello' ;
-             DashController::dashFile();
+             DashController::dashFile('dashboard');
             break;
             case 'create':
                 UserController::createAction();
@@ -73,7 +73,7 @@
                 ItemLeasedController::indexActionItemLeased();
             break;
             case 'calendar' :
-                BaseController::requir('Calendrier');
+                CalendarController::calendarFile();
             break;
             default :
             require 'ressources/views/404.php';

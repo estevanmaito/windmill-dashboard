@@ -5,24 +5,24 @@ require "vendor/autoload.php";
 
 
 // Use the User class from the app\models namespace
-use \app\models\ItemLeased;
+use \app\models\Item;
 
-class DashController extends BaseController
+class CalendarController extends BaseController
 {
-    public static function getModelItemLeased()
+    public static function getModelItemClendar()
     {
         // Check if the model instance is null
         if (is_null(static::$model)) {
             // Create a new instance of the Item model
-            static::$model = new ItemLeased();
+            static::$model = new Item();
         }
         return static::$model;
     }
 
-    public static function dashFile($file)
+    public static function calendarFile()
     {
-        $itemLeased = static::getModelItemLeased()->latestItemLeased();
-        static::requir($file, $itemLeased);
+        $itemLeased = static::getModelItemClendar()->latestItem();
+        static::requir('Calendrier', $itemLeased);
 
     }
 

@@ -1,8 +1,6 @@
 <?php
   require "vendor/autoload.php";
 
-
-
    use \app\controllers\UserController;
    use \app\controllers\BaseController;
    use \app\controllers\ItemController;
@@ -67,6 +65,10 @@
             case 'itemLeasedList':
                 case 'searchitemLeasedList' :
                 ItemLeasedController::indexActionItemLeased();
+            break;
+            case "ItemLeasedDetails":
+                // echo 'hello' ;
+             DashController::dashFile('ItemLeased/itemLeasedDetails');
             break;
             case 'calendar' :
                 CalendarController::calendarFile();

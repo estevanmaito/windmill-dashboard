@@ -215,6 +215,16 @@ class ItemLeased extends Model
     
         return number_format($percentage, 2);
     }
+
+    public static function calendarData($id)
+    {
+        $statement = static::database()->query('SELECT U.username, IL.time_from, IL.time_to
+        FROM item_leased IL
+        INNER JOIN user_account U  ON IL.renter_id = U.id
+        WHERE IL.item_id = ' . $id);
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC); // Fetch as associative array
+    }
     
 }
 

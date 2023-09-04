@@ -26,10 +26,10 @@ class CalendarController extends BaseController
 
     }
 
-    public static function getData()
+    public static function getData($id)
     {
-        $item = static::getModelItemClendar();
-        
+        $item = new ItemLeased();
+        return $item->calendarData($id);
     }
   
 }

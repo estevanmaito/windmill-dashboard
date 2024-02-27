@@ -1,23 +1,37 @@
 
 //--- This function handles the toggling of user details display and API data retrieval for individual user rows in the interface ---
 var userRows = document.querySelectorAll('.item-row');
+
 userRows.forEach(function (userRow) {
   userRow.addEventListener('click', function () {
-    // Find the corresponding .detailsRow element for the clicked .user-row
-    var detailsRow = this.nextElementSibling;
-    if ( event.target.tagName !== 'A' && !event.target.closest('button')) {
-    // Check if the display property is set to 'none'
-      if (detailsRow.style.display === 'none') {
-        // Change the display property to 'table-row'
-        detailsRow.style.display = 'table-row';
-
-        // Get the user ID from the data-id attribute of the clicked row
-        var userId = userRow.dataset.id;
-        console.log(userId)
+    // Prevent default link behavior if a link or button was clicked
+    if (event.target.tagName === 'A' || event.target.closest('button')) {
+      return;
+    }
+    
+    // Check if the next sibling is the details container we want to toggle
+    var nextElement = this.nextElementSibling;
+    var detailsRow;
+    
+    if (nextElement && nextElement.classList.contains('detailsRow')) {
+      // The next element is the details container we want to toggle
+      detailsRow = nextElement;
+    } else {
+      // Create a new details container because it doesn't exist
+      detailsRow = document.createElement('div');
+      detailsRow.id = 'new';
+      detailsRow.style.display = 'none'; // Start with the details container hidden
+      this.parentNode.insertBefore(detailsRow, this.nextSibling); // Insert the details container into the DOM
+    }
+    
+    // Toggle visibility of the details container
+    if (detailsRow.style.display === 'none' || detailsRow.style.display === '') {
+      detailsRow.style.display = 'block';
+      var userId = userRow.dataset.id;
         //  make an API call to get more details about the user.
         var apiEndpoint = 'https://www.sakane.ma/oc-content/plugins/rest/api.php?key=DOoebZRUU1ozFAelnC5u7x8hMvcqBV&type=read&object=item&action=byId&itemId=' + userId;
         var apiPictures = 'https://www.sakane.ma/oc-content/plugins/rest/api.php?key=DOoebZRUU1ozFAelnC5u7x8hMvcqBV&type=read&object=item&action=resourcesById&itemId=' + userId
-          
+
         Promise.all([fetch(apiEndpoint), fetch(apiPictures)])
           .then(responses => {
             // Check for errors in the responses
@@ -43,21 +57,22 @@ userRows.forEach(function (userRow) {
         // If the details row is visible, hide it by setting the display property to 'none'
         detailsRow.style.display = 'none';
       }
-    }
+    });
   });
-});
 
 //---------------- Function to display the fetched user data ----------------
-function displayItemData(userData ) {
+function displayItemData(userData) {
   // Create an HTML element using the fetched data
   var newtext = '<div class="grid grid-cols-3 gap-4 p-5">';
   newtext += '<div class="shadow-lg bg-gray-100 px-4 py-3 text-sm  p-10 rounded-lg row-span-2" id="swiper-img"></div>';
   newtext += '<div class="shadow-lg bg-gray-100 px-4 py-3 text-sm  p-10 rounded-lg">';
-  newtext += '<span class="font-semibold">Titre : </span> ' + userData.response.s_title +'<br><span class="font-semibold"> adresse : </span>'+ userData.response.s_address ;
+  newtext += '<span class="font-semibold">Titre : </span> ' + userData.response.s_title + '<br><span class="font-semibold"> adresse : </span>' + userData.response.s_address;
   newtext += '</div> <div class="shadow-lg bg-gray-100 px-4 py-3 text-sm  p-10 rounded-lg row-span-2">';
-  newtext += '<span class="font-semibold">Prix : </span> ' + userData.response.i_price + '<br> <span class="font-semibold"> Statut : </span>' + '....' +  '<br> <span class="font-bold"> contact : </span> <br> <span class="font-semibold"> Nom de proprietaire : </span>'+ userData.response.s_contact_name + '<br> <span class="font-semibold"> Numero de telephone : </span>'+ userData.response.s_contact_phone +  '<br><span class="font-semibold"> date d\'expiration : </span>'+ userData.response.dt_expiration + '<br><span class="font-semibold"> Last occup : </span>de ' + '...' + 'à ' + '...';
+  newtext += '<span class="font-semibold">Prix : </span> ' + userData.response.i_price + '<br> <span class="font-semibold"> Statut : </span>' + '....' + '<br> <span class="font-bold"> contact : </span> <br> <span class="font-semibold"> Nom de proprietaire : </span>' + userData.response.s_contact_name + '<br> <span class="font-semibold"> Numero de telephone : </span>' + userData.response.s_contact_phone + '<br><span class="font-semibold"> date d\'expiration : </span>' + userData.response.dt_expiration + '<br><span class="font-semibold"> Last occup : </span>de ' + '...' + 'à ' + '...';
   newtext += '</div> <div class="shadow-lg bg-gray-100 px-4 py-3 text-sm   p-10 rounded-lg"><span class="font-semibold"> Details : </span>' + userData.response.s_description + '</div> </div>';
-  document.getElementById('new').innerHTML = newtext;
+  
+  var newElement = ensureElementExists();
+  newElement.innerHTML = newtext;
   console.log(userData);
 }
 
@@ -89,13 +104,13 @@ function displayItemPictures(picturesData) {
   // Close the HTML structure
   text += '</div>';
 
-  text +=  ` <div id="js-prev1" class="swiper-button-prev"></div>
+  text += ` <div id="js-prev1" class="swiper-button-prev"></div>
   <div id="js-next1" class="swiper-button-next"></div>`;
 
   // Add thumbnails section
   text += '<div class="swiper-container gallery-thumbs">';
   text += '<div class="swiper-wrapper">'
-  
+
   // Loop through the items again to create thumbnails
   picturesData.response.forEach(function (item) {
     var itemId = item.pk_i_id;
@@ -109,7 +124,7 @@ function displayItemPictures(picturesData) {
             data-src="https://www.sakane.ma/oc-content/uploads/84/24159_thumbnail.jpg" 
             alt="Dar bouazza, Bel appartement a louer, semi meublé 3CH - 2" loading="lazy"></img>
             </div>`
-    
+
     // <img src="https://sakane.ma/${path}${itemId}.${extension}" alt="Item Thumbnail">`;
     text += '</div>';
   });
@@ -118,7 +133,7 @@ function displayItemPictures(picturesData) {
   text += '</div>';
   text += '</div>'; // Closing the gallery-thumbs div
 
-  console.log(text);
+  //console.log(text);
 
   document.getElementById('swiper-img').innerHTML = text;
 
@@ -126,8 +141,8 @@ function displayItemPictures(picturesData) {
   const swiper = new Swiper('.swiper', {
     speed: 400,
     spaceBetween: 100,
-   
-      pagination: {
+
+    pagination: {
       el: '.swiper-pagination',
       type: 'bullets',
       nextButton: '#js-prev1',
@@ -142,23 +157,23 @@ function displayItemPictures(picturesData) {
     freeMode: true,
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
-        // navigation arrows
-        nextButton: '#js-prev1',
-        prevButton: '#js-next1',
+    // navigation arrows
+    nextButton: '#js-prev1',
+    prevButton: '#js-next1',
   });
 
   // Synchronize the main slider with the thumbnails
   swiper.controller.control = galleryThumbs;
   galleryThumbs.controller.control = swiper;
 
-   // Add click event listeners to the thumbnails
-   const thumbnailImages = document.querySelectorAll('.gallery-thumbs img');
-   thumbnailImages.forEach(function (thumbnailImage) {
-     thumbnailImage.addEventListener('click', function () {
-       const slideIndex = parseInt(this.getAttribute('data-slide-index'));
-       swiper.slideTo(slideIndex);
-     });
-   });
+  // Add click event listeners to the thumbnails
+  const thumbnailImages = document.querySelectorAll('.gallery-thumbs img');
+  thumbnailImages.forEach(function (thumbnailImage) {
+    thumbnailImage.addEventListener('click', function () {
+      const slideIndex = parseInt(this.getAttribute('data-slide-index'));
+      swiper.slideTo(slideIndex);
+    });
+  });
 }
 
 /* <img class="lazy" src="https://www.sakane.ma/oc-content/uploads/84/24159_thumbnail.jpg" 
@@ -166,12 +181,12 @@ data-src="https://www.sakane.ma/oc-content/uploads/84/24159_thumbnail.jpg"
 alt="Dar bouazza, Bel appartement a louer, semi meublé 3CH - 2" loading="lazy"></img> */
 
 //---------------- Show or hide the messages list ----------------
-document.querySelector('.messages-btn').addEventListener('click', function() {
+document.querySelector('.messages-btn').addEventListener('click', function () {
   document.querySelector('.messages-section').classList.toggle('show');
 });
 
 //---------------- Close the messages list ----------------
-document.querySelector('.messages-close').addEventListener('click', function() {
+document.querySelector('.messages-close').addEventListener('click', function () {
   document.querySelector('.messages-section').classList.remove('show');
 });
 
@@ -184,24 +199,37 @@ function toggleDropdown(button) {
   dropdown.classList.toggle("hidden");
 }
 // Function to close all dropdowns except a specific one
-function closeDropdown(dropdown)
-{
+function closeDropdown(dropdown) {
   var dropdowns = document.querySelectorAll('.drop');
   dropdowns.forEach(function (drop) {
-    if(dropdown.id != drop.id)
-    drop.classList.add('hidden');
+    if (dropdown.id != drop.id)
+      drop.classList.add('hidden');
   });
 }
 
 // Event listener for clicks on the body
-document.body.addEventListener('click', function(event) {
+document.body.addEventListener('click', function (event) {
   var clickedElement = event.target;
-  
+
   if (!clickedElement.classList.contains('dropdownbtton')) {
     var dropdowns = document.querySelectorAll('.drop');
     dropdowns.forEach(function (drop) {
-    drop.classList.add('hidden');
-  });
-  } 
+      drop.classList.add('hidden');
+    });
+  }
 });
 
+
+function ensureElementExists() {
+  // Check if the element with id="new" exists
+  var element = document.getElementById('new');
+  if (!element) {
+    // If it does not exist, create it
+    element = document.createElement('div');
+    element.id = 'new'; // Make sure the ID matches what you're looking for
+    // Optionally set other attributes or innerHTML
+    element.innerHTML = ''; // Initialize with empty or default content
+    document.body.appendChild(element); // Append it to the body or another specific element
+  }
+  return element;
+}
